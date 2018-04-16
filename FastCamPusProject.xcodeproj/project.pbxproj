@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
+		9B091CE2207CFEA000DD93AA /* icons8-facebook-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */; };
+		9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE5207D011E00DD93AA /* icons8-google-96.png */; };
+		9B1939F12081008500A1A245 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1939F02081008500A1A245 /* server.swift */; };
+		9B609EFE2083C7080029DCB9 /* sss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609EFD2083C7080029DCB9 /* sss.swift */; };
+		9B609F002083D35E0029DCB9 /* alart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609EFF2083D35E0029DCB9 /* alart.swift */; };
+		9B609F0220844AE60029DCB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B609F0120844AE60029DCB9 /* Main.storyboard */; };
+		9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0320844AFE0029DCB9 /* NewPostViewController.swift */; };
+		9B609F0820844AFF0029DCB9 /* ListingDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0420844AFF0029DCB9 /* ListingDiaryViewController.swift */; };
+		9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0520844AFF0029DCB9 /* ViewController.swift */; };
+		9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0620844AFF0029DCB9 /* SettingViewController.swift */; };
+		9B609F0E20844B930029DCB9 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0D20844B930029DCB9 /* PhotoCell.swift */; };
+		9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F1020844BB40029DCB9 /* NonPostingCell.swift */; };
+		9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F1120844BB50029DCB9 /* PostingCell.swift */; };
+		9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B7A19207A386100A62B87 /* AppDelegate.swift */; };
+		9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B7A1B207A386100A62B87 /* LoginViewController.swift */; };
+		9B6B7A1F207A386100A62B87 /* Lee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B7A1D207A386100A62B87 /* Lee.storyboard */; };
+		9B6B7A21207A386200A62B87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B7A20207A386200A62B87 /* Assets.xcassets */; };
+		9B6B7A24207A386200A62B87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B7A22207A386200A62B87 /* LaunchScreen.storyboard */; };
+		9BB8CA07207A4C05001283E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BB8CA06207A4C05001283E7 /* GoogleService-Info.plist */; };
+		9BFFF799207E6CC200D463D5 /* Defaultsimage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9BFFF798207E6CC100D463D5 /* Defaultsimage.jpeg */; };
+		9BFFF79B207E72A500D463D5 /* diary.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFFF79A207E72A400D463D5 /* diary.png */; };
+		9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFF79C207E7C3500D463D5 /* createUserViewController.swift */; };
+		9BFFF7A0207E810E00D463D5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFF79F207E810E00D463D5 /* NavigationBar.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCamPusProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject.debug.xcconfig"; sourceTree = "<group>"; };
+		4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCamPusProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-facebook-48.png"; sourceTree = "<group>"; };
+		9B091CE5207D011E00DD93AA /* icons8-google-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-google-96.png"; sourceTree = "<group>"; };
+		9B1939F02081008500A1A245 /* server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
+		9B609EFD2083C7080029DCB9 /* sss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sss.swift; sourceTree = "<group>"; };
+		9B609EFF2083D35E0029DCB9 /* alart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alart.swift; sourceTree = "<group>"; };
+		9B609F0120844AE60029DCB9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9B609F0320844AFE0029DCB9 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		9B609F0420844AFF0029DCB9 /* ListingDiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingDiaryViewController.swift; sourceTree = "<group>"; };
+		9B609F0520844AFF0029DCB9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B609F0620844AFF0029DCB9 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		9B609F0D20844B930029DCB9 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		9B609F1020844BB40029DCB9 /* NonPostingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonPostingCell.swift; sourceTree = "<group>"; };
+		9B609F1120844BB50029DCB9 /* PostingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostingCell.swift; sourceTree = "<group>"; };
+		9B6B7A16207A386100A62B87 /* FastCamPusProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastCamPusProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6B7A19207A386100A62B87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9B6B7A1B207A386100A62B87 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9B6B7A1E207A386100A62B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Lee.storyboard; sourceTree = "<group>"; };
+		9B6B7A20207A386200A62B87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B6B7A23207A386200A62B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B6B7A25207A386200A62B87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BB8CA06207A4C05001283E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "FastCamPusProject/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9BFFF798207E6CC100D463D5 /* Defaultsimage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Defaultsimage.jpeg; sourceTree = "<group>"; };
+		9BFFF79A207E72A400D463D5 /* diary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diary.png; sourceTree = "<group>"; };
+		9BFFF79C207E7C3500D463D5 /* createUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createUserViewController.swift; sourceTree = "<group>"; };
+		9BFFF79F207E810E00D463D5 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		AA3F22E69E4F8654077917A1 /* Pods-FastCamPusProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCamPusProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B6B7A13207A386100A62B87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		97616A4E20AEA593231D601F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */,
+				AA3F22E69E4F8654077917A1 /* Pods-FastCamPusProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9B091CD7207CEDC200DD93AA /* Control */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		9B091CDA207CF9A300DD93AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B7A22207A386200A62B87 /* LaunchScreen.storyboard */,
+				9B609F0120844AE60029DCB9 /* Main.storyboard */,
+				9B6B7A1D207A386100A62B87 /* Lee.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B091CDC207CFA1C00DD93AA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B7A1B207A386100A62B87 /* LoginViewController.swift */,
+				9B609F0420844AFF0029DCB9 /* ListingDiaryViewController.swift */,
+				9B609F0320844AFE0029DCB9 /* NewPostViewController.swift */,
+				9B609F0620844AFF0029DCB9 /* SettingViewController.swift */,
+				9B609F0520844AFF0029DCB9 /* ViewController.swift */,
+				9BFFF79C207E7C3500D463D5 /* createUserViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9B091CDE207CFA4300DD93AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B7A20207A386200A62B87 /* Assets.xcassets */,
+				9B091CE5207D011E00DD93AA /* icons8-google-96.png */,
+				9BFFF79A207E72A400D463D5 /* diary.png */,
+				9BFFF798207E6CC100D463D5 /* Defaultsimage.jpeg */,
+				9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9B609F0B20844B530029DCB9 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				9B609F0F20844BA30029DCB9 /* TableViewCell */,
+				9B609F0C20844B840029DCB9 /* CollectionCell */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		9B609F0C20844B840029DCB9 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				9B609F0D20844B930029DCB9 /* PhotoCell.swift */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		9B609F0F20844BA30029DCB9 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9B609F1120844BB50029DCB9 /* PostingCell.swift */,
+				9B609F1020844BB40029DCB9 /* NonPostingCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		9B6B7A0D207A386100A62B87 = {
+			isa = PBXGroup;
+			children = (
+				9B6B7A18207A386100A62B87 /* FastCamPusProject */,
+				9B6B7A17207A386100A62B87 /* Products */,
+				97616A4E20AEA593231D601F /* Pods */,
+				D4EB46F33BE63D9C82048A9C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9B6B7A17207A386100A62B87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B6B7A16207A386100A62B87 /* FastCamPusProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B6B7A18207A386100A62B87 /* FastCamPusProject */ = {
+			isa = PBXGroup;
+			children = (
+				9BB8CA06207A4C05001283E7 /* GoogleService-Info.plist */,
+				9B6B7A25207A386200A62B87 /* Info.plist */,
+				9B6B7A19207A386100A62B87 /* AppDelegate.swift */,
+				9B609F0B20844B530029DCB9 /* Component */,
+				9BFFF79E207E80EF00D463D5 /* Utility */,
+				9B091CDE207CFA4300DD93AA /* Resources */,
+				9B091CD7207CEDC200DD93AA /* Control */,
+				9B091CDC207CFA1C00DD93AA /* Sources */,
+				9B091CDA207CF9A300DD93AA /* View */,
+			);
+			path = FastCamPusProject;
+			sourceTree = "<group>";
+		};
+		9BFFF79E207E80EF00D463D5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9BFFF79F207E810E00D463D5 /* NavigationBar.swift */,
+				9B1939F02081008500A1A245 /* server.swift */,
+				9B609EFD2083C7080029DCB9 /* sss.swift */,
+				9B609EFF2083D35E0029DCB9 /* alart.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D4EB46F33BE63D9C82048A9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B6B7A15207A386100A62B87 /* FastCamPusProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B6B7A28207A386200A62B87 /* Build configuration list for PBXNativeTarget "FastCamPusProject" */;
+			buildPhases = (
+				C298D3DC178DDB97E58A5D44 /* [CP] Check Pods Manifest.lock */,
+				9B6B7A12207A386100A62B87 /* Sources */,
+				9B6B7A13207A386100A62B87 /* Frameworks */,
+				9B6B7A14207A386100A62B87 /* Resources */,
+				315EC562521C5892F8687B2A /* [CP] Embed Pods Frameworks */,
+				661D20E873185CAC6581AF1C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FastCamPusProject;
+			productName = FastCamPusProject;
+			productReference = 9B6B7A16207A386100A62B87 /* FastCamPusProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B6B7A0E207A386100A62B87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "이주형";
+				TargetAttributes = {
+					9B6B7A15207A386100A62B87 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 9B6B7A11207A386100A62B87 /* Build configuration list for PBXProject "FastCamPusProject" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B6B7A0D207A386100A62B87;
+			productRefGroup = 9B6B7A17207A386100A62B87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B6B7A15207A386100A62B87 /* FastCamPusProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B6B7A14207A386100A62B87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B6B7A24207A386200A62B87 /* LaunchScreen.storyboard in Resources */,
+				9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */,
+				9BB8CA07207A4C05001283E7 /* GoogleService-Info.plist in Resources */,
+				9BFFF799207E6CC200D463D5 /* Defaultsimage.jpeg in Resources */,
+				9B091CE2207CFEA000DD93AA /* icons8-facebook-48.png in Resources */,
+				9BFFF79B207E72A500D463D5 /* diary.png in Resources */,
+				9B609F0220844AE60029DCB9 /* Main.storyboard in Resources */,
+				9B6B7A21207A386200A62B87 /* Assets.xcassets in Resources */,
+				9B6B7A1F207A386100A62B87 /* Lee.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		315EC562521C5892F8687B2A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		661D20E873185CAC6581AF1C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C298D3DC178DDB97E58A5D44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FastCamPusProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B6B7A12207A386100A62B87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
+				9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */,
+				9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */,
+				9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */,
+				9B609EFE2083C7080029DCB9 /* sss.swift in Sources */,
+				9B609F0E20844B930029DCB9 /* PhotoCell.swift in Sources */,
+				9B1939F12081008500A1A245 /* server.swift in Sources */,
+				9B609F0820844AFF0029DCB9 /* ListingDiaryViewController.swift in Sources */,
+				9B609F002083D35E0029DCB9 /* alart.swift in Sources */,
+				9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */,
+				9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */,
+				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
+				9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */,
+				9BFFF7A0207E810E00D463D5 /* NavigationBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9B6B7A1D207A386100A62B87 /* Lee.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B6B7A1E207A386100A62B87 /* Base */,
+			);
+			name = Lee.storyboard;
+			sourceTree = "<group>";
+		};
+		9B6B7A22207A386200A62B87 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B6B7A23207A386200A62B87 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B6B7A26207A386200A62B87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9B6B7A27207A386200A62B87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B6B7A29207A386200A62B87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FastCamPusProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9B6B7A2A207A386200A62B87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA3F22E69E4F8654077917A1 /* Pods-FastCamPusProject.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FastCamPusProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B6B7A11207A386100A62B87 /* Build configuration list for PBXProject "FastCamPusProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B6B7A26207A386200A62B87 /* Debug */,
+				9B6B7A27207A386200A62B87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B6B7A28207A386200A62B87 /* Build configuration list for PBXNativeTarget "FastCamPusProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B6B7A29207A386200A62B87 /* Debug */,
+				9B6B7A2A207A386200A62B87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B6B7A0E207A386100A62B87 /* Project object */;
+}
