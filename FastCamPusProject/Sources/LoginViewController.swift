@@ -28,6 +28,7 @@ class LoginViewController: UIViewController{
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("============ [ LoginViewController ] ============")
         alert = customAlert()
         alert?.view = self
         singInfacebook.readPermissions = ["email", "public_profile"]
@@ -35,6 +36,7 @@ class LoginViewController: UIViewController{
         
         
         
+        GIDSignIn.sharedInstance().delegate = self
         
         GIDSignIn.sharedInstance().uiDelegate = self
         singInfacebook.delegate = self
@@ -64,6 +66,7 @@ class LoginViewController: UIViewController{
         print("createUser")
         let storyboryboard = UIStoryboard(name: "Lee", bundle: nil)
         let nextview: createUserViewController = storyboryboard.instantiateViewController(withIdentifier: "createUserViewController") as! createUserViewController
+        
         
         self.navigationController?.pushViewController(nextview, animated: true)
     }
@@ -96,13 +99,64 @@ class LoginViewController: UIViewController{
     }
     
     
+
+    
+    
     
     
     
     
 }
 
-extension LoginViewController : GIDSignInUIDelegate , FBSDKLoginButtonDelegate, UITextFieldDelegate {
+extension LoginViewController : GIDSignInUIDelegate ,GIDSignInDelegate, FBSDKLoginButtonDelegate, UITextFieldDelegate {
+    
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        // ...
+        print("=============2====[ google login ]===2==============")
+        if let error = error {
+            // ...GoogleService-Info.plist
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        //        AuthCredential
+        
+        
+        AuthService.init().AuthCredentialLogin(token: credential) { (restul,user) in
+            switch restul {
+            case .success(let value):
+                print(value)
+            case .error(let error):
+                print(error)
+            case .loginerror(let loginError):
+                self.alert?.show(erorr: error!)
+                print(loginError.localizedDescription)
+            }
+        }
+    }
+    
+    
+    
+    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
+        print("signInWillDispatch")
+    }
+    
+    // Present a view that prompts the user to sign in with Google
+    func signIn(signIn: GIDSignIn!,
+                presentViewController viewController: UIViewController!) {
+        print("presentViewController")
+    }
+    
+    // Dismiss the "Sign in with Google" view
+    func signIn(signIn: GIDSignIn!,
+                dismissViewController viewController: UIViewController!) {
+        print("dismissViewController")
+    }
+    
+    
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!){
         print("왼당1")
@@ -190,6 +244,10 @@ extension LoginViewController : GIDSignInUIDelegate , FBSDKLoginButtonDelegate, 
                     switch result {
                         case .success(let value):
                             print(value)
+//                            self.dismiss(animated: true, completion: nil)
+//                        self.navigationController?.dismiss(animated: true, completion: nil)
+//                        self.rootViewpush()
+                            self.presentingViewController?.dismiss(animated: true, completion: nil)
                         case .error(let error):
                             print(error)
                         case .loginerror(let loginerror):

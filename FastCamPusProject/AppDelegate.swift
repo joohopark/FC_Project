@@ -73,7 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     
     
-    
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
@@ -132,19 +131,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         //Login Button UI
         
+        let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var mainVc = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = mainVc
+        self.window?.makeKeyAndVisible()
       
     
         
         
-        if Auth.auth().currentUser != nil {
-            // User is signed in.
-            // ...
-            print("User is signed in.")
-        } else {
-            // No user is signed in.
-            // ...
-            print("No user is signed in.")
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            print("addStateDidChangeListener 222")
+            if  user == nil {
+                let storboard:UIStoryboard = UIStoryboard(name: "Lee", bundle: nil)
+                let next = storboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.window?.rootViewController = next
+                self.window?.makeKeyAndVisible()
+            } else {
+                let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let next = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                self.window?.rootViewController = next
+                self.window?.makeKeyAndVisible()
+            }
         }
         
         

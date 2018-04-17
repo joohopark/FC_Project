@@ -33,37 +33,51 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("============ [ ViewController ] ============")
+        let user = Auth.auth().currentUser
         
-        
-   
-        
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if  user == nil {
-                let Storyboard = UIStoryboard(name: "Lee", bundle: nil)
-                let next = Storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                let na = UINavigationController(rootViewController: next)
-                self.present(na, animated: true, completion: nil)
-            } else {
-                // No User is signed in. Show user the login screen
-            }
-            
-            
-            
-            
+        if user != nil {
+            print("User is signed in.")
+            print(user?.displayName! ?? "")
+            print(user?.photoURL! ?? "")
+        } else {
+            print("No user is signed in.")
         }
         
-        appendViewControllerList()
+        self.appendViewControllerList()
+        self.buttons[self.selectedIndex].isSelected = true
+        self.didPushTabButton(self.buttons[self.selectedIndex])
+
         
-        // 초기에 보여줄 화면을 설정
-        buttons[selectedIndex].isSelected = true
-        didPushTabButton(buttons[selectedIndex])
+
+        
+//        appendViewControllerList()
+//
+//        // 초기에 보여줄 화면을 설정
+//        buttons[selectedIndex].isSelected = true
+//        didPushTabButton(buttons[selectedIndex])
     }
+    override func loadViewIfNeeded() {
+        super.loadViewIfNeeded()
+        
+
+        
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
     }
     
+    
+    func rootViewpush() ->Void {
+        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewcontroller:UIViewController = Storyboard.instantiateViewController(withIdentifier: "ViewController")
+        self.present(viewcontroller, animated: true, completion: nil)
+        
+    }
 }
 
 
