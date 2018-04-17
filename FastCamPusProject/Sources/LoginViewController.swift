@@ -159,14 +159,10 @@ extension LoginViewController : GIDSignInUIDelegate ,GIDSignInDelegate, FBSDKLog
     
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!){
-        print("왼당1")
+        
         guard error == nil else { return }
-        print("왼당2")
-        
-        
-        print("왼당3")
         guard result != nil else { return }
-        print("왼당4")
+        
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         getFBUserData()
 //        print(result)
