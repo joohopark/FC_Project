@@ -123,6 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 self.window?.makeKeyAndVisible()
             } else {
                 let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                var mainVc = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                 let navi = UINavigationController(rootViewController: mainVc)
                 self.window?.rootViewController = navi
                 self.window?.makeKeyAndVisible()
