@@ -50,33 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
     }
     
-//        Auth.auth().signIn(with: credential) { (user, error) in
-//            print("=================[ firebase login ]=================")
-//            guard error == nil else { return }
-//
-//            print("=================[ DB ]=================")
-//            print(user?.photoURL as? String ?? "")
-//            print(user?.photoURL?.path)
-//            print(user?.photoURL)
-//            AuthService.init().signInAPI(email: (user?.email)!, photoURL: (user?.photoURL?.absoluteString)!, displayName: (user?.displayName)!, uid: (user?.uid)!, completion: { (restul) in
-        //                switch restul {
-        //                case .success(let value):
-        //                    print(value)
-        //                case .error(let error):
-        //                    print(error)
-        //                }
-//            })
-    
-            
-            
 
-    
-    
-    
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
-        print("지금이니")
     }
 
     
@@ -84,15 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
             
-            
-            
             let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
        
-            
-            
-            
-            let google = GIDSignIn.sharedInstance().handle(url,
-                                                           sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+            let google = GIDSignIn.sharedInstance().handle(url,sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                            annotation: [:])
             
             let facebook = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
@@ -138,21 +109,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = mainVc
         self.window?.makeKeyAndVisible()
-      
+        
     
         
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            print("addStateDidChangeListener 222")
+            
             if  user == nil {
                 let storboard:UIStoryboard = UIStoryboard(name: "Lee", bundle: nil)
                 let next = storboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                self.window?.rootViewController = next
+                let navi = UINavigationController(rootViewController: next)
+                self.window?.rootViewController = navi
                 self.window?.makeKeyAndVisible()
             } else {
                 let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let next = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                self.window?.rootViewController = next
+                let navi = UINavigationController(rootViewController: mainVc)
+                self.window?.rootViewController = navi
                 self.window?.makeKeyAndVisible()
             }
         }
