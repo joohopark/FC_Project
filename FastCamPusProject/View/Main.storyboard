@@ -13,11 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-<<<<<<< HEAD
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FastCamPusProject" customModuleProvider="target" sceneMemberID="viewController">
-=======
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FastCamPusProject" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> 775f04891d8400f95aac99cb4e2168e4b9656465
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

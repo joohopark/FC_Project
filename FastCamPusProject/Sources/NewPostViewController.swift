@@ -30,7 +30,7 @@ class NewPostViewController: UIViewController {
             }
             
             
-            self.collectionView.reloadData()
+
         }
     }
     
@@ -76,6 +76,7 @@ extension NewPostViewController{
         photoList.append(UIImage(named: "test2")!)
         photoList.append(UIImage(named: "test3")!)
 //        photoList.append(UIImage(named: "test4")!)
+        collectionView.reloadData()
     }
 }
 
@@ -115,8 +116,12 @@ extension NewPostViewController {
         let timeStampLabel = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.bookmarks,
                                              target: self,
                                              action: #selector(addCurrentTimeLabel))
+        // Image 추가
+        let addImageButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.camera,
+                                             target: self,
+                                             action: #selector(addImage(_:)))
         
-        toolBar.setItems([timeStampLabel, flexibleSpace, doneButton], animated: false)      // tool Bar에 BarButtonItems 설정
+        toolBar.setItems([timeStampLabel, flexibleSpace, addImageButton, flexibleSpace, doneButton], animated: false)      // tool Bar에 BarButtonItems 설정
         textView.inputAccessoryView = toolBar // Text View의 inputAccessoryView에 toolBar 설정.
     }
     
@@ -133,5 +138,32 @@ extension NewPostViewController {
         textView.text.append(timeText)
     }
     
+    
+    
+    
 }
 
+// MARK: - ImagePicker
+extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    /// 이미지 추가 버튼
+    @objc func addImage(_ sender: Any) {
+        // Image PIcker Instance 생성
+        let picker = UIImagePickerController()
+        // Image Picker 화면에 표시
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: false)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // 선택된 이미지를 표시함.
+//        let preview: UIImageView!
+//        self.preview.image = info[UIImagePickerControllerEditedImage] as? UIImage
+
+        // 이미지 피커 컨트롤러를 닫음
+        picker.dismiss(animated: false)
+    }
+
+    
+}
