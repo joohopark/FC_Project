@@ -6,14 +6,26 @@
 //  Copyright © 2018년 주호박. All rights reserved.
 //
 
-import UIKit
+import CoreLocation     // 현재 위치 정보를 받기 위해 import
+import MapKit           // 지도 정보를 표시 하기 위해 import
 import SnapKit
+import UIKit
 
 class NewPostViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentsView: UIView!
+
+    // MARK: - Map & Location Property
+    @IBOutlet var mapView: MKMapView!
+    var coordinateLabel: UILabel!
+
+    private let locationManager = CLLocationManager()
+    private var currentLocationLatitude: CLLocationDegrees = 0
+    private var currentLocationLongitude: CLLocationDegrees = 0
+    
+
     
 //    @IBOutlet weak var textViewTop: NSLayoutConstraint!
     
@@ -137,8 +149,16 @@ extension NewPostViewController {
         let timeStampLabel = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.bookmarks,
                                              target: self,
                                              action: #selector(addCurrentTimeLabel))
+        // MapView 삽입 설정
+        let addMapButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add,
+                                           target: self,
+                                           action: #selector(addMap(_:)))
         
-        toolBar.setItems([timeStampLabel, flexibleSpace, doneButton], animated: false)      // tool Bar에 BarButtonItems 설정
+        let addImageButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.camera,
+                                             target: self,
+                                             action: #selector(addImage(_:)))
+        
+        toolBar.setItems([timeStampLabel, flexibleSpace, addImageButton, flexibleSpace, addMapButton, flexibleSpace, doneButton], animated: false)      // tool Bar에 BarButtonItems 설정
         textView.inputAccessoryView = toolBar // Text View의 inputAccessoryView에 toolBar 설정.
     }
     
@@ -155,5 +175,110 @@ extension NewPostViewController {
         textView.text.append(timeText)
     }
     
+    @objc private func addMap(_ sender: Any) {
+        moveToInitialCoordinate(())
+//        startUpdatingLocation(())
+//        stopUpdateLocation(())
+//        updateCurrentLocation(())
+//        addAnnotationCurrentLocation(())
+    }
+    
+    @objc private func addImage(_ sender: Any) {
+        
+    }
+    
 }
+
+
+
+// MARK: - Location & Map 관련 처리 Method
+extension NewPostViewController: CLLocationManagerDelegate {
+    
+    // 권환 관련 안내 및 설정을 위한 Method
+//    override func viewDidAppear(_ animated: Bool) {
+//        moveToInitialCoordinate(())
+//
+//        switch CLLocationManager.authorizationStatus() {
+//        case .notDetermined:
+//            locationManager.requestWhenInUseAuthorization()
+//        case .denied, .restricted:
+//            print("앱의 지도 사용을 하기 위해서는 위치 정보 사용 권한이 필요합니다.")
+//        case .authorizedAlways, .authorizedWhenInUse:
+//            locationManager.requestLocation()
+//        }
+//    }
+    
+   func moveToInitialCoordinate(_ sender: Any) {
+        let latitudeDelta: CLLocationDegrees = 0.01
+        let longitudeDelta: CLLocationDegrees = 0.01
+        let userLatitude: CLLocationDegrees = 37.51684
+        let userLongitude: CLLocationDegrees = 127.02148
+        let center = CLLocationCoordinate2D(latitude: userLatitude, longitude: userLongitude)
+        let span = MKCoordinateSpanMake(latitudeDelta, longitudeDelta)
+        let region = MKCoordinateRegionMake(center, span)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    private func startUpdatingLocation(_ sender: Any) {
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied, .restricted:
+            print("앱의 지도 사용을 하기 위해서는 위치 정보 사용 권한이 필요합니다.")
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = kCLHeadingFilterNone
+
+            locationManager.startUpdatingLocation()
+        }
+        // 1회성 Location Update
+        //locationManager.requestLocation()
+    }
+    
+    private func stopUpdateLocation(_ sender: Any) {
+        locationManager.stopUpdatingLocation()
+    }
+    
+    private func updateCurrentLocation(_ sender: Any) {
+        locationManager.requestLocation()
+        let coordinate = mapView.centerCoordinate
+        coordinateLabel.text = String(format: "위도: %2.4f, 경도: %2.4f", arguments:[coordinate.latitude, coordinate.longitude])
+    }
+    
+    private func addAnnotationCurrentLocation(_ sender: Any) {
+        let currentLocation = MKPointAnnotation()
+        currentLocation.title = "일기 쓴 곳"
+        let currentLatitude : CLLocationDegrees = currentLocationLatitude
+        let currentLongitude: CLLocationDegrees = currentLocationLongitude
+        currentLocation.coordinate = CLLocationCoordinate2D(latitude: currentLatitude, longitude: currentLongitude)
+        mapView.addAnnotation(currentLocation)
+    }
+    
+    // MARK: CLLocationManager
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            return
+        }
+        let coordinate = location.coordinate
+        coordinateLabel.text = String(format: "위도: %2.4f, 경도: %2.4f", arguments: [coordinate.latitude, coordinate.longitude])
+        currentLocationLatitude = coordinate.latitude
+        currentLocationLongitude = coordinate.longitude
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Authorized")
+        default:
+            print("Unauthorized")
+        }
+    }
+}
+
+
+
 
