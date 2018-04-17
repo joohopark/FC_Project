@@ -38,7 +38,10 @@ class NewPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
+        // Keyboard ToolBar 호출
+        makeKeyboardToolBar()
     }
 
     // 테스트를 위해 이미지 예시 삽입
@@ -90,5 +93,45 @@ extension NewPostViewController: UICollectionViewDataSource{
         cell.photoImageView.image = photoList[indexPath.item]
         return cell
     }
+}
+
+// MARK: - Keyboard ToolBar Method
+extension NewPostViewController {
+    
+    /// Keyboard TooBar 설정 Method
+    private func makeKeyboardToolBar() {
+        // Keyboard ToolBar 생성
+        let toolBar = UIToolbar()           // Keyboard Toolbar 생성
+        toolBar.sizeToFit()
+        // toolBar의 버튼 사이 유연공간 마련
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace,
+                                            target: nil,
+                                            action: nil)
+        // Done Button 설정
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
+                                         target: self,
+                                         action: #selector(doneButtonTuched(_:)))
+        // 현재 시간 삽입 label 설정
+        let timeStampLabel = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.bookmarks,
+                                             target: self,
+                                             action: #selector(addCurrentTimeLabel))
+        
+        toolBar.setItems([timeStampLabel, flexibleSpace, doneButton], animated: false)      // tool Bar에 BarButtonItems 설정
+        textView.inputAccessoryView = toolBar // Text View의 inputAccessoryView에 toolBar 설정.
+    }
+    
+    /// Done Button Touch시 키보드 내려감.
+    ///
+    /// - Parameter sender: Done buttyon touch
+    @objc private func doneButtonTuched(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    ///  현재 시간을 TextView에 첨부시키는 Method
+    @objc private func addCurrentTimeLabel() {
+        let timeText: String = getCurrentTime()
+        textView.text.append(timeText)
+    }
+    
 }
 
