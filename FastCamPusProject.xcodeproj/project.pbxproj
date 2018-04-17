@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */; };
 		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
 		9B091CE2207CFEA000DD93AA /* icons8-facebook-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */; };
 		9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE5207D011E00DD93AA /* icons8-google-96.png */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCamPusProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject.debug.xcconfig"; sourceTree = "<group>"; };
 		4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCamPusProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
 		9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-facebook-48.png"; sourceTree = "<group>"; };
 		9B091CE5207D011E00DD93AA /* icons8-google-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-google-96.png"; sourceTree = "<group>"; };
 		9B1939F02081008500A1A245 /* server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55FB5B6C20849B8D000C02A6 /* TimeHandler */ = {
+			isa = PBXGroup;
+			children = (
+				55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */,
+			);
+			path = TimeHandler;
+			sourceTree = "<group>";
+		};
 		97616A4E20AEA593231D601F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +184,7 @@
 		9B6B7A18207A386100A62B87 /* FastCamPusProject */ = {
 			isa = PBXGroup;
 			children = (
+				55FB5B6C20849B8D000C02A6 /* TimeHandler */,
 				9BB8CA06207A4C05001283E7 /* GoogleService-Info.plist */,
 				9B6B7A25207A386200A62B87 /* Info.plist */,
 				9B6B7A19207A386100A62B87 /* AppDelegate.swift */,
@@ -371,6 +382,7 @@
 				9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */,
 				9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */,
 				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
+				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */,
 				9BFFF7A0207E810E00D463D5 /* NavigationBar.swift in Sources */,
 			);
@@ -518,7 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,7 +549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

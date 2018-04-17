@@ -13,7 +13,11 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+<<<<<<< HEAD
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FastCamPusProject" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FastCamPusProject" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> 775f04891d8400f95aac99cb4e2168e4b9656465
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,9 +89,7 @@
                     <connections>
                         <outlet property="contentsView" destination="9Ih-PZ-wwO" id="F7U-p4-RvA"/>
                         <outletCollection property="buttons" destination="BeA-CH-vw1" collectionClass="NSMutableArray" id="3ub-Jw-h7O"/>
-                        <outletCollection property="buttons" destination="mfC-Ys-uu2" collectionClass="NSMutableArray" id="edL-Pp-wHJ"/>
                         <outletCollection property="buttons" destination="oQc-ZI-Ak9" collectionClass="NSMutableArray" id="2YC-BB-kEJ"/>
-                        <outletCollection property="buttons" destination="QQT-4X-wMe" collectionClass="NSMutableArray" id="g1G-gW-Hsh"/>
                         <outletCollection property="buttons" destination="jn7-iB-IGN" collectionClass="NSMutableArray" id="gtK-X8-mgN"/>
                     </connections>
                 </viewController>
@@ -239,7 +241,8 @@
                                                 <rect key="frame" x="20" y="20" width="335" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="5x4-D5-bYi"/>
+                                                    <constraint firstAttribute="height" priority="500" id="3Vz-q7-MB1"/>
+                                                    <constraint firstAttribute="height" priority="750" constant="128" id="5x4-D5-bYi"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VrY-Fd-ygJ">
                                                     <size key="itemSize" width="118" height="109"/>
@@ -305,14 +308,6 @@
                                     <action selector="didPushTestButton:" destination="wtA-of-psa" eventType="touchUpInside" id="qgg-zX-pHk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfV-uA-ZUi">
-                                <rect key="frame" x="16" y="20" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ttttttttt"/>
-                                <connections>
-                                    <action selector="didPushRedrawButton:" destination="wtA-of-psa" eventType="touchUpInside" id="vNV-7w-BaS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -331,6 +326,7 @@
                     <connections>
                         <outlet property="collectionView" destination="aoM-LV-yl4" id="z7k-sN-O4d"/>
                         <outlet property="contentsView" destination="eYU-5Q-Pkf" id="4jl-0M-y5e"/>
+                        <outlet property="heightZero" destination="3Vz-q7-MB1" id="iig-rb-qeb"/>
                         <outlet property="scrollView" destination="nzC-BU-rfX" id="EVK-M7-ifN"/>
                         <outlet property="textView" destination="iDE-Qn-p7d" id="SrS-gp-1GC"/>
                     </connections>
