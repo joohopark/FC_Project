@@ -161,7 +161,8 @@ extension LoginViewController : GIDSignInUIDelegate ,GIDSignInDelegate, FBSDKLog
         guard error == nil else { return }
         guard result != nil else { return }
         
-        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString) ?? nil
+        guard credential != nil else { return }
         getFBUserData()
 //        print(result)
 //

@@ -114,7 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            
             if  user == nil {
                 let storboard:UIStoryboard = UIStoryboard(name: "Lee", bundle: nil)
                 let next = storboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

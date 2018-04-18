@@ -181,24 +181,24 @@ class createUserViewController: UIViewController {
                 
                 
                 let imageData = UIImagePNGRepresentation(self.profileImage.image!)
-                
-                AuthService.init().signInAPP(email: self.email.text!, imageData: imageData!, displayName: self.name.text! , uid: (user?.uid)!, completion: { (result) in
-                    switch result {
-                        case .success(let value):
-                            print(value)
-                            let changeRequest = firebase.currentUser?.createProfileChangeRequest()
-                            changeRequest?.displayName = self.name.text!
-                            changeRequest?.photoURL = URL(fileURLWithPath: value + ".png")
-                            changeRequest?.commitChanges { (error) in
-                                print(error?.localizedDescription)
-                        }
-                        
-                        case .error(let error):
-                            print(error)
-                        case .loginerror(_):
-                            break
-                        }
-                })
+                AuthService.init().signInAPP(email: self.email.text!, imageData: imageData!, displayName: self.name.text!, uid: (user?.uid)!)
+//                AuthService.init().signInAPP(email: self.email.text!, imageData: imageData!, displayName: self.name.text! , uid: (user?.uid)!, completion: { (result) in
+//                    switch result {
+//                        case .success(let value):
+//                            print(value)
+//                            let changeRequest = firebase.currentUser?.createProfileChangeRequest()
+//                            changeRequest?.displayName = self.name.text!
+//                            changeRequest?.photoURL = URL(fileURLWithPath: value + ".png")
+//                            changeRequest?.commitChanges { (error) in
+//                                print(error?.localizedDescription)
+//                        }
+//                        
+//                        case .error(let error):
+//                            print(error)
+//                        case .loginerror(_):
+//                            break
+//                        }
+//                })
                 
               
 

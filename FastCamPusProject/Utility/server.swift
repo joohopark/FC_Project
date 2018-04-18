@@ -28,12 +28,16 @@ enum API {
 protocol AuthServiceType {
     func Login(uid: String,completion: @escaping (Result<String>)->())
     func signInAPI(email: String, photoURL: String, displayName: String, uid: String, completion: @escaping (Result<String>) -> ())
-    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ())
+//    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ())
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ())
 }
 
 
 struct AuthService: AuthServiceType {
+//    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ()) {
+//        <#code#>
+//    }
+    
     func Login(uid: String, completion: @escaping (Result<String>) -> ()) {
         let parameters = [
             "uid":uid
@@ -48,39 +52,61 @@ struct AuthService: AuthServiceType {
     
   
     
-    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ()) {
+    func signInAPP(email: String, imageData: Data, displayName: String, uid: String) {
         let parameters = [
             "Email":email,
             "Name":displayName,
             "uid": uid
         ]
-      
+    
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            
-                multipartFormData.append(imageData, withName: "img_cover", fileName: "image.png", mimeType: "image/png")
-            
             for (key, value) in parameters {
-                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
             }
-        }, to: API.Post.signInAPP)
-        { (result) in
-            switch result {
-            case .success(let upload, _, _):
-                
-               
-                
-                upload.responseJSON { response in
-                    //print response.result
+            
+            if let data:Data = imageData {
+                multipartFormData.append(data, withName: "img_cover", fileName: "image.png", mimeType: "image/png")
+            }
+            
+        }, to: "") { (encodingResult) in
+            switch encodingResult {
+                case .success(request: let upload, _, _):
+                    upload.responseString { (response) in
+                        switch response.result {
+                        case .success(let value):
+                            print(value)
+
+                        case .failure(let error): break
+
+                        }
+                    }
+                case .failure(let error): break
                 }
-                
-            case .failure(let encodingError):
-                print(encodingError.localizedDescription)
-                //print encodingError.description
-            }
         }
+
+        
+//        Alamofire.upload(multipartFormData: { (multipartFormData) in
+
+//            if let data = imageData {
+//                multipartFormData.append(data, withName: "img_cover", fileName: "image.png", mimeType: "image/png")
+//            }
+//        }, with: "") { (encodingResult) in
+//            switch encodingResult {
+//            case .success(request: let upload, _, _):
+//                upload.responseData { (response) in
+//                    switch response.result {
+//                    case .success(let value): break
+//
+//                    case .failure(let error): break
+//
+//                    }
+//                }
+//            case .failure(let error): break
+//            }
+//
+//        }
     }
-    
     
     
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ()){
