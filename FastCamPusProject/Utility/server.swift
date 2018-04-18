@@ -13,7 +13,7 @@ import Firebase
 
 
 enum API {
-    static let baseURL = "http://192.168.0.56:3000/"
+    static let baseURL = "http://172.30.1.13:3000/"
     
     enum Auth {
 
@@ -39,11 +39,20 @@ struct AuthService: AuthServiceType {
 //    }
     
     func Login(uid: String, completion: @escaping (Result<String>) -> ()) {
+        print("===================== [ Login ] =====================")
+        print(uid)
         let parameters = [
             "uid":uid
         ]
-        Alamofire.request(API.Post.start, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseData { (response) in
-            
+        Alamofire.request(API.Post.start, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseString { (response) in
+            switch (response.result) {
+            case .success(let value) :
+                print("===================== [ Login success ] =====================")
+                print(value)
+            case .failure(let erorr) :
+                print("===================== [ Login failure ] =====================")
+                print(erorr.localizedDescription)
+            }
         }
         
     }
@@ -52,60 +61,47 @@ struct AuthService: AuthServiceType {
     
   
     
-    func signInAPP(email: String, imageData: Data, displayName: String, uid: String) {
+    func signInAPP(email: String,password: String,imageData: Data, displayName: String, uid: String,completion: @escaping (Result<String>) -> () ) {
+        
+        
+        
         let parameters = [
-            "Email":email,
+            "UserEmail":email,
             "Name":displayName,
-            "uid": uid
+            "UserPwd": password,
+            "Login_uid": uid
         ]
     
-        
+        print(API.Post.signInAPP)
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in parameters {
                 multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
             }
             
             if let data:Data = imageData {
-                multipartFormData.append(data, withName: "img_cover", fileName: "image.png", mimeType: "image/png")
+                multipartFormData.append(data, withName: "image", fileName: "image", mimeType: "image/png")
             }
             
-        }, to: "") { (encodingResult) in
+        }, to: API.Post.signInAPP) { (encodingResult) in
             switch encodingResult {
                 case .success(request: let upload, _, _):
                     upload.responseString { (response) in
                         switch response.result {
                         case .success(let value):
-                            print(value)
+                            completion(.success(value))
 
-                        case .failure(let error): break
-
+                        case .failure(let error):
+                             print(error)
+                            completion(.error(error))
                         }
                     }
-                case .failure(let error): break
+                case .failure(let error):
+                    completion(.error(error))
                 }
         }
 
         
-//        Alamofire.upload(multipartFormData: { (multipartFormData) in
 
-//            if let data = imageData {
-//                multipartFormData.append(data, withName: "img_cover", fileName: "image.png", mimeType: "image/png")
-//            }
-//        }, with: "") { (encodingResult) in
-//            switch encodingResult {
-//            case .success(request: let upload, _, _):
-//                upload.responseData { (response) in
-//                    switch response.result {
-//                    case .success(let value): break
-//
-//                    case .failure(let error): break
-//
-//                    }
-//                }
-//            case .failure(let error): break
-//            }
-//
-//        }
     }
     
     

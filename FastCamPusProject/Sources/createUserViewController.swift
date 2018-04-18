@@ -151,6 +151,9 @@ class createUserViewController: UIViewController {
         present(picker, animated: false, completion: nil)
         
     }
+    
+    
+    
     @IBAction func UserCreateAction(_ sender: UIButton) {
         print("=================================")
         
@@ -159,12 +162,18 @@ class createUserViewController: UIViewController {
             return
         }
         
+        
+        let email = self.email.text!
+        let password = self.password.text!
+        
+        
         let firebase = Auth.auth()
-        firebase.createUser(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
+        firebase.createUser(withEmail: email, password: password ) { (user, error) in
             
             guard error == nil else {
                 
                 print(error?.localizedDescription)
+                print("21")
                 if error?.localizedDescription == "The email address is already in use by another account." {
                     
                     self.editingCheck?.alart(message: "사용한 이메일입니다")
@@ -175,34 +184,19 @@ class createUserViewController: UIViewController {
                 return
             }
             
-            firebase.signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
-
-                guard error != nil else { return }
-                
-                
-                let imageData = UIImagePNGRepresentation(self.profileImage.image!)
-                AuthService.init().signInAPP(email: self.email.text!, imageData: imageData!, displayName: self.name.text!, uid: (user?.uid)!)
-//                AuthService.init().signInAPP(email: self.email.text!, imageData: imageData!, displayName: self.name.text! , uid: (user?.uid)!, completion: { (result) in
-//                    switch result {
-//                        case .success(let value):
-//                            print(value)
-//                            let changeRequest = firebase.currentUser?.createProfileChangeRequest()
-//                            changeRequest?.displayName = self.name.text!
-//                            changeRequest?.photoURL = URL(fileURLWithPath: value + ".png")
-//                            changeRequest?.commitChanges { (error) in
-//                                print(error?.localizedDescription)
-//                        }
-//                        
-//                        case .error(let error):
-//                            print(error)
-//                        case .loginerror(_):
-//                            break
-//                        }
-//                })
-                
-              
-
-            }
+            
+            
+            let imageData = UIImagePNGRepresentation(self.profileImage.image!)
+            print("============ [ createUser ] ============")
+            AuthService.init().signInAPP(email: self.email.text!, password: self.password.text!, imageData:  imageData!, displayName: self.name.text!, uid: (user?.uid)!,  completion: { (result) in
+                firebase.signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
+                    guard error == nil else { return }
+                    print(user)
+                }
+            })
+            
+            
+           
         }
     }
 

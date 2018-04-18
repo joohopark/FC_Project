@@ -101,6 +101,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //Login Button UI
+        FBSDKLoginManager.init().logOut()
+        try! Auth.auth().signOut()
         
         let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         var mainVc = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
@@ -111,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         self.window?.makeKeyAndVisible()
         
     
-        
+     
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user == nil {

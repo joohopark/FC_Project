@@ -38,8 +38,20 @@ class ViewController: UIViewController {
         
         if user != nil {
             print("User is signed in.")
-            print(user?.displayName! ?? "")
-            print(user?.photoURL! ?? "")
+//            print(user?.displayName! ?? "")
+            print(user?.uid)
+            sleep(1)
+            AuthService.init().Login(uid: (user?.uid)!) { (result) in
+                print("============ [ load User data ] ============")
+                switch(result){
+                case .success(let value):
+                    print(value)
+                case .error(let error):
+                    print(error.localizedDescription)
+                case .loginerror(_):
+                    break
+                }
+            }
         } else {
             print("No user is signed in.")
         }

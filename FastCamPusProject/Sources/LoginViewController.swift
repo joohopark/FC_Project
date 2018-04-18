@@ -23,6 +23,9 @@ class LoginViewController: UIViewController{
     var alert: customAlert?
     
     
+
+    
+    
     @IBOutlet weak var SignInbtn: UIButton!
     @IBOutlet weak var createUserbtn: UIButton!
    
@@ -57,6 +60,12 @@ class LoginViewController: UIViewController{
     @IBAction func SignIn(_ sender: UIButton) {
         print("SignIn")
         Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
+            
+            guard error == nil else {
+                self.alert?.show(erorr: error!)
+                return
+            }
+            
             
         }
     }
@@ -130,7 +139,7 @@ extension LoginViewController : GIDSignInUIDelegate ,GIDSignInDelegate, FBSDKLog
             case .error(let error):
                 print(error)
             case .loginerror(let loginError):
-                self.alert?.show(erorr: error!)
+                self.alert?.show(erorr: loginError)
                 print(loginError.localizedDescription)
             }
         }
@@ -160,9 +169,9 @@ extension LoginViewController : GIDSignInUIDelegate ,GIDSignInDelegate, FBSDKLog
         
         guard error == nil else { return }
         guard result != nil else { return }
+       
         
-        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString) ?? nil
-        guard credential != nil else { return }
+  
         getFBUserData()
 //        print(result)
 //
@@ -180,21 +189,7 @@ extension LoginViewController : GIDSignInUIDelegate ,GIDSignInDelegate, FBSDKLog
     
 
     
-    @IBAction func act_loginFB(_ sender: UIButton) {
-        print("===============[ act_loginFB ]===============")
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
-            guard error == nil else { return }
-        print("===============[ act_loginFB ]===============")
-            let fbloginresult : FBSDKLoginManagerLoginResult = result!
-            
-            
-            guard fbloginresult.grantedPermissions.contains("email") != nil else { return }
-          
-            
-     
-        }
-    }
+
     
     
     func getFBUserData(){
@@ -220,74 +215,31 @@ extension LoginViewController : GIDSignInUIDelegate ,GIDSignInDelegate, FBSDKLog
                 let email = data["email"] as? String ?? ""
                 print(email)
                 
-                
-                
-                
-
-                
-                
-                
-                
                 print("===============[ FaceBook -> Firebase result ]===============")
-//AuthCredential
-                    let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                
-                
-                
-                
+
+                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 AuthService.init().AuthCredentialLogin(token: credential, completion: { (result,user)  in
                     switch result {
                         case .success(let value):
+                            print("===============[ FaceBook -> Firebase result   success  ]===============")
                             print(value)
-//                            self.dismiss(animated: true, completion: nil)
-//                        self.navigationController?.dismiss(animated: true, completion: nil)
-//                        self.rootViewpush()
-                            self.presentingViewController?.dismiss(animated: true, completion: nil)
+                        
+//                            self.presentingViewController?.dismiss(animated: true, completion: nil)
                         case .error(let error):
+                            print("===============[ FaceBook -> Firebase result   error  ]===============")
                             print(error)
                         case .loginerror(let loginerror):
-                            print(loginerror)
+                            
+                            print("===============[ FaceBook -> Firebase result   loginerror  ]===============")
+                            print(loginerror.localizedDescription)
+                            FBSDKLoginManager.init().logOut()
+                            self.alert?.show(erorr: loginerror)
+
+                        
+                        
                         }
                 })
-                    let changeRequest = Auth.auth()
-                    changeRequest.signIn(with: credential) { (user, error) in
-                      guard error == nil else {
-                            print(error?.localizedDescription)
-                            FBSDKLoginManager.init().logOut()
-                            self.alert?.show(erorr: error!)
-                        
-                            return
-                        }
-                        
-                        print(user?.email)
-                        print(user?.photoURL?.absoluteString)
-                        print(user?.uid)
-                        print(user?.displayName)
-                        
-
-                        AuthService.init().signInAPI(email: (user?.email) ?? "", photoURL: (image), displayName: (user?.displayName)!, uid: (user?.uid)!, completion: { (restul) in
-                            switch restul {
-                            case .success(let value):
-                                print(value)
-                            case .error(let error):
-                                print(error)
-                            case .loginerror(let loginError):
-                                print(loginError)
-                            }
-                        })
-                        
-                        guard error != nil else { return }
-                        let changeRequest = changeRequest.currentUser?.createProfileChangeRequest()
-                        changeRequest?.photoURL = URL(fileURLWithPath: image)
-                        
-                        changeRequest?.commitChanges { (error) in
-                            
-                            print(error?.localizedDescription)
-                        }
-                    }//firebase end
-                
             })
-        
     }
 }
 
