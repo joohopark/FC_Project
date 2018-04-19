@@ -13,15 +13,24 @@ import Firebase
 
 
 enum API {
-    static let baseURL = "http://172.30.1.13:3000/"
+    static let baseURL = "http://192.168.1.46:3000/"
     
     enum Auth {
 
     }
     enum Post {
+        //API로 회원가입
         static let signInAPI = API.baseURL + "UserCreate/API"
+        //APP로 회원가입
         static let signInAPP = API.baseURL + "UserCreate/APP"
+        //Login시 사용자 정보 불러오기
         static let start = API.baseURL + "start"
+        //Login시 친구 리스트 불러오기
+        static let friendList = API.baseURL + "friendList"
+        
+        
+        
+        
     }
 }
 

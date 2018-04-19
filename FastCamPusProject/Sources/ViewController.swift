@@ -40,7 +40,7 @@ class ViewController: UIViewController {
             print("User is signed in.")
 //            print(user?.displayName! ?? "")
             print(user?.uid)
-            sleep(1)
+            
             AuthService.init().Login(uid: (user?.uid)!) { (result) in
                 print("============ [ load User data ] ============")
                 switch(result){

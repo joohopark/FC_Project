@@ -189,10 +189,21 @@ class createUserViewController: UIViewController {
             let imageData = UIImagePNGRepresentation(self.profileImage.image!)
             print("============ [ createUser ] ============")
             AuthService.init().signInAPP(email: self.email.text!, password: self.password.text!, imageData:  imageData!, displayName: self.name.text!, uid: (user?.uid)!,  completion: { (result) in
-                firebase.signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
-                    guard error == nil else { return }
-                    print(user)
+                
+                switch result {
+                    
+                case .success(_):
+                    firebase.signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
+                        guard error == nil else { return }
+                        print(user)
+                    }
+                case .error(_):
+                    break
+                case .loginerror(_):
+                    break
                 }
+                
+              
             })
             
             
