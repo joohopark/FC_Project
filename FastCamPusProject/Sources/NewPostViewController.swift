@@ -80,7 +80,7 @@ extension NewPostViewController{
     }
 }
 
-
+// MARK: - CollectionView Data Source
 extension NewPostViewController: UICollectionViewDataSource{
     // 사진을 추가했을때 NewPostViewController에 사진첩 배열을 만들어서 그 안에 append 하는 식으로 진행해야 될듯.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -157,13 +157,14 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        // 선택된 이미지를 표시함.
-//        let preview: UIImageView!
-//        self.preview.image = info[UIImagePickerControllerEditedImage] as? UIImage
-
-        // 이미지 피커 컨트롤러를 닫음
+        let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage
+        photoList.append(pickedImage!)
+        print(photoList)
+        let previewImageView = UIImageView()
+        previewImageView.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
+        previewImageView.image = pickedImage
+        self.view.addSubview(previewImageView)
+        
         picker.dismiss(animated: false)
     }
-
-    
 }
