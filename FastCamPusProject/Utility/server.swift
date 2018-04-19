@@ -13,7 +13,7 @@ import Firebase
 
 
 enum API {
-    static let baseURL = "http://172.30.1.13:3000/"
+    static let baseURL = "http://192.168.0.21:3000/"
     
     enum Auth {
 

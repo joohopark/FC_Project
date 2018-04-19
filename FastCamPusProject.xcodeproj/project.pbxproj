@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BD7D7B2AC5FAAACDC1FC6D3 /* Pods_TodayExtensionInFastCampusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1003CD2B511BB16706324435 /* Pods_TodayExtensionInFastCampusProject.framework */; };
 		55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */; };
 		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
+		93A9DC79208861B000C0CE0A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9DC78208861B000C0CE0A /* NotificationCenter.framework */; };
+		93A9DC7C208861B000C0CE0A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9DC7B208861B000C0CE0A /* TodayViewController.swift */; };
+		93A9DC7F208861B000C0CE0A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A9DC7D208861B000C0CE0A /* MainInterface.storyboard */; };
+		93A9DC83208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 93A9DC77208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		93A9DC8B2088633000C0CE0A /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9DC892088633000C0CE0A /* WeatherManager.swift */; };
+		93A9DC8D208867EB00C0CE0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B7A20207A386200A62B87 /* Assets.xcassets */; };
 		9B091CE2207CFEA000DD93AA /* icons8-facebook-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */; };
 		9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE5207D011E00DD93AA /* icons8-google-96.png */; };
 		9B1939F12081008500A1A245 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1939F02081008500A1A245 /* server.swift */; };
@@ -34,10 +41,42 @@
 		9BFFF7A0207E810E00D463D5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFF79F207E810E00D463D5 /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		93A9DC81208861B000C0CE0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B6B7A0E207A386100A62B87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93A9DC76208861B000C0CE0A;
+			remoteInfo = TodayExtensionInFastCampusProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93A9DC87208861B000C0CE0A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				93A9DC83208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		05D005D868FA62E501C8EF5C /* Pods-TodayExtensionInFastCampusProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayExtensionInFastCampusProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject.release.xcconfig"; sourceTree = "<group>"; };
+		1003CD2B511BB16706324435 /* Pods_TodayExtensionInFastCampusProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayExtensionInFastCampusProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCamPusProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject.debug.xcconfig"; sourceTree = "<group>"; };
 		4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCamPusProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
+		93A9DC77208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtensionInFastCampusProject.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A9DC78208861B000C0CE0A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		93A9DC7B208861B000C0CE0A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		93A9DC7E208861B000C0CE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		93A9DC80208861B000C0CE0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A9DC892088633000C0CE0A /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-facebook-48.png"; sourceTree = "<group>"; };
 		9B091CE5207D011E00DD93AA /* icons8-google-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-google-96.png"; sourceTree = "<group>"; };
 		9B1939F02081008500A1A245 /* server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
@@ -64,9 +103,19 @@
 		9BFFF79C207E7C3500D463D5 /* createUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createUserViewController.swift; sourceTree = "<group>"; };
 		9BFFF79F207E810E00D463D5 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		AA3F22E69E4F8654077917A1 /* Pods-FastCamPusProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCamPusProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject.release.xcconfig"; sourceTree = "<group>"; };
+		F617BE2AF384E8E71ED8534A /* Pods-TodayExtensionInFastCampusProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayExtensionInFastCampusProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		93A9DC74208861B000C0CE0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A9DC79208861B000C0CE0A /* NotificationCenter.framework in Frameworks */,
+				2BD7D7B2AC5FAAACDC1FC6D3 /* Pods_TodayExtensionInFastCampusProject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B6B7A13207A386100A62B87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,11 +135,32 @@
 			path = TimeHandler;
 			sourceTree = "<group>";
 		};
+		93A9DC7A208861B000C0CE0A /* TodayExtensionInFastCampusProject */ = {
+			isa = PBXGroup;
+			children = (
+				93A9DC882088631000C0CE0A /* WeatherManager */,
+				93A9DC7B208861B000C0CE0A /* TodayViewController.swift */,
+				93A9DC7D208861B000C0CE0A /* MainInterface.storyboard */,
+				93A9DC80208861B000C0CE0A /* Info.plist */,
+			);
+			path = TodayExtensionInFastCampusProject;
+			sourceTree = "<group>";
+		};
+		93A9DC882088631000C0CE0A /* WeatherManager */ = {
+			isa = PBXGroup;
+			children = (
+				93A9DC892088633000C0CE0A /* WeatherManager.swift */,
+			);
+			path = WeatherManager;
+			sourceTree = "<group>";
+		};
 		97616A4E20AEA593231D601F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */,
 				AA3F22E69E4F8654077917A1 /* Pods-FastCamPusProject.release.xcconfig */,
+				F617BE2AF384E8E71ED8534A /* Pods-TodayExtensionInFastCampusProject.debug.xcconfig */,
+				05D005D868FA62E501C8EF5C /* Pods-TodayExtensionInFastCampusProject.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -167,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6B7A18207A386100A62B87 /* FastCamPusProject */,
+				93A9DC7A208861B000C0CE0A /* TodayExtensionInFastCampusProject */,
 				9B6B7A17207A386100A62B87 /* Products */,
 				97616A4E20AEA593231D601F /* Pods */,
 				D4EB46F33BE63D9C82048A9C /* Frameworks */,
@@ -177,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6B7A16207A386100A62B87 /* FastCamPusProject.app */,
+				93A9DC77208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */,
+				93A9DC78208861B000C0CE0A /* NotificationCenter.framework */,
+				1003CD2B511BB16706324435 /* Pods_TodayExtensionInFastCampusProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -220,6 +294,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		93A9DC76208861B000C0CE0A /* TodayExtensionInFastCampusProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A9DC86208861B000C0CE0A /* Build configuration list for PBXNativeTarget "TodayExtensionInFastCampusProject" */;
+			buildPhases = (
+				A6D64E78FD4A3673960CE3D0 /* [CP] Check Pods Manifest.lock */,
+				93A9DC73208861B000C0CE0A /* Sources */,
+				93A9DC74208861B000C0CE0A /* Frameworks */,
+				93A9DC75208861B000C0CE0A /* Resources */,
+				9FB7C16231CA8C4089E50293 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayExtensionInFastCampusProject;
+			productName = TodayExtensionInFastCampusProject;
+			productReference = 93A9DC77208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		9B6B7A15207A386100A62B87 /* FastCamPusProject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B6B7A28207A386200A62B87 /* Build configuration list for PBXNativeTarget "FastCamPusProject" */;
@@ -230,10 +323,12 @@
 				9B6B7A14207A386100A62B87 /* Resources */,
 				315EC562521C5892F8687B2A /* [CP] Embed Pods Frameworks */,
 				661D20E873185CAC6581AF1C /* [CP] Copy Pods Resources */,
+				93A9DC87208861B000C0CE0A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				93A9DC82208861B000C0CE0A /* PBXTargetDependency */,
 			);
 			name = FastCamPusProject;
 			productName = FastCamPusProject;
@@ -250,6 +345,9 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "이주형";
 				TargetAttributes = {
+					93A9DC76208861B000C0CE0A = {
+						CreatedOnToolsVersion = 9.3;
+					};
 					9B6B7A15207A386100A62B87 = {
 						CreatedOnToolsVersion = 9.3;
 					};
@@ -269,11 +367,21 @@
 			projectRoot = "";
 			targets = (
 				9B6B7A15207A386100A62B87 /* FastCamPusProject */,
+				93A9DC76208861B000C0CE0A /* TodayExtensionInFastCampusProject */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		93A9DC75208861B000C0CE0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A9DC8D208867EB00C0CE0A /* Assets.xcassets in Resources */,
+				93A9DC7F208861B000C0CE0A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B6B7A14207A386100A62B87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +453,39 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9FB7C16231CA8C4089E50293 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6D64E78FD4A3673960CE3D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TodayExtensionInFastCampusProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C298D3DC178DDB97E58A5D44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,6 +507,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		93A9DC73208861B000C0CE0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A9DC8B2088633000C0CE0A /* WeatherManager.swift in Sources */,
+				93A9DC7C208861B000C0CE0A /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B6B7A12207A386100A62B87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,7 +540,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		93A9DC82208861B000C0CE0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93A9DC76208861B000C0CE0A /* TodayExtensionInFastCampusProject */;
+			targetProxy = 93A9DC81208861B000C0CE0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		93A9DC7D208861B000C0CE0A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93A9DC7E208861B000C0CE0A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		9B6B7A1D207A386100A62B87 /* Lee.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -410,6 +576,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		93A9DC84208861B000C0CE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F617BE2AF384E8E71ED8534A /* Pods-TodayExtensionInFastCampusProject.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55H9PSHCTY;
+				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject.TodayExtensionInFastCampusProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93A9DC85208861B000C0CE0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05D005D868FA62E501C8EF5C /* Pods-TodayExtensionInFastCampusProject.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55H9PSHCTY;
+				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject.TodayExtensionInFastCampusProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		9B6B7A26207A386200A62B87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -528,6 +734,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55H9PSHCTY;
@@ -547,6 +754,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA3F22E69E4F8654077917A1 /* Pods-FastCamPusProject.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55H9PSHCTY;
@@ -565,6 +773,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		93A9DC86208861B000C0CE0A /* Build configuration list for PBXNativeTarget "TodayExtensionInFastCampusProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A9DC84208861B000C0CE0A /* Debug */,
+				93A9DC85208861B000C0CE0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9B6B7A11207A386100A62B87 /* Build configuration list for PBXProject "FastCamPusProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
