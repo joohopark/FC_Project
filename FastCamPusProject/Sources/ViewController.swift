@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     //MARK:- custom Tab bar 에 해당하는 IBOutlet Hook Up
     @IBOutlet var buttons: [UIButton]!
     
+    @IBOutlet weak var monthButton: UIButton!
+    @IBOutlet weak var yearButton: UIButton!
     
     /************
      탭바의 모든 버튼이 뷰컨트롤러로 이동하진 않는다.
@@ -151,8 +153,18 @@ extension ViewController{
         // 위 두사항은 label에 들어가는 값을 바꾸는걸로 해결..
         // 위의 결과는 ViewController의 버튼의 Text가 변경되는걸로 해야됨.
         // 서버 요청은 ViewController의 버튼의 Text값을 통해 진행.
+        // tag == 0 month
+        // tag == 3 year
+        
         
         let barContentsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthCollectionViewController") as! MonthCollectionViewController
+        
+        if sender.tag == 0{
+            barContentsView.isViewControllerMonth = true
+        }else{
+            barContentsView.isViewControllerMonth = false
+        }
+        barContentsView.delegate = self
         
         addChildViewController(barContentsView)
         barContentsView.view.frame = barView.bounds
@@ -163,6 +175,20 @@ extension ViewController{
     }
 }
 
+
+extension ViewController: SendDataDelegate{
+    func sendData(data: String, isSelectBtn: Bool) {
+        print(data)
+        switch isSelectBtn {
+        case true:// month
+            monthButton.titleLabel?.text = data
+        case false:// year
+            yearButton.titleLabel?.text = data
+        }
+    }
+    
+
+}
 
 
 

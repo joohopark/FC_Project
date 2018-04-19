@@ -10,8 +10,17 @@ import UIKit
 
 //private let reuseIdentifier = "Cell"
 
+
+
 class MonthCollectionViewController: UICollectionViewController {
 
+    private let monthList: [String] = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]
+    let yearList = [Int](2008...2018)
+    
+    var isViewControllerMonth = true
+    var delegate: SendDataDelegate?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,7 +28,7 @@ class MonthCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(MonthCell.self, forCellWithReuseIdentifier: "MonthCell")
+        self.collectionView?.register(UINib(nibName: "MonthCellXIB", bundle: nil), forCellWithReuseIdentifier: "MonthCell")
 
         // Do any additional setup after loading the view.
     }
@@ -36,16 +45,30 @@ class MonthCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        if isViewControllerMonth{
+            return monthList.count
+        }
+        return yearList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MonthCell", for: indexPath) as! MonthCell
     
+        if isViewControllerMonth{
+            cell.backgroundColor = .red
+            cell.labelName = monthList[indexPath.item]
+            cell.label?.textColor = .black
+            cell.layer.cornerRadius = cell.frame.height / 2
+        }else{
+            cell.backgroundColor = .white
+            cell.labelName = String(yearList[indexPath.item])
+            cell.label?.textColor = .black
+            cell.layer.cornerRadius = cell.frame.height / 2
+        }
+        
         // Configure the cell
-        cell.backgroundColor = .red
-        cell.labelName = "test"
-        cell.label?.textColor = .black
+        
+        
         
         return cell
     }
@@ -82,3 +105,35 @@ class MonthCollectionViewController: UICollectionViewController {
     */
 
 }
+
+extension MonthCollectionViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isViewControllerMonth{
+                delegate?.sendData(data: monthList[indexPath.item], isSelectBtn: isViewControllerMonth)
+        }else{
+            delegate?.sendData(data: String(yearList[indexPath.item]),isSelectBtn: isViewControllerMonth)
+        }
+        
+        self.willMove(toParentViewController: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
+    }
+    
+}
+
+
+protocol SendDataDelegate {
+    func sendData(data: String, isSelectBtn: Bool)
+}
+
+
+
+
