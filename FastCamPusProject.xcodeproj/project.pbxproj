@@ -10,6 +10,8 @@
 		2BD7D7B2AC5FAAACDC1FC6D3 /* Pods_TodayExtensionInFastCampusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1003CD2B511BB16706324435 /* Pods_TodayExtensionInFastCampusProject.framework */; };
 		55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */; };
 		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
+		9387B33A2088A43100009E2C /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387B3392088A43100009E2C /* MonthCell.swift */; };
+		9387B33C2088A61B00009E2C /* MonthCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387B33B2088A61B00009E2C /* MonthCollectionViewController.swift */; };
 		93A9DC79208861B000C0CE0A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9DC78208861B000C0CE0A /* NotificationCenter.framework */; };
 		93A9DC7C208861B000C0CE0A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9DC7B208861B000C0CE0A /* TodayViewController.swift */; };
 		93A9DC7F208861B000C0CE0A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A9DC7D208861B000C0CE0A /* MainInterface.storyboard */; };
@@ -71,6 +73,8 @@
 		3FFC639A2E311374675D1A51 /* Pods-FastCamPusProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastCamPusProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject.debug.xcconfig"; sourceTree = "<group>"; };
 		4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCamPusProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
+		9387B3392088A43100009E2C /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
+		9387B33B2088A61B00009E2C /* MonthCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewController.swift; sourceTree = "<group>"; };
 		93A9DC77208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtensionInFastCampusProject.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A9DC78208861B000C0CE0A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		93A9DC7B208861B000C0CE0A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				9B6B7A1B207A386100A62B87 /* LoginViewController.swift */,
+				9387B33B2088A61B00009E2C /* MonthCollectionViewController.swift */,
 				9B609F0420844AFF0029DCB9 /* ListingDiaryViewController.swift */,
 				9B609F0320844AFE0029DCB9 /* NewPostViewController.swift */,
 				9B609F0620844AFF0029DCB9 /* SettingViewController.swift */,
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				9B609F0D20844B930029DCB9 /* PhotoCell.swift */,
+				9387B3392088A43100009E2C /* MonthCell.swift */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9387B33A2088A43100009E2C /* MonthCell.swift in Sources */,
 				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
 				9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */,
 				9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */,
@@ -535,6 +542,7 @@
 				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */,
 				9BFFF7A0207E810E00D463D5 /* NavigationBar.swift in Sources */,
+				9387B33C2088A61B00009E2C /* MonthCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

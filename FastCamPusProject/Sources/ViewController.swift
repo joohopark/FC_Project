@@ -11,9 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var contentsView: UIView!
+    @IBOutlet weak var barView:UIView!
     
     //MARK:- custom Tab bar 에 해당하는 IBOutlet Hook Up
     @IBOutlet var buttons: [UIButton]!
+    
     
     /************
      탭바의 모든 버튼이 뷰컨트롤러로 이동하진 않는다.
@@ -26,8 +28,11 @@ class ViewController: UIViewController {
     var newPostViewController: UIViewController!
     var listingDiaryViewController: UIViewController!
     
+    //MARK:- Instance CVC
+    var monthCollectionViewController: UICollectionViewController!
+    
     var viewControllers: [UIViewController] = []
-    var selectedIndex: Int = 0
+    var selectedIndex: Int = 1
     
     
     
@@ -57,8 +62,16 @@ class ViewController: UIViewController {
         }
         
         self.appendViewControllerList()
-        self.buttons[self.selectedIndex].isSelected = true
-        self.didPushTabButton(self.buttons[self.selectedIndex])
+        // contentsView에 ListingViewController를 보여준다 -> 시작 화면
+        let commonView = viewControllers[0]
+        addChildViewController(commonView)// 현재 화면의 VC에 해당 VC를 자식으로 추가
+        commonView.view.frame = contentsView.bounds// 자식 VC view 크기 지정
+        contentsView.addSubview(commonView.view)// 현 화면 VC의 ContentsView에 addsubView
+        commonView.didMove(toParentViewController: self)//포함되는 VC가 변경되었을때 reload 해줌.
+        // 다시 이화면으로 올수 있도록 Dissmiss하는 기능을 각 뷰에 넣어야함.
+        
+//        self.buttons[self.selectedIndex].isSelected = true
+//        self.didPushTabButton(self.buttons[self.selectedIndex])
 
         
 
@@ -71,8 +84,6 @@ class ViewController: UIViewController {
     }
     override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
-        
-
         
     }
     
@@ -100,11 +111,17 @@ extension ViewController{
         settingViewController = storyBoard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
         newPostViewController = storyBoard.instantiateViewController(withIdentifier: "NewPostViewController") as! NewPostViewController
         listingDiaryViewController = storyBoard.instantiateViewController(withIdentifier: "ListingDiaryViewController") as! ListingDiaryViewController
+        // format ViewContoller 만들어서 넣어주긴 해야합니다.
+        
         
         viewControllers = [listingDiaryViewController, newPostViewController, settingViewController]
     }
+
     
     // 버튼이 눌리면 기존 내용이 보이는 뷰컨트롤러 부분을 제거하고 새로운 Contents를 뿌려줄수 있도록 교체 한다.
+    // tag 가 0일때 테이블 뷰로 한달을 표현하게 된다. -> contentsView
+    // month, year 버튼이 눌렸을 경우에는... IBAction을 하나 더 추가해서 처리하는걸로..
+    //MARK:- Cunstom Tab Bar Controller...
     @IBAction func didPushTabButton(_ sender: UIButton){
         let prevIndex = selectedIndex
         selectedIndex = sender.tag// 현재 선택된 버튼의 인덱스로 변경
@@ -126,6 +143,23 @@ extension ViewController{
         contentsView.addSubview(currentVC.view)// 현 화면 VC의 ContentsView에 addsubView
         currentVC.didMove(toParentViewController: self)//포함되는 VC가 변경되었을때 reload 해줌.
         
+    }
+    
+    @IBAction func didPushYYMMButton(_ sender: UIButton){
+        //month일 경우 달에 대한 컬렉션 뷰가 나와야됨
+        //year의 경우 연에 대한 컬렉션 뷰가 나와야됨.
+        // 위 두사항은 label에 들어가는 값을 바꾸는걸로 해결..
+        // 위의 결과는 ViewController의 버튼의 Text가 변경되는걸로 해야됨.
+        // 서버 요청은 ViewController의 버튼의 Text값을 통해 진행.
+        
+        let barContentsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthCollectionViewController") as! MonthCollectionViewController
+        
+        addChildViewController(barContentsView)
+        barContentsView.view.frame = barView.bounds
+        barView.addSubview(barContentsView.view)
+        barContentsView.didMove(toParentViewController: self)
+        
+
     }
 }
 
