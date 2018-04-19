@@ -34,14 +34,18 @@ class NewPostViewController: UIViewController {
         }
     }
     
-    var isPhotoListEmpty: Bool = false
+    var isPhotoListEmpty: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        // 뷰가 올라올때 기본적으로 TextView의 위치를 CollectionView의 위치에 맞춰 놓습니다.
+        heightZero.priority = UILayoutPriority(rawValue: 999)
+        heightZero.isActive = true
         
         // Keyboard ToolBar 호출
         makeKeyboardToolBar()
+        
     }
 
     // 테스트를 위해 이미지 예시 삽입

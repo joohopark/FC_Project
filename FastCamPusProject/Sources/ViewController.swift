@@ -7,6 +7,7 @@
 //
 import Firebase
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -71,18 +72,7 @@ class ViewController: UIViewController {
         contentsView.addSubview(commonView.view)// 현 화면 VC의 ContentsView에 addsubView
         commonView.didMove(toParentViewController: self)//포함되는 VC가 변경되었을때 reload 해줌.
         // 다시 이화면으로 올수 있도록 Dissmiss하는 기능을 각 뷰에 넣어야함.
-        
-//        self.buttons[self.selectedIndex].isSelected = true
-//        self.didPushTabButton(self.buttons[self.selectedIndex])
 
-        
-
-        
-//        appendViewControllerList()
-//
-//        // 초기에 보여줄 화면을 설정
-//        buttons[selectedIndex].isSelected = true
-//        didPushTabButton(buttons[selectedIndex])
     }
     override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
@@ -170,15 +160,19 @@ extension ViewController{
         barContentsView.view.frame = barView.bounds
         barView.addSubview(barContentsView.view)
         barContentsView.didMove(toParentViewController: self)
+    }
+    func sendToServerYYMMData(){
+        guard let year = yearButton.titleLabel?.text,
+        let month = monthButton.titleLabel?.text else {return}
         
-
+//        Alamofire.
+        
     }
 }
 
 
 extension ViewController: SendDataDelegate{
     func sendData(data: String, isSelectBtn: Bool) {
-        print(data)
         switch isSelectBtn {
         case true:// month
             monthButton.titleLabel?.text = data
@@ -186,8 +180,6 @@ extension ViewController: SendDataDelegate{
             yearButton.titleLabel?.text = data
         }
     }
-    
-
 }
 
 
