@@ -21,3 +21,12 @@ func getCurrentTime() -> String {
     let stringTime = timeFormatter.string(from: currentTime)
     return stringTime
 }
+
+func getCurrentDate() -> String {
+    let currentDate = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+    dateFormatter.dateFormat = "EEEE / MMMM dd / yyyy"
+    let stringDate = dateFormatter.string(from: currentDate)
+    return stringDate
+}

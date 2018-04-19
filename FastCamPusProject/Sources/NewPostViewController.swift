@@ -14,6 +14,7 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentsView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
     
 //    @IBOutlet weak var textViewTop: NSLayoutConstraint!
     @IBOutlet weak var heightZero: NSLayoutConstraint!
@@ -28,9 +29,6 @@ class NewPostViewController: UIViewController {
                 self.heightZero.priority = UILayoutPriority(rawValue: 999)
                 self.heightZero.isActive = true
             }
-            
-            
-
         }
     }
     
@@ -39,9 +37,24 @@ class NewPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        // 현재 날짜 표시
+        dateLabel.text = getCurrentDate()
+        //dateLabel.font = UIFont.fontNames(forFamilyName: "BiauKai")
+        dateLabel.font = UIFont(name: "BiauKai_Regular", size: 20)
         
         // Keyboard ToolBar 호출
         makeKeyboardToolBar()
+        
+//        for family in UIFont.familyNames {
+//
+//            let sName: String = family as String
+//            print("family: \(sName)")
+//
+//            for name in UIFont.fontNames(forFamilyName: sName) {
+//                print("name: \(name as String)")
+//            }
+//        }
+        
     }
 
     // 테스트를 위해 이미지 예시 삽입
@@ -90,7 +103,6 @@ extension NewPostViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
-//        cell.photoImageView.image = UIImage(named: "PhotoCellImg")
         cell.photoImageView.image = photoList[indexPath.item]
         return cell
     }
@@ -159,12 +171,7 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         photoList.append(pickedImage!)
-        print(photoList)
-        let previewImageView = UIImageView()
-        previewImageView.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
-        previewImageView.image = pickedImage
-        self.view.addSubview(previewImageView)
-        
+        collectionView.reloadData()
         picker.dismiss(animated: false)
     }
 }

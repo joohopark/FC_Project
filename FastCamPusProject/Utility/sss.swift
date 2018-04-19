@@ -33,26 +33,24 @@ enum AuthError: Error {
 }
 
 
-//struct Userinfo: Codable {
-//    let userindex, userEmail: String?
-//    let userPwd: String?
-//    let name: String?
-//    let pushToken: String?
-//    let loginUid : String?
-//    
-//    
-//    
-//    enum CodingKeys: String, CodingKey {
-//        case userindex = "Userindex"
-//        case userEmail = "UserEmail"
-//        case userPwd = "UserPwd"
-//        case name = "Name"
-//        case pushToken = "PushToken"
-//        case loginUid = "Login_uid"
-//        case artistName = "name"
-//    }
-//}
-//
+struct Userinfo: Codable {
+    var Userindex: Int
+    var UserEmail:String?
+    var UserPwd: String?
+    var Name: String
+    var PushToken: String?
+    var Login_uid: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case Userindex = "Userindex"
+        case UserEmail = "UserEmail"
+        case UserPwd = "UserPwd"
+        case Name = "Name"
+        case PushToken = "PushToken"
+        case Login_uid = "Login_uid"
+    }
+}
+
 
 
 

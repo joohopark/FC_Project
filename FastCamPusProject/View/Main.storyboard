@@ -218,8 +218,7 @@
                                     <fragment content="TUESDAY/ APRIL 10 / 2018">
                                         <attributes>
                                             <font key="NSFont" size="20" name="DFKaiShu-SB-Estd-BF"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            <integer key="NSUnderline" value="1"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -322,6 +321,7 @@
                     <connections>
                         <outlet property="collectionView" destination="aoM-LV-yl4" id="z7k-sN-O4d"/>
                         <outlet property="contentsView" destination="eYU-5Q-Pkf" id="4jl-0M-y5e"/>
+                        <outlet property="dateLabel" destination="RlU-pH-rrc" id="1m9-gJ-QCY"/>
                         <outlet property="heightZero" destination="3Vz-q7-MB1" id="iig-rb-qeb"/>
                         <outlet property="scrollView" destination="nzC-BU-rfX" id="EVK-M7-ifN"/>
                         <outlet property="textView" destination="iDE-Qn-p7d" id="SrS-gp-1GC"/>
