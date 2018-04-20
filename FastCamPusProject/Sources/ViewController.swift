@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     
     var viewControllers: [UIViewController] = []
     var selectedIndex: Int = 1
-    
+    var userTmp: User!
     
     
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
             print("User is signed in.")
 //            print(user?.displayName! ?? "")
             print(user?.uid)
-            
+            userTmp = user
 //            AuthService.init().Login(uid: (user?.uid)!) { (result) in
 //                print("============ [ load User data ] ============")
 //                switch(result){
@@ -117,6 +117,25 @@ class ViewController: UIViewController {
 
 
 extension ViewController{
+    func getMonthlyDiaryData(){
+        print("=============================== [ 작성글 가저오기 ] ===============================")
+        AuthService.init().diaryList(uid: userTmp.uid, year: 2018, month: 04) { (respone) in
+            switch respone {
+                
+            case .success(let value):
+                dump(value)
+            case .error(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
     func appendViewControllerList(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
