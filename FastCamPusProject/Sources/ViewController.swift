@@ -64,6 +64,10 @@ class ViewController: UIViewController {
             print("No user is signed in.")
         }
         
+        // 버튼 텍스트를 변경하고 ListingViewController에 넣을 포스트들을 get함.
+        initializedListingView()
+        
+        
         self.appendViewControllerList()
         // contentsView에 ListingViewController를 보여준다 -> 시작 화면
         let commonView = viewControllers[0]
@@ -72,6 +76,8 @@ class ViewController: UIViewController {
         contentsView.addSubview(commonView.view)// 현 화면 VC의 ContentsView에 addsubView
         commonView.didMove(toParentViewController: self)//포함되는 VC가 변경되었을때 reload 해줌.
         // 다시 이화면으로 올수 있도록 Dissmiss하는 기능을 각 뷰에 넣어야함.
+        
+        
 
     }
     override func loadViewIfNeeded() {
@@ -97,6 +103,27 @@ class ViewController: UIViewController {
 
 
 extension ViewController{
+    func initializedListingView() {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYYMMDD"
+        let dateString = dateFormatter.string(from: date)
+        let year, month: String
+     
+        year = String(dateString[..<dateString.index(dateString.startIndex, offsetBy: 4)])
+        month = String(dateString[dateString.index(dateString.startIndex, offsetBy: 4)...dateString.index(dateString.endIndex, offsetBy: -4)])
+        
+        
+        monthButton.titleLabel?.text = month
+        yearButton.titleLabel?.text = year
+        
+        //
+        sendToServerYYMMData(month: month, year: year)
+    }
+    
+    
+    
+    
     func appendViewControllerList(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -161,11 +188,10 @@ extension ViewController{
         barView.addSubview(barContentsView.view)
         barContentsView.didMove(toParentViewController: self)
     }
-    func sendToServerYYMMData(){
-        guard let year = yearButton.titleLabel?.text,
-        let month = monthButton.titleLabel?.text else {return}
+    
+    func sendToServerYYMMData(month: String ,year: String){
         
-//        Alamofire.
+        
         
     }
 }
@@ -179,10 +205,11 @@ extension ViewController: SendDataDelegate{
         case false:// year
             yearButton.titleLabel?.text = data
         }
+        
+        // 버튼 텍스트가 바뀌니 여기서도sendToServerYYMMData를 불러와야됨.
+        sendToServerYYMMData(month: (monthButton.titleLabel?.text)!, year: (yearButton.titleLabel?.text)!)
     }
 }
-
-
 
 
 
