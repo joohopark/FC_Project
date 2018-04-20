@@ -9,6 +9,10 @@
 import Foundation
 
 
+enum ResultDdata<T> {
+    case success(T)
+    case error(Error)
+}
 
 enum Result<T> {
     case success(T)
@@ -32,22 +36,45 @@ enum AuthError: Error {
     case invalidPassword
 }
 
-struct Userinfo: Codable {
+struct Userinfo: Decodable {
     var Userindex: Int
-    var UserEmail:String?
-    var UserPwd: String?
+    var UserEmail:String
     var Name: String
-    var PushToken: String?
+    var PushToken: String? 
     var Login_uid: String
     
     private enum CodingKeys: String, CodingKey {
         case Userindex = "Userindex"
         case UserEmail = "UserEmail"
-        case UserPwd = "UserPwd"
         case Name = "Name"
         case PushToken = "PushToken"
         case Login_uid = "Login_uid"
     }
+}
+
+extension DateFormatter {
+    static let iso8601Full: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter
+    }()
+}
+
+
+
+struct diaryItem: Decodable {
+    var Userindex: Int
+    var UserEmail:String?
+    var Name: String
+    var Login_uid: String
+    var No: Int
+    var authority: Int
+    var Contents: String
+    var Date_created: Date
+    
 }
 
 

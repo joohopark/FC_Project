@@ -48,21 +48,42 @@ class ViewController: UIViewController {
 //            print(user?.displayName! ?? "")
             print(user?.uid)
             
-            AuthService.init().Login(uid: (user?.uid)!) { (result) in
-                print("============ [ load User data ] ============")
-                switch(result){
-                case .success(let value):
-                    print(value)
+//            AuthService.init().Login(uid: (user?.uid)!) { (result) in
+//                print("============ [ load User data ] ============")
+//                switch(result){
+//                case .success(let value):
+//                    print(value)
+//                case .error(let error):
+//                    print(error.localizedDescription)
+//                case .loginerror(_):
+//                    break
+//                }
+//            }
+            print("=============================== [친구 정보 가져오기] ===============================")
+            AuthService.init().AuthFriendList(uid: (user?.uid)!) { (result) in
+                switch result {
+                case .success(let vale):
+                    
+                    dump(vale)
                 case .error(let error):
+                    
                     print(error.localizedDescription)
-                case .loginerror(_):
-                    break
                 }
             }
+            print("=============================== [ 작성글 가저오기 ] ===============================")
+            AuthService.init().diaryList(uid: (user?.uid)!, year: 2018, month: 04) { (respone) in
+                switch respone {
+                    
+                case .success(let value):
+                    dump(value)
+                case .error(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
         } else {
             print("No user is signed in.")
         }
-        
         self.appendViewControllerList()
         // contentsView에 ListingViewController를 보여준다 -> 시작 화면
         let commonView = viewControllers[0]
@@ -86,23 +107,12 @@ class ViewController: UIViewController {
     }
     override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
-        
     }
-    
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
     }
     
-    
-    func rootViewpush() ->Void {
-        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewcontroller:UIViewController = Storyboard.instantiateViewController(withIdentifier: "ViewController")
-        self.present(viewcontroller, animated: true, completion: nil)
-        
-    }
 }
 
 
