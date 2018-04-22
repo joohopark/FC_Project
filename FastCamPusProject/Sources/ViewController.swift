@@ -7,6 +7,7 @@
 //
 import Firebase
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -16,8 +17,18 @@ class ViewController: UIViewController {
     //MARK:- custom Tab bar 에 해당하는 IBOutlet Hook Up
     @IBOutlet var buttons: [UIButton]!
     
-    @IBOutlet weak var monthButton: UIButton!
-    @IBOutlet weak var yearButton: UIButton!
+    @IBOutlet weak var monthButton: UIButton!{
+        didSet{
+            print("============ [  ssss ] ============")
+            print("monthButton Text : \(String(describing: monthButton.titleLabel?.text))")
+        }
+    }
+    
+    @IBOutlet weak var yearButton: UIButton!{
+        didSet{
+            print("yearButton Text : \(String(describing: yearButton.titleLabel?.text))")
+        }
+    }
     
     /************
      탭바의 모든 버튼이 뷰컨트롤러로 이동하진 않는다.
@@ -37,53 +48,83 @@ class ViewController: UIViewController {
     var selectedIndex: Int = 1
     var userTmp: User!
     
+    var month: String = ""
+//    {
+//        didSet{
+//            print("============ [month ] ============")
+//            monthButton.titleLabel?.text = month
+////            monthButton.setNeedsDisplay()
+//
+//        }
+//    }
+    
+    var year: String = ""
+//    {
+//        didSet{
+//            print("============ [ year] ============")
+//            yearButton.titleLabel?.text = year
+//
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("============ [ ViewController ] ============")
         let user = Auth.auth().currentUser
-        
+
         if user != nil {
             print("User is signed in.")
 //            print(user?.displayName! ?? "")
             print(user?.uid)
-            userTmp = user
-//            AuthService.init().Login(uid: (user?.uid)!) { (result) in
-//                print("============ [ load User data ] ============")
-//                switch(result){
-//                case .success(let value):
-//                    print(value)
-//                case .error(let error):
-//                    print(error.localizedDescription)
-//                case .loginerror(_):
-//                    break
-//                }
-//            }
+//            userTmp = user
+            AuthService.init().Login(uid: (user?.uid)!) { (result) in
+                print("============ [ load User data ] ============")
+                switch(result){
+                case .success(let value):
+                    print(value)
+                case .error(let error):
+                    print(error.localizedDescription)
+                case .loginerror(_):
+                    break
+                }
+            }
             print("=============================== [친구 정보 가져오기] ===============================")
             AuthService.init().AuthFriendList(uid: (user?.uid)!) { (result) in
                 switch result {
                 case .success(let vale):
-                    
+
                     dump(vale)
                 case .error(let error):
-                    
+
                     print(error.localizedDescription)
                 }
             }
             print("=============================== [ 작성글 가저오기 ] ===============================")
             AuthService.init().diaryList(uid: (user?.uid)!, year: 2018, month: 04) { (respone) in
                 switch respone {
-                    
+
                 case .success(let value):
                     dump(value)
                 case .error(let error):
                     print(error.localizedDescription)
                 }
             }
-            
+
         } else {
             print("No user is signed in.")
         }
+
+        
+        // 버튼 텍스트를 변경하고 ListingViewController에 넣을 포스트들을 get함.
+        initializedListingView()
+
+//        userTmp.uid, year: Int(year)!, month: Int(month)!
+//        dump(userTmp.uid)
+        dump(year)
+        dump(month)
+//        getMonthlyDiaryData()
+
+    
         self.appendViewControllerList()
         // contentsView에 ListingViewController를 보여준다 -> 시작 화면
         let commonView = viewControllers[0]
@@ -93,20 +134,12 @@ class ViewController: UIViewController {
         commonView.didMove(toParentViewController: self)//포함되는 VC가 변경되었을때 reload 해줌.
         // 다시 이화면으로 올수 있도록 Dissmiss하는 기능을 각 뷰에 넣어야함.
         
-//        self.buttons[self.selectedIndex].isSelected = true
-//        self.didPushTabButton(self.buttons[self.selectedIndex])
-
         
 
-        
-//        appendViewControllerList()
-//
-//        // 초기에 보여줄 화면을 설정
-//        buttons[selectedIndex].isSelected = true
-//        didPushTabButton(buttons[selectedIndex])
     }
     override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -117,25 +150,48 @@ class ViewController: UIViewController {
 
 
 extension ViewController{
-    func getMonthlyDiaryData(){
-        print("=============================== [ 작성글 가저오기 ] ===============================")
-        AuthService.init().diaryList(uid: userTmp.uid, year: 2018, month: 04) { (respone) in
-            switch respone {
-                
-            case .success(let value):
-                dump(value)
-            case .error(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
+    
+//    //MARK:- 달, 연 값을 서버에 보내서 컨텐츠 뷰를 결정하는 함수로 만들고 싶었어..
+//    func sendToServerYYMMData(month: String ,year: String){
+//
+//    }
+//
+//    //
+//    func getMonthlyDiaryData(){
+//        print("=============================== [ 작성글 가저오기 ] ===============================")
+//        AuthService.init().diaryList(uid: userTmp.uid, year: Int(year)!, month: Int(month)!) { (respone) in
+//            switch respone {
+//            case .success(let value):
+//                dump(value)
+//            case .error(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+    
+
+    //MARK:- 달 년 버튼 을 초기화 ( Date를 불러와서)
+    // 위의 달, 년 데이터를 통해서 값을 전달한다 -> 컨텐츠 뷰에 어느 월의 데이터를 기준으로 뿌릴것인지를 결정한다.
+    func initializedListingView() {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYYMMDD"
+        let dateString = dateFormatter.string(from: date)
+        let year, month: String
+     
+        year = String(dateString[..<dateString.index(dateString.startIndex, offsetBy: 4)])
+        month = String(dateString[dateString.index(dateString.startIndex, offsetBy: 4)...dateString.index(dateString.endIndex, offsetBy: -4)])
+
+        self.month = month
+        self.year = year
+//MARK:- 날짜 변경된 부분임 -> 이부분에서 호출하면 됨
+        // 여기서 불러도 되고 아니면 View 호출시 불러도 됩니다.
         
     }
     
-    
-    
-    
-    
+
+    // MARK:- 의미 없음. 이건 그냥 뷰디드로드에 넣기 싫어 만든 함수
+    // 뷰컨트롤러들의 전환을 위해 뷰컨 배열을 만들어 주는겅미.
     func appendViewControllerList(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -176,6 +232,9 @@ extension ViewController{
         
     }
     
+    
+    //MARK:- Custom Tab Bar에 컬렉션 뷰를 올리는거임
+    //
     @IBAction func didPushYYMMButton(_ sender: UIButton){
         //month일 경우 달에 대한 컬렉션 뷰가 나와야됨
         //year의 경우 연에 대한 컬렉션 뷰가 나와야됨.
@@ -184,8 +243,6 @@ extension ViewController{
         // 서버 요청은 ViewController의 버튼의 Text값을 통해 진행.
         // tag == 0 month
         // tag == 3 year
-        
-        
         let barContentsView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MonthCollectionViewController") as! MonthCollectionViewController
         
         if sender.tag == 0{
@@ -199,27 +256,27 @@ extension ViewController{
         barContentsView.view.frame = barView.bounds
         barView.addSubview(barContentsView.view)
         barContentsView.didMove(toParentViewController: self)
-        
-
     }
+    
+
+    
 }
 
 
 extension ViewController: SendDataDelegate{
     func sendData(data: String, isSelectBtn: Bool) {
-        print(data)
         switch isSelectBtn {
         case true:// month
             monthButton.titleLabel?.text = data
         case false:// year
             yearButton.titleLabel?.text = data
         }
+        
+        // 버튼 텍스트가 바뀌니 여기서도sendToServerYYMMData를 불러와야됨.
+    //MARK:- 날짜 변경된 부분임 -> 이부분에서 호출하면 됨
+//        sendToServerYYMMData(month: (monthButton.titleLabel?.text)!, year: (yearButton.titleLabel?.text)!)
     }
-    
-
 }
-
-
 
 
 

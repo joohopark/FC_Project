@@ -55,7 +55,7 @@ class MonthCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MonthCell", for: indexPath) as! MonthCell
     
         if isViewControllerMonth{
-            cell.backgroundColor = .red
+            cell.backgroundColor = .gray
             cell.labelName = monthList[indexPath.item]
             cell.label?.textColor = .black
             cell.layer.cornerRadius = cell.frame.height / 2
