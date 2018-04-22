@@ -172,18 +172,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // 음수 값이면 하루 이후로 되야 하고
         // 양수 값이면 앞으로 몇 분후가 되는거임.
         let alertTime: NSDate = NSDate()
-        if currentTimeTransSeconds - aramTime < 0{
-            alertTime.addingTimeInterval(TimeInterval((86400-currentTimeTransSeconds)+aramTime-54000))
-        }else{
-            alertTime.addingTimeInterval(TimeInterval(currentTimeTransSeconds-aramTime))
-        }
+//        if currentTimeTransSeconds  < aramTime{
+//            alertTime.addingTimeInterval(TimeInterval((86400-currentTimeTransSeconds)+aramTime-54000))
+//            print(currentTimeTransSeconds, aramTime,"- 값이 나옴니다 \(TimeInterval((86400-currentTimeTransSeconds)+aramTime))")
+//        }else{
+//            alertTime.addingTimeInterval(TimeInterval(currentTimeTransSeconds-aramTime))
+//            print(TimeInterval(currentTimeTransSeconds-aramTime))
+//        }
         
-        
-        
-        dump("설정 시간 : \(aramTime)")
-        dump(TimeInterval((86400-currentTimeTransSeconds)))
-        dump(TimeInterval((86400-currentTimeTransSeconds)+aramTime))
+        alertTime.addingTimeInterval(5)
+//        dump("설정 시간 : \(aramTime)")
+//        dump(TimeInterval((86400-currentTimeTransSeconds)))
+//        dump(TimeInterval((86400-currentTimeTransSeconds)+aramTime))
         dump("알람 시간 : \(alertTime)")
+        
         let notifyAlarm = UILocalNotification()
         
         notifyAlarm.fireDate = alertTime as Date

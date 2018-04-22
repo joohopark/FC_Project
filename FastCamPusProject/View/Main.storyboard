@@ -25,12 +25,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-CH-vw1">
-                                                <rect key="frame" x="0.0" y="25" width="75" height="30"/>
+                                                <rect key="frame" x="0.0" y="27" width="75" height="26.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Month">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                                <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -40,12 +40,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfC-Ys-uu2">
-                                                <rect key="frame" x="75" y="25" width="75" height="30"/>
+                                                <rect key="frame" x="75" y="27" width="75" height="26.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Year">
                                                             <attributes>
-                                                                <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                                <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
