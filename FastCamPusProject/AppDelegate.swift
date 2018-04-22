@@ -13,7 +13,7 @@ import FBSDKLoginKit
 
 
 
-
+var userData: User?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -116,6 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
      
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
+            userData = user
             if  user == nil {
                 let storboard:UIStoryboard = UIStoryboard(name: "Lee", bundle: nil)
                 let next = storboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
@@ -123,6 +124,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 self.window?.rootViewController = navi
                 self.window?.makeKeyAndVisible()
             } else {
+                userData = user
                 let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 var mainVc = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                 let navi = UINavigationController(rootViewController: mainVc)

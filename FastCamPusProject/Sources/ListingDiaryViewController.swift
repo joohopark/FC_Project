@@ -9,13 +9,33 @@
 import UIKit
 
 class ListingDiaryViewController: UIViewController {
-
+    var delegate: dateDelegete?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+   
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    func tabl() -> Void {
+        print("씨발")
+    }
+    
+    
+    
 }
+
+
+//extension ListingDiaryViewController: dateDelegete {
+//    func setYearMonth(Date month: String, year: String) {
+//        print("setYearMonth")
+//    }
+//
+//
+//}
 
 
 //MARK:- TableView Setting

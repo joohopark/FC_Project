@@ -72,43 +72,43 @@ class ViewController: UIViewController {
         print("============ [ ViewController ] ============")
         let user = Auth.auth().currentUser
 
-        if user != nil {
+        if user == nil {
             print("User is signed in.")
 //            print(user?.displayName! ?? "")
             print(user?.uid)
 //            userTmp = user
-            AuthService.init().Login(uid: (user?.uid)!) { (result) in
-                print("============ [ load User data ] ============")
-                switch(result){
-                case .success(let value):
-                    print(value)
-                case .error(let error):
-                    print(error.localizedDescription)
-                case .loginerror(_):
-                    break
-                }
-            }
-            print("=============================== [친구 정보 가져오기] ===============================")
-            AuthService.init().AuthFriendList(uid: (user?.uid)!) { (result) in
-                switch result {
-                case .success(let vale):
-
-                    dump(vale)
-                case .error(let error):
-
-                    print(error.localizedDescription)
-                }
-            }
+//            AuthService.init().Login(uid: (user?.uid)!) { (result) in
+//                print("============ [ load User data ] ============")
+//                switch(result){
+//                case .success(let value):
+//                    print(value)
+//                case .error(let error):
+//                    print(error.localizedDescription)
+//                case .loginerror(_):
+//                    break
+//                }
+//            }
+//            print("=============================== [친구 정보 가져오기] ===============================")
+//            AuthService.init().AuthFriendList(uid: (user?.uid)!) { (result) in
+//                switch result {
+//                case .success(let vale):
+//
+//                    dump(vale)
+//                case .error(let error):
+//
+//                    print(error.localizedDescription)
+//                }
+//            }
             print("=============================== [ 작성글 가저오기 ] ===============================")
-            AuthService.init().diaryList(uid: (user?.uid)!, year: 2018, month: 04) { (respone) in
-                switch respone {
-
-                case .success(let value):
-                    dump(value)
-                case .error(let error):
-                    print(error.localizedDescription)
-                }
-            }
+//            AuthService.init().diaryList(uid: (user?.uid)!, year: 2018, month: 04) { (respone) in
+//                switch respone {
+//
+//                case .success(let value):
+//                    dump(value)
+//                case .error(let error):
+//                    print(error.localizedDescription)
+//                }
+//            }
 
         } else {
             print("No user is signed in.")
@@ -200,7 +200,7 @@ extension ViewController{
         listingDiaryViewController = storyBoard.instantiateViewController(withIdentifier: "ListingDiaryViewController") as! ListingDiaryViewController
         // format ViewContoller 만들어서 넣어주긴 해야합니다.
         
-        
+
         viewControllers = [listingDiaryViewController, newPostViewController, settingViewController]
     }
 
@@ -236,6 +236,9 @@ extension ViewController{
     //MARK:- Custom Tab Bar에 컬렉션 뷰를 올리는거임
     //
     @IBAction func didPushYYMMButton(_ sender: UIButton){
+        
+        
+        
         //month일 경우 달에 대한 컬렉션 뷰가 나와야됨
         //year의 경우 연에 대한 컬렉션 뷰가 나와야됨.
         // 위 두사항은 label에 들어가는 값을 바꾸는걸로 해결..
@@ -263,6 +266,8 @@ extension ViewController{
 }
 
 
+   
+
 extension ViewController: SendDataDelegate{
     func sendData(data: String, isSelectBtn: Bool) {
         switch isSelectBtn {
@@ -272,11 +277,28 @@ extension ViewController: SendDataDelegate{
             yearButton.titleLabel?.text = data
         }
         
+        
+        
         // 버튼 텍스트가 바뀌니 여기서도sendToServerYYMMData를 불러와야됨.
     //MARK:- 날짜 변경된 부분임 -> 이부분에서 호출하면 됨
+//        print("=============================== [ 작성글 가저오기 ] ===============================")
+//        AuthService.init().diaryList(uid: (userData?.uid)!, year: 2018, month: 04) { (respone) in
+//            switch respone {
+//
+//            case .success(let value):
+//                dump(value)
+//            case .error(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//
+//    }
 //        sendToServerYYMMData(month: (monthButton.titleLabel?.text)!, year: (yearButton.titleLabel?.text)!)
-    }
-}
+    
+    }}
+
+
+
 
 
 
