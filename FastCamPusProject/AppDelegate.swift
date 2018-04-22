@@ -143,6 +143,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        let app = UIApplication.shared
+        let notificationSettings = UIUserNotificationSettings(types: [.alert, .sound], categories: nil)
+        app.registerUserNotificationSettings(notificationSettings)
+        
+        
+//        let nowDate : NSDate = NSDate(timeIntervalSinceNow: Double(time.secondsFromGMT)) // 로컬 시간
+//        print(nowDate) // 결과: 2016-07-04 03:51:14 +0000
+
+        
+        let time : TimeZone = TimeZone(identifier: "Asia/Yakutsk")!
+        let date = Date(timeIntervalSinceNow: Double(time.secondsFromGMT()))
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute, .second], from: date)
+        
+        
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        dateFormatter.locale = NSLocale(localeIdentifier: "ko_KR") as Locale?
+        
+        let currentTimeTransSeconds = (components.hour!-9)*60*60 + components.minute!*60 + components.second!
+        dump("현재 시간 : \(date)")
+        dump(currentTimeTransSeconds)
+        
+        
+        // 총시간 - 현재시간 + 설정시간
+        // 음수 값이면 하루 이후로 되야 하고
+        // 양수 값이면 앞으로 몇 분후가 되는거임.
+        let alertTime: NSDate = NSDate()
+        if currentTimeTransSeconds - aramTime < 0{
+            alertTime.addingTimeInterval(TimeInterval((86400-currentTimeTransSeconds)+aramTime-54000))
+        }else{
+            alertTime.addingTimeInterval(TimeInterval(currentTimeTransSeconds-aramTime))
+        }
+        
+        
+        
+        dump("설정 시간 : \(aramTime)")
+        dump(TimeInterval((86400-currentTimeTransSeconds)))
+        dump(TimeInterval((86400-currentTimeTransSeconds)+aramTime))
+        dump("알람 시간 : \(alertTime)")
+        let notifyAlarm = UILocalNotification()
+        
+        notifyAlarm.fireDate = alertTime as Date
+        notifyAlarm.timeZone = NSTimeZone.default
+        notifyAlarm.soundName = "bell_tree.mp3"
+        notifyAlarm.alertBody = "일기쓸 시간입니다."
+        app.scheduleLocalNotification(notifyAlarm)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
