@@ -43,7 +43,7 @@ protocol AuthServiceType {
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ())
     func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ())
     //uid month year
-    func diaryList(uid:String, year: Int ,month:Int, completion: @escaping (ResultDdata<[Objects]>) -> ())
+    func diaryList(uid:String, year: String ,month:String, completion: @escaping (ResultDdata<[Objects]>) -> ())
     
     
     func friendAdd(myuid:String, fruenduid:String, completion: @escaping (ResultDdata<String>) -> ())
@@ -75,7 +75,7 @@ struct AuthService: AuthServiceType {
     
    
     
-    func diaryList(uid: String, year: Int, month: Int, completion: @escaping (ResultDdata<[Objects]>) -> ()) {
+    func diaryList(uid: String, year: String, month: String, completion: @escaping (ResultDdata<[Objects]>) -> ()) {
         let parameters: Parameters = [
             "uid": uid,
             "year": year,
