@@ -50,6 +50,8 @@ class NewPostViewController: UIViewController {
         data.contents = self.textView?.text
         data.image = self.dailyImageView?.image
         data.isOpenAnother = self.isOpen.isOn
+        
+        self.dismiss(animated: false, completion: nil )
     }
 
 

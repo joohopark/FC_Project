@@ -26,13 +26,14 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
             switch weatherData.weather[0].main {
             case "Clear":
                 weatherImgView.image = UIImage(named: "clear")
-            case "Clouds":
+            case "Clouds", "Mist":
                 weatherImgView.image = UIImage(named: "clouds")
             case "Rain":
                 weatherImgView.image = UIImage(named: "rain")
             default:
                 print(WrongWeatherInfo.invalidWeather)
             }
+            dump(weatherData)
                 print("weather Infomation Loading End==========")
         }
     }
@@ -47,6 +48,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         locationManager.startUpdatingLocation()
         //        locationManager.stopUpdatingLocation()
         //        downloadWeatherData()
+        
+
         
     }
     

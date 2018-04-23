@@ -14,7 +14,7 @@ import Firebase
 
 enum API {
 
-    static let baseURL = "http://192.168.1.46:3000/"
+    static let baseURL = "http://192.168.0.10:3000/"
 
     enum Auth {
 
@@ -30,11 +30,8 @@ enum API {
         static let friendList = API.baseURL + "friendList"
         //일기장 불러오기
         static let diaryList = API.baseURL + "diaryList"
-        
-        
-        
-        
-        
+        //친구 추가
+        static let friendAdd = API.baseURL + "friendAdd"
         
     }
 }
@@ -46,12 +43,39 @@ protocol AuthServiceType {
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ())
     func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ())
     //uid month year
-    func diaryList(uid:String, year: Int ,month:Int, completion: @escaping (ResultDdata<[diaryItem]>) -> ())
+    func diaryList(uid:String, year: Int ,month:Int, completion: @escaping (ResultDdata<[Objects]>) -> ())
+    
+    
+    func friendAdd(myuid:String, fruenduid:String, completion: @escaping (ResultDdata<String>) -> ())
 }
 
 
 struct AuthService: AuthServiceType {
-    func diaryList(uid: String, year: Int, month: Int, completion: @escaping (ResultDdata<[diaryItem]>) -> ()) {
+    func friendAdd(myuid: String, fruenduid: String, completion: @escaping (ResultDdata<String>) -> ()) {
+        
+        let parameters: Parameters = [
+            "myuid": myuid,
+            "fruenduid": fruenduid
+        ]
+        
+        Alamofire.request(API.Post.friendAdd, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseString { (response) in
+            
+            switch response.result {
+                case .success(let value) :
+                    print(value)
+                    completion(.success(value))
+                case .failure(let error) :
+                    completion(.error(error))
+            }
+        }
+        
+        
+    }
+    
+    
+   
+    
+    func diaryList(uid: String, year: Int, month: Int, completion: @escaping (ResultDdata<[Objects]>) -> ()) {
         let parameters: Parameters = [
             "uid": uid,
             "year": year,
@@ -64,10 +88,13 @@ struct AuthService: AuthServiceType {
             case .success(let value):
                 do {
                     let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
-                    let item = try! decoder.decode([diaryItem].self, from: value)
+                    decoder.dateDecodingStrategy = .formatted(DateFormatter.yyyyMMdd)
+                    let rssFeed = try! decoder.decode([diaryItem].self, from: value)
                     
-                    completion(.success(item))
+                    let array = converting(array: rssFeed)
+                    
+                    completion(.success(array))
+                    
                 } catch {
                     completion(.error(error))
                 }
