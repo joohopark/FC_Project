@@ -49,6 +49,11 @@ class SettingViewController: UIViewController {
         registNotification()
     }
     
+    override func loadViewIfNeeded() {
+        super.loadViewIfNeeded()
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         unregistNotification()
@@ -63,10 +68,10 @@ class SettingViewController: UIViewController {
         self.ScrollView.contentInset = contentInsets;
         self.ScrollView.scrollIndicatorInsets = contentInsets;
         let aRect: CGRect = self.view.frame;
-        if (aRect.contains((TempEditField?.frame.origin)!)) {
+        if (aRect.contains((firendEditUid?.frame.origin)!)) {
             self.ScrollView.contentSize = CGSize(width: self.ScrollView.frame.width, height:  self.ScrollView.frame.height + keyBoardFrame.height)
             
-            self.ScrollView.scrollRectToVisible((self.TempEditField?.frame)!, animated: true)
+            self.ScrollView.scrollRectToVisible((self.firendEditUid?.frame)!, animated: true)
         }
         
         let keyBoardFrameAnimation  = notiInfo[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval

@@ -574,11 +574,8 @@
 				9B49DC21208E33A1009F0675 /* SettingViewController.swift in Sources */,
 				9387B33A2088A43100009E2C /* MonthCell.swift in Sources */,
 				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
-<<<<<<< HEAD
 				9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */,
-=======
-				9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */,
->>>>>>> l-feature
+				//9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */,
 				93498602208DFB3100415878 /* diarySections Cell.swift in Sources */,
 				9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */,
 				9B609EFE2083C7080029DCB9 /* sss.swift in Sources */,
@@ -587,11 +584,8 @@
 				9B609F0820844AFF0029DCB9 /* ListingDiaryViewController.swift in Sources */,
 				9B609F002083D35E0029DCB9 /* alart.swift in Sources */,
 				9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */,
-<<<<<<< HEAD
-=======
 				9B49DC25208E3AF3009F0675 /* LoadingViewController.swift in Sources */,
-				9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */,
->>>>>>> l-feature
+				//9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */,
 				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
 				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				55DB33A1208D7BB900B96B97 /* DiaryData.swift in Sources */,
