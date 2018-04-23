@@ -90,7 +90,9 @@ class ViewController: UIViewController {
     
         self.appendViewControllerList()
         // contentsView에 ListingViewController를 보여준다 -> 시작 화면
-        let commonView = viewControllers[0]
+        let commonView = viewControllers[0] as! ListingDiaryViewController
+        commonView.date = (year,month)
+        
         addChildViewController(commonView)// 현재 화면의 VC에 해당 VC를 자식으로 추가
         commonView.view.frame = contentsView.bounds// 자식 VC view 크기 지정
         contentsView.addSubview(commonView.view)// 현 화면 VC의 ContentsView에 addsubView
@@ -213,9 +215,16 @@ extension ViewController: SendDataDelegate{
         switch isSelectBtn {
         case true:// month
             monthButton.titleLabel?.text = data
+            month = data
         case false:// year
             yearButton.titleLabel?.text = data
+            year = data
         }
+        
+        
+         let prevVC = viewControllers[0] as! ListingDiaryViewController
+        
+        prevVC.date = (year,month)
         print("tetetetetetet==============================")
         
         let commonView = viewControllers[0]

@@ -10,6 +10,52 @@ import UIKit
 
 class ListingDiaryViewController: UIViewController {
     var array: [Objects] = []
+    
+
+    var date:(String,String) = ("",""){
+        didSet{
+            self.dataloading(year: self.date.0, month: monthConverting(pibot: self.date.1))
+        }
+    }
+    
+    
+    func monthConverting(pibot:String) -> String {
+        
+        var bot = ""
+        switch pibot {
+        case "JAN":
+            bot = "1"
+        case "FEB":
+            bot = "2"
+        case "MAR":
+            bot = "3"
+        case "APR":
+            bot = "4"
+        case "MAY":
+            bot = "5"
+        case "JUN":
+            bot = "6"
+        case "JUL":
+            bot = "7"
+        case "AUG":
+            bot = "8"
+        case "SEP":
+            bot = "9"
+        case "OCT":
+            bot = "10"
+        case "NOV":
+            bot = "11"
+        case "DEC":
+            bot = "12"
+        default:
+            bot = pibot
+        }
+        return bot
+    }
+    
+    
+    
+    
     @IBOutlet weak var mytableview: UITableView!
     
     override func viewDidLoad() {
@@ -19,7 +65,12 @@ class ListingDiaryViewController: UIViewController {
         mytableview.register(UINib(nibName: "diaryCell", bundle: nil), forCellReuseIdentifier: "diaryCell")
         mytableview.register(UINib(nibName: "diarySectionsCell", bundle: nil), forCellReuseIdentifier: "diarySectionsCell")
         print(Usertoken)
-        AuthService.init().diaryList(uid: Usertoken!, year: 2018, month: 04) { (result) in
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func dataloading(year:String, month:String){
+        AuthService.init().diaryList(uid: Usertoken!, year: year, month: month) { (result) in
             switch result {
                 
             case .success(let value):
@@ -29,7 +80,6 @@ class ListingDiaryViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        // Do any additional setup after loading the view.
     }
 }
 
