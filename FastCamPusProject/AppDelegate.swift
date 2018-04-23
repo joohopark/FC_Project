@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var alert: customAlert?
     var window: UIWindow?
+    
+    var diaryList = [DiaryData]()   // Diary Data 저장 변수
 
 
     //구글 로그인 관련
