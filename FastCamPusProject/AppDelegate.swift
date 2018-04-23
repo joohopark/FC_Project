@@ -11,6 +11,12 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
+
+
+
+
+var Usertoken:String?
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
@@ -102,12 +108,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FBSDKLoginManager.init().logOut()
         try! Auth.auth().signOut()
         
-        let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var mainVc = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        
+        
+        let sss = LoadingViewController(nibName: "LoadingViewController", bundle: nil)
         
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = mainVc
+        self.window?.rootViewController = sss
         self.window?.makeKeyAndVisible()
         
     
@@ -115,12 +122,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if  user == nil {
+                
                 let storboard:UIStoryboard = UIStoryboard(name: "Lee", bundle: nil)
                 let next = storboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                 let navi = UINavigationController(rootViewController: next)
                 self.window?.rootViewController = navi
                 self.window?.makeKeyAndVisible()
             } else {
+                Usertoken = user?.uid
                 let storboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 var mainVc = storboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
                 let navi = UINavigationController(rootViewController: mainVc)

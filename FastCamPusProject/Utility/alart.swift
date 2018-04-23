@@ -13,6 +13,21 @@ import UIKit
 struct customAlert {
     var view: UIViewController?
     
+    
+    func show(_ title:String, message:String){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "확인", style: .default){
+            
+            (action : UIAlertAction) -> Void in
+            self.view?.dismiss(animated: true)
+        }
+        
+        alert.addAction(cancelAction)
+        self.view?.present(alert, animated: true, completion: nil)
+    }
+    
     func show(erorr: Error){
         
         var message = ""

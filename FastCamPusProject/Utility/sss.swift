@@ -53,15 +53,44 @@ struct Userinfo: Decodable {
     }
 }
 
+
 extension DateFormatter {
-    static let iso8601Full: DateFormatter = {
+    static let yyyyMMdd: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.locale = Locale(identifier: "ko_kr")
         return formatter
     }()
+}
+
+struct Objects {
+    
+    var sectionName : Date!
+    var sectionObjects : [diaryItem]!
+}
+
+
+func converting(array:[diaryItem]) -> [Objects] {
+    var objarray: [Objects] = []
+    
+    for value in array
+    {
+        let valuye = objarray.filter{ $0.sectionName  == value.date }
+        
+        if (valuye.isEmpty){
+            objarray.append(Objects(sectionName: value.date, sectionObjects: [value]))
+        }else{
+            for v2 in 0..<objarray.count {
+                if objarray[v2].sectionName == value.date {
+                    objarray[v2].sectionObjects.append(value)
+                }
+            }
+        }
+    }
+    
+    return objarray
 }
 
 

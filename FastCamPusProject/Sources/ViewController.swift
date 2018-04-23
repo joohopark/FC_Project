@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var monthButton: UIButton!{
         didSet{
-            print("============ [  ssss ] ============")
+            
             print("monthButton Text : \(String(describing: monthButton.titleLabel?.text))")
         }
     }
@@ -71,52 +71,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         dump(contentsView.backgroundColor)
         print("============ [ ViewController ] ============")
-//        contentsView.
-        
+
         
         let user = Auth.auth().currentUser
 
-        if user != nil {
-            print("User is signed in.")
-//            print(user?.displayName! ?? "")
-            print(user?.uid)
-//            userTmp = user
-            AuthService.init().Login(uid: (user?.uid)!) { (result) in
-                print("============ [ load User data ] ============")
-                switch(result){
-                case .success(let value):
-                    print(value)
-                case .error(let error):
-                    print(error.localizedDescription)
-                case .loginerror(_):
-                    break
-                }
-            }
-            print("=============================== [친구 정보 가져오기] ===============================")
-            AuthService.init().AuthFriendList(uid: (user?.uid)!) { (result) in
-                switch result {
-                case .success(let vale):
 
-                    dump(vale)
-                case .error(let error):
-
-                    print(error.localizedDescription)
-                }
-            }
-            print("=============================== [ 작성글 가저오기 ] ===============================")
-            AuthService.init().diaryList(uid: (user?.uid)!, year: 2018, month: 04) { (respone) in
-                switch respone {
-
-                case .success(let value):
-                    dump(value)
-                case .error(let error):
-                    print(error.localizedDescription)
-                }
-            }
-
-        } else {
-            print("No user is signed in.")
-        }
 
         
         // 버튼 텍스트를 변경하고 ListingViewController에 넣을 포스트들을 get함.

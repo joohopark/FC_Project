@@ -51,6 +51,7 @@ class NewPostViewController: UIViewController {
         data.image = self.dailyImageView?.image
         data.isOpenAnother = self.isOpen.isOn
         
+
         
     }
 

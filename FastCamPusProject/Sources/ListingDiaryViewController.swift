@@ -9,44 +9,6 @@
 import UIKit
 
 
-extension DateFormatter {
-    static let yyyyMMdd: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "ko_kr")
-        return formatter
-    }()
-}
-
-struct Objects {
-    
-    var sectionName : Date!
-    var sectionObjects : [diaryItem]!
-}
-
-
-func converting(array:[diaryItem]) -> [Objects] {
-    var objarray: [Objects] = []
-    
-    for value in array
-    {
-        let valuye = objarray.filter{ $0.sectionName  == value.date }
-        
-        if (valuye.isEmpty){
-            objarray.append(Objects(sectionName: value.date, sectionObjects: [value]))
-        }else{
-            for v2 in 0..<objarray.count {
-                if objarray[v2].sectionName == value.date {
-                    objarray[v2].sectionObjects.append(value)
-                }
-            }
-        }
-    }
-    
-    return objarray
-}
 
 
 
@@ -61,42 +23,17 @@ class ListingDiaryViewController: UIViewController {
         
         mytableview.register(UINib(nibName: "diaryCell", bundle: nil), forCellReuseIdentifier: "diaryCell")
         mytableview.register(UINib(nibName: "diarySectionsCell", bundle: nil), forCellReuseIdentifier: "diarySectionsCell")
-        
-        
-        
-        let jsonString = """
-        [
-            {
-                "Userindex":206,
-                "UserEmail":"tkdrb4807@gmail.com",
-                "Name":"이주형",
-                "Login_uid":"e2Fbl6GkxwPFPtUaPEYcVna9jJF3",
-                "No":3,
-                "authority":1,
-                "Contents":"내용이당33",
-                "date":"2018-04-15"
-
-            },
-        {"Userindex":218,"UserEmail":"hyeng@naver.com","Name":"gg","Login_uid":"JdTVD2bKSkesx5bPqrc2avmXl6c2","No":6,"authority":2,"Contents":"내용33","date":"2018-04-15"},
-        {"Userindex":206,"UserEmail":"tkdrb4807@gmail.com","Name":"이주형","Login_uid":"e2Fbl6GkxwPFPtUaPEYcVna9jJF3","No":2,"authority":1,"Contents":"내용이당22","date":"2018-04-14"},
-        {"Userindex":218,"UserEmail":"hyeng@naver.com","Name":"gg","Login_uid":"JdTVD2bKSkesx5bPqrc2avmXl6c2","No":5,"authority":2,"Contents":"내용22","date":"2018-04-14"},
-        {"Userindex":206,"UserEmail":"tkdrb4807@gmail.com","Name":"이주형","Login_uid":"e2Fbl6GkxwPFPtUaPEYcVna9jJF3","No":1,"authority":1,"Contents":"내용이당11","date":"2018-04-13"},
-        {"Userindex":218,"UserEmail":"hyeng@naver.com","Name":"gg","Login_uid":"JdTVD2bKSkesx5bPqrc2avmXl6c2","No":4,"authority":2,"Contents":"내용11","date":"2018-04-13"}]
-        """
-        
-        let jsonData = jsonString.data(using: .utf8)!
-        
-        do {
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .formatted(DateFormatter.yyyyMMdd)
-            let rssFeed = try! decoder.decode([diaryItem].self, from: jsonData)
-            
-            self.array = converting(array: rssFeed)
-            self.mytableview.reloadData()
-        } catch {
-            print(error.localizedDescription)
+        print(Usertoken)
+        AuthService.init().diaryList(uid: Usertoken!, year: 2018, month: 04) { (result) in
+            switch result {
+                
+            case .success(let value):
+                self.array = value
+                self.mytableview.reloadData()
+            case .error(let error):
+                print(error.localizedDescription)
+            }
         }
-    
         // Do any additional setup after loading the view.
     }
 }

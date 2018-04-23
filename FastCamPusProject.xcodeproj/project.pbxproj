@@ -33,13 +33,15 @@
 		9B091CE2207CFEA000DD93AA /* icons8-facebook-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */; };
 		9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B091CE5207D011E00DD93AA /* icons8-google-96.png */; };
 		9B1939F12081008500A1A245 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1939F02081008500A1A245 /* server.swift */; };
+		9B49DC21208E33A1009F0675 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0620844AFF0029DCB9 /* SettingViewController.swift */; };
+		9B49DC25208E3AF3009F0675 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B49DC23208E3AF3009F0675 /* LoadingViewController.swift */; };
+		9B49DC26208E3AF3009F0675 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B49DC24208E3AF3009F0675 /* LoadingViewController.xib */; };
 		9B609EFE2083C7080029DCB9 /* sss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609EFD2083C7080029DCB9 /* sss.swift */; };
 		9B609F002083D35E0029DCB9 /* alart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609EFF2083D35E0029DCB9 /* alart.swift */; };
 		9B609F0220844AE60029DCB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B609F0120844AE60029DCB9 /* Main.storyboard */; };
 		9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0320844AFE0029DCB9 /* NewPostViewController.swift */; };
 		9B609F0820844AFF0029DCB9 /* ListingDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0420844AFF0029DCB9 /* ListingDiaryViewController.swift */; };
 		9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0520844AFF0029DCB9 /* ViewController.swift */; };
-		9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0620844AFF0029DCB9 /* SettingViewController.swift */; };
 		9B609F0E20844B930029DCB9 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0D20844B930029DCB9 /* PhotoCell.swift */; };
 		9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B7A19207A386100A62B87 /* AppDelegate.swift */; };
 		9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B7A1B207A386100A62B87 /* LoginViewController.swift */; };
@@ -106,6 +108,8 @@
 		9B091CE1207CFEA000DD93AA /* icons8-facebook-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-facebook-48.png"; sourceTree = "<group>"; };
 		9B091CE5207D011E00DD93AA /* icons8-google-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-google-96.png"; sourceTree = "<group>"; };
 		9B1939F02081008500A1A245 /* server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = server.swift; sourceTree = "<group>"; };
+		9B49DC23208E3AF3009F0675 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		9B49DC24208E3AF3009F0675 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		9B609EFD2083C7080029DCB9 /* sss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sss.swift; sourceTree = "<group>"; };
 		9B609EFF2083D35E0029DCB9 /* alart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alart.swift; sourceTree = "<group>"; };
 		9B609F0120844AE60029DCB9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		9B091CDA207CF9A300DD93AA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B49DC24208E3AF3009F0675 /* LoadingViewController.xib */,
 				9B6B7A22207A386200A62B87 /* LaunchScreen.storyboard */,
 				9B609F0120844AE60029DCB9 /* Main.storyboard */,
 				9B6B7A1D207A386100A62B87 /* Lee.storyboard */,
@@ -216,6 +221,7 @@
 				9B609F0620844AFF0029DCB9 /* SettingViewController.swift */,
 				9B609F0520844AFF0029DCB9 /* ViewController.swift */,
 				9BFFF79C207E7C3500D463D5 /* createUserViewController.swift */,
+				9B49DC23208E3AF3009F0675 /* LoadingViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				93498603208DFB3100415878 /* key.png in Resources */,
 				9B6B7A24207A386200A62B87 /* LaunchScreen.storyboard in Resources */,
 				9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */,
+				9B49DC26208E3AF3009F0675 /* LoadingViewController.xib in Resources */,
 				9BB8CA07207A4C05001283E7 /* GoogleService-Info.plist in Resources */,
 				934985FD208DFB1B00415878 /* diarySectionsCell.xib in Resources */,
 				9BFFF799207E6CC200D463D5 /* Defaultsimage.jpeg in Resources */,
@@ -564,9 +571,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				93498604208DFB3100415878 /* diaryCell.swift in Sources */,
+				9B49DC21208E33A1009F0675 /* SettingViewController.swift in Sources */,
 				9387B33A2088A43100009E2C /* MonthCell.swift in Sources */,
 				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
+<<<<<<< HEAD
 				9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */,
+=======
+				9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */,
+>>>>>>> l-feature
 				93498602208DFB3100415878 /* diarySections Cell.swift in Sources */,
 				9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */,
 				9B609EFE2083C7080029DCB9 /* sss.swift in Sources */,
@@ -575,6 +587,11 @@
 				9B609F0820844AFF0029DCB9 /* ListingDiaryViewController.swift in Sources */,
 				9B609F002083D35E0029DCB9 /* alart.swift in Sources */,
 				9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */,
+<<<<<<< HEAD
+=======
+				9B49DC25208E3AF3009F0675 /* LoadingViewController.swift in Sources */,
+				9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */,
+>>>>>>> l-feature
 				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
 				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				55DB33A1208D7BB900B96B97 /* DiaryData.swift in Sources */,
