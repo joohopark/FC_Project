@@ -8,7 +8,7 @@
 
 import UIKit
 
-class diarySectionsCell: UITableViewCell {
+class diarySections_Cell: UITableViewCell {
 
     @IBOutlet weak var createdDay: UILabel!
     override func awakeFromNib() {

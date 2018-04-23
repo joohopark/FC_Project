@@ -8,11 +8,6 @@
 
 import UIKit
 
-
-
-
-
-
 class ListingDiaryViewController: UIViewController {
     var array: [Objects] = []
     @IBOutlet weak var mytableview: UITableView!
