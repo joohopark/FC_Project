@@ -57,11 +57,11 @@ extension SettingViewController{
                 SettingViewController.hour += 1
             }
         case 1:// 1 : 분 10분 증가
-            if SettingViewController.min == 50{
+            if SettingViewController.min == 55{
                 SettingViewController.min = 0
                 SettingViewController.hour += 1
             }
-            SettingViewController.min += 5
+            SettingViewController.min += 1
         case 2:// 2 : 분 10분 감소
             if SettingViewController.min != 0{
                 SettingViewController.min -= 5

@@ -163,27 +163,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //        dateFormatter.locale = NSLocale(localeIdentifier: "ko_KR") as Locale?
         
-        let currentTimeTransSeconds = (components.hour!-9)*60*60 + components.minute!*60 + components.second!
-        dump("현재 시간 : \(date)")
-        dump(currentTimeTransSeconds)
+        let currentTimeTransSeconds = (components.hour!+15)*3600 + components.minute!*60 + components.second!
         
+        dump("현재 시간 : \(date)")
+        dump("현재 시각 시 : \(components.hour!*3600)")
+        print(components.hour!, components.hour!*3600)
+        dump("현재 시각 분 : \(components.minute!*60)")
+        dump("현재 시각 초 : \(components.second!)")
+        dump("현재 시각 : \(currentTimeTransSeconds)")
+
+//        dump("알람 시간 : \(aramTime)")
+        print(SettingViewController.hour, SettingViewController.min)
+        dump("알람 시간 시 : \(SettingViewController.hour*3600)")
+        dump("알람 시간 분 : \(SettingViewController.min*60)")
+        let alarmTime = (SettingViewController.hour) * 3600 + SettingViewController.min * 60
+        dump("알람 설정 시간 : \(alarmTime)")
         
         // 총시간 - 현재시간 + 설정시간
         // 음수 값이면 하루 이후로 되야 하고
         // 양수 값이면 앞으로 몇 분후가 되는거임.
-        let alertTime: NSDate = NSDate()
-//        if currentTimeTransSeconds  < aramTime{
-//            alertTime.addingTimeInterval(TimeInterval((86400-currentTimeTransSeconds)+aramTime-54000))
-//            print(currentTimeTransSeconds, aramTime,"- 값이 나옴니다 \(TimeInterval((86400-currentTimeTransSeconds)+aramTime))")
-//        }else{
-//            alertTime.addingTimeInterval(TimeInterval(currentTimeTransSeconds-aramTime))
-//            print(TimeInterval(currentTimeTransSeconds-aramTime))
-//        }
-        
-        alertTime.addingTimeInterval(5)
-//        dump("설정 시간 : \(aramTime)")
-//        dump(TimeInterval((86400-currentTimeTransSeconds)))
-//        dump(TimeInterval((86400-currentTimeTransSeconds)+aramTime))
+        var alertTime: NSDate = NSDate()
+        if currentTimeTransSeconds  > aramTime{// 현재시각 보다 알람시간이 작을때 -> 다음날 울림
+            alertTime = NSDate().addingTimeInterval(TimeInterval((86400-currentTimeTransSeconds)+aramTime))
+            print(currentTimeTransSeconds, aramTime,"- 값이 나옴니다 \(TimeInterval((86400-currentTimeTransSeconds)+aramTime))")
+        }else{// 알람시각이 현재시각보다 클때 -> 두 시각의 차 이후에 울림.
+            alertTime = NSDate().addingTimeInterval(TimeInterval(aramTime - currentTimeTransSeconds))
+            print(TimeInterval(aramTime-currentTimeTransSeconds))
+        }
+//        alertTime = NSDate().addingTimeInterval(TimeInterval(alarmTime - currentTimeTransSeconds))
+        dump(alarmTime-currentTimeTransSeconds)
+
         dump("알람 시간 : \(alertTime)")
         
         let notifyAlarm = UILocalNotification()
