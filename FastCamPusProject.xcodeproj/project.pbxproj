@@ -344,7 +344,6 @@
 				93A9DC73208861B000C0CE0A /* Sources */,
 				93A9DC74208861B000C0CE0A /* Frameworks */,
 				93A9DC75208861B000C0CE0A /* Resources */,
-				97F219790AEB29B244A1A16A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,21 +500,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FastCamPusProject/Pods-FastCamPusProject-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97F219790AEB29B244A1A16A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A6D64E78FD4A3673960CE3D0 /* [CP] Check Pods Manifest.lock */ = {
@@ -796,7 +780,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -819,7 +803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
