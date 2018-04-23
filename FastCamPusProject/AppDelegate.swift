@@ -166,6 +166,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //        dateFormatter.locale = NSLocale(localeIdentifier: "ko_KR") as Locale?
         
         let currentTimeTransSeconds = (components.hour!+15)*3600 + components.minute!*60 + components.second!
+        // 덤프로 확인해보면 해당 시간은 정상적으로 나오지만...( 지금 보니 Date와 component의 차이인거 같다..)
+        // compoenet의 시간과 현재 실제 시각과의 차이는 +15시간 차이난다
         
         dump("현재 시간 : \(date)")
         dump("현재 시각 시 : \(components.hour!*3600)")

@@ -40,6 +40,9 @@ class NewPostViewController: UIViewController {
         
     }
     
+    /// saveDiary
+    ///
+    /// - Parameter sender: ???
     func saveDiary(_ sender: Any) {
         // DiaryData 객체를 생성하고, 데이터를 담음.
         let data = DiaryData()
@@ -94,7 +97,7 @@ extension NewPostViewController {
     }
     
     /// Done Button Touch시 키보드 내려감.
-    ///
+    /// Done 버튼 누르면 자동으로 값을 diary 인스턴스에 저장한다.
     /// - Parameter sender: Done buttyon touch
     @objc private func doneButtonTuched(_ sender: Any) {
         view.endEditing(true)

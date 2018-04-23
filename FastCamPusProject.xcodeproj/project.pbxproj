@@ -13,6 +13,13 @@
 		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
 		933CAA742088E63900A3D9F1 /* MonthCellXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */; };
 		933CAA762089144500A3D9F1 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933CAA752089144500A3D9F1 /* ServerManager.swift */; };
+		934985FC208DFB1B00415878 /* diaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FA208DFB1B00415878 /* diaryCell.xib */; };
+		934985FD208DFB1B00415878 /* diarySectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FB208DFB1B00415878 /* diarySectionsCell.xib */; };
+		93498602208DFB3100415878 /* diarySections Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934985FE208DFB3000415878 /* diarySections Cell.swift */; };
+		93498603208DFB3100415878 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 934985FF208DFB3000415878 /* key.png */; };
+		93498604208DFB3100415878 /* diaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93498600208DFB3000415878 /* diaryCell.swift */; };
+		93498605208DFB3100415878 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93498601208DFB3100415878 /* TableViewCell.xib */; };
+		93498607208DFB4900415878 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93498606208DFB4900415878 /* TableViewCell.swift */; };
 		9387B33A2088A43100009E2C /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387B3392088A43100009E2C /* MonthCell.swift */; };
 		9387B33C2088A61B00009E2C /* MonthCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387B33B2088A61B00009E2C /* MonthCollectionViewController.swift */; };
 		93A9DC79208861B000C0CE0A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9DC78208861B000C0CE0A /* NotificationCenter.framework */; };
@@ -79,6 +86,13 @@
 		55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
 		933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthCellXIB.xib; sourceTree = "<group>"; };
 		933CAA752089144500A3D9F1 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		934985FA208DFB1B00415878 /* diaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diaryCell.xib; sourceTree = "<group>"; };
+		934985FB208DFB1B00415878 /* diarySectionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diarySectionsCell.xib; sourceTree = "<group>"; };
+		934985FE208DFB3000415878 /* diarySections Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "diarySections Cell.swift"; sourceTree = "<group>"; };
+		934985FF208DFB3000415878 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
+		93498600208DFB3000415878 /* diaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diaryCell.swift; sourceTree = "<group>"; };
+		93498601208DFB3100415878 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		93498606208DFB4900415878 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9387B3392088A43100009E2C /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
 		9387B33B2088A61B00009E2C /* MonthCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewController.swift; sourceTree = "<group>"; };
 		93A9DC77208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtensionInFastCampusProject.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +255,13 @@
 			isa = PBXGroup;
 			children = (
 				9B609F1120844BB50029DCB9 /* PostingCell.swift */,
+				934985FA208DFB1B00415878 /* diaryCell.xib */,
+				93498600208DFB3000415878 /* diaryCell.swift */,
+				934985FE208DFB3000415878 /* diarySections Cell.swift */,
+				93498606208DFB4900415878 /* TableViewCell.swift */,
+				934985FF208DFB3000415878 /* key.png */,
+				93498601208DFB3100415878 /* TableViewCell.xib */,
+				934985FB208DFB1B00415878 /* diarySectionsCell.xib */,
 				9B609F1020844BB40029DCB9 /* NonPostingCell.swift */,
 			);
 			path = TableViewCell;
@@ -401,12 +422,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93498603208DFB3100415878 /* key.png in Resources */,
 				9B6B7A24207A386200A62B87 /* LaunchScreen.storyboard in Resources */,
 				9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */,
 				9BB8CA07207A4C05001283E7 /* GoogleService-Info.plist in Resources */,
+				934985FD208DFB1B00415878 /* diarySectionsCell.xib in Resources */,
 				9BFFF799207E6CC200D463D5 /* Defaultsimage.jpeg in Resources */,
 				9B091CE2207CFEA000DD93AA /* icons8-facebook-48.png in Resources */,
+				934985FC208DFB1B00415878 /* diaryCell.xib in Resources */,
 				9BFFF79B207E72A500D463D5 /* diary.png in Resources */,
+				93498605208DFB3100415878 /* TableViewCell.xib in Resources */,
 				933CAA742088E63900A3D9F1 /* MonthCellXIB.xib in Resources */,
 				9B609F0220844AE60029DCB9 /* Main.storyboard in Resources */,
 				9B6B7A21207A386200A62B87 /* Assets.xcassets in Resources */,
@@ -536,10 +561,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93498604208DFB3100415878 /* diaryCell.swift in Sources */,
 				9387B33A2088A43100009E2C /* MonthCell.swift in Sources */,
 				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
 				9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */,
 				9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */,
+				93498602208DFB3100415878 /* diarySections Cell.swift in Sources */,
 				9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */,
 				9B609EFE2083C7080029DCB9 /* sss.swift in Sources */,
 				9B609F0E20844B930029DCB9 /* PhotoCell.swift in Sources */,
@@ -551,6 +578,7 @@
 				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
 				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				55DB33A1208D7BB900B96B97 /* DiaryData.swift in Sources */,
+				93498607208DFB4900415878 /* TableViewCell.swift in Sources */,
 				9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */,
 				9BFFF7A0207E810E00D463D5 /* NavigationBar.swift in Sources */,
 				933CAA762089144500A3D9F1 /* ServerManager.swift in Sources */,
@@ -604,7 +632,11 @@
 				DEVELOPMENT_TEAM = V4LDP442XN;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject.TodayExtensionInFastCampusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -621,7 +653,11 @@
 				DEVELOPMENT_TEAM = V4LDP442XN;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject.TodayExtensionInFastCampusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -755,7 +791,10 @@
 				DEVELOPMENT_TEAM = V4LDP442XN;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -775,7 +814,10 @@
 				DEVELOPMENT_TEAM = V4LDP442XN;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

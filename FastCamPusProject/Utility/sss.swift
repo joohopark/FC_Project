@@ -67,6 +67,15 @@ extension DateFormatter {
 
 
 struct diaryItem: Decodable {
+//    var Userindex: Int
+//    var UserEmail:String?
+//    var Name: String
+//    var Login_uid: String
+//    var No: Int
+//    var authority: Int
+//    var Contents: String
+//    var Date_created: Date
+
     var Userindex: Int
     var UserEmail:String?
     var Name: String
@@ -74,10 +83,16 @@ struct diaryItem: Decodable {
     var No: Int
     var authority: Int
     var Contents: String
-    var Date_created: Date
-    
+    var date: Date
 }
 
-
+//    var Userindex: Int
+//    var UserEmail:String?
+//    var Name: String
+//    var Login_uid: String
+//    var No: Int
+//    var authority: Int
+//    var Contents: String
+//    var date: Date
 
 
