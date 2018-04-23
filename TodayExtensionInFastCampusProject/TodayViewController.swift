@@ -51,12 +51,16 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         
 
         
+//        (self, selector: "dataReceived:", name: NSNotification.Name(rawValue: "SpecialKey"), object: nil)
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.

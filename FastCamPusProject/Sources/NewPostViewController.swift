@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SnapKit
+import Alamofire
 
 class NewPostViewController: UIViewController {
 
@@ -20,14 +20,20 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var isOpen: UISwitch!
     
     var hasImage: Bool = false
-    
-    
+    var diaryItem: diaryItem!
+    var isModifyMode: Bool = false
 
 //    var isPhotoListEmpty: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        if let post = diaryItem{
+            textView.text = post.Contents
+            
+            
+        }
+        
         // 현재 날짜 표시
         dateLabel.text = getCurrentDate()
         //dateLabel.font = UIFont.fontNames(forFamilyName: "BiauKai")
@@ -52,13 +58,9 @@ class NewPostViewController: UIViewController {
         data.isOpenAnother = self.isOpen.isOn
         
 
-        
     }
 
-    func movePostingViewController(){
-        
-        
-    }
+
 
     @IBAction func checkIsOpen(_ sender: UISwitch) {
         if isOpen.isOn == true {
@@ -109,6 +111,10 @@ extension NewPostViewController {
     @objc private func doneButtonTuched(_ sender: Any) {
         view.endEditing(true)
         saveDiary(())
+        if isModifyMode == true {
+            self.view.removeFromSuperview()// 리스폰더 체인에서 제거
+            self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
+        }
     }
     
     ///  현재 시간을 TextView에 첨부시키는 Method

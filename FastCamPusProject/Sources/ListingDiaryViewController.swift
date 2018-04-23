@@ -87,6 +87,17 @@ class ListingDiaryViewController: UIViewController {
 //MARK:- TableView Setting
 extension ListingDiaryViewController: UITableViewDelegate, UITableViewDataSource{
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let modiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPostViewController") as! NewPostViewController
+        modiVC.diaryItem = array[indexPath.section].sectionObjects[indexPath.row]
+        modiVC.isModifyMode = true
+//        self.present(modiVC, animated: true, completion: nil)
+        addChildViewController(modiVC)// 현재 화면의 VC에 해당 VC를 자식으로 추가
+        modiVC.view.frame = self.view.bounds// 자식 VC view 크기 지정
+        self.view.addSubview(modiVC.view)// 현 화면 VC의 ContentsView에 addsubView
+        modiVC.didMove(toParentViewController: self)//포함되는 VC가 변경되었을때 reload 해줌.
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.array.count
     }
