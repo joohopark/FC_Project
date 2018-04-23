@@ -13,15 +13,29 @@ import Firebase
 
 
 enum API {
-    static let baseURL = "http://192.168.0.21:3000/"
-    
+
+    static let baseURL = "http://192.168.1.46:3000/"
+
     enum Auth {
 
     }
     enum Post {
+        //API로 회원가입
         static let signInAPI = API.baseURL + "UserCreate/API"
+        //APP로 회원가입
         static let signInAPP = API.baseURL + "UserCreate/APP"
+        //Login시 사용자 정보 불러오기
         static let start = API.baseURL + "start"
+        //Login시 친구 리스트 불러오기
+        static let friendList = API.baseURL + "friendList"
+        //일기장 불러오기
+        static let diaryList = API.baseURL + "diaryList"
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -30,10 +44,67 @@ protocol AuthServiceType {
     func signInAPI(email: String, photoURL: String, displayName: String, uid: String, completion: @escaping (Result<String>) -> ())
 //    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ())
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ())
+    func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ())
+    //uid month year
+    func diaryList(uid:String, year: Int ,month:Int, completion: @escaping (ResultDdata<[diaryItem]>) -> ())
 }
 
 
 struct AuthService: AuthServiceType {
+    func diaryList(uid: String, year: Int, month: Int, completion: @escaping (ResultDdata<[diaryItem]>) -> ()) {
+        let parameters: Parameters = [
+            "uid": uid,
+            "year": year,
+            "month": month
+            ]
+      
+        
+        Alamofire.request(API.Post.diaryList, method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseData { (response) in
+            switch response.result{
+            case .success(let value):
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                    let item = try! decoder.decode([diaryItem].self, from: value)
+                    
+                    completion(.success(item))
+                } catch {
+                    completion(.error(error))
+                }
+            case .failure(let error):
+                completion(.error(error))
+            }
+        }
+
+    }
+    
+  
+    
+    func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ()) {
+        
+        let parameters = [
+            "uid": uid
+        ]
+        let alamofire:DataRequest = Alamofire.request(API.Post.friendList, method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
+        alamofire.responseData { (response) in
+            
+            switch response.result {
+            case .success(let value):
+                do {
+                    let friendList = try JSONDecoder().decode([Userinfo].self, from: value)
+                    completion(.success(friendList))
+                } catch {
+                    completion(.error(error))
+                }
+                
+            case .failure(let error):
+                completion(.error(error))
+            }
+        }
+    }
+    
+   
+    
 //    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ()) {
 //        <#code#>
 //    }
