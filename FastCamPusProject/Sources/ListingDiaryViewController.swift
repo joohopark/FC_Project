@@ -55,9 +55,7 @@ class ListingDiaryViewController: UIViewController {
         default:
             bot = pibot
         }
-        
         return bot
-
     }
     
     

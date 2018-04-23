@@ -6,10 +6,12 @@
 //  Copyright © 2018년 이주형. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 import Alamofire
 import GoogleSignIn
 import Firebase
+
 
 
 enum API {
@@ -17,7 +19,7 @@ enum API {
     static let baseURL = "http://192.168.0.10:3000/"
 
     enum Auth {
-
+        static let diaryimage = API.baseURL + "diaryimage/"
     }
     enum Post {
         //API로 회원가입
@@ -32,6 +34,8 @@ enum API {
         static let diaryList = API.baseURL + "diaryList"
         //친구 추가
         static let friendAdd = API.baseURL + "friendAdd"
+        //작성글에 이미지 들고 오고
+        
         
     }
 }
@@ -45,13 +49,34 @@ protocol AuthServiceType {
     //uid month year
     func diaryList(uid:String, year: String ,month:String, completion: @escaping (ResultDdata<[Objects]>) -> ())
     
+    func diaryimage(No:Int, completion:@escaping (ResultDdata<UIImage?>) -> ())
     
     func friendAdd(myuid:String, fruenduid:String, completion: @escaping (ResultDdata<String>) -> ())
 }
 
 
 struct AuthService: AuthServiceType {
+    func diaryimage(No: Int, completion: @escaping (ResultDdata<UIImage?>) -> ()) {
+        Alamofire.request(API.Auth.diaryimage+"\(No).png").responseData { (response) in
+            switch response.result {
+                
+            case .success(let value):
+                    if let data = response.data {
+                       let image = UIImage(data: data)
+                        completion(.success(image))
+                    }
+            case .failure(let error):
+                completion(.error(error))
+            }
+        }
+            
+    }
+    
+    
+    
     func friendAdd(myuid: String, fruenduid: String, completion: @escaping (ResultDdata<String>) -> ()) {
+        
+        
         
         let parameters: Parameters = [
             "myuid": myuid,
