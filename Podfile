@@ -6,9 +6,9 @@ target 'FastCamPusProject' do
 
 
   # Pods for FastCamPusProject
-	pod 'Alamofire', '~> 4.7'
-	pod 'FBSDKLoginKit'	
-	
+	pod 'Alamofire', '~> 4.7.2'
+	pod 'FBSDKLoginKit'
+
 	pod 'SnapKit', '~> 4.0'
 
 	pod 'Firebase/Auth'
@@ -16,5 +16,5 @@ target 'FastCamPusProject' do
 	pod 'GoogleSignIn'
 end
 target 'TodayExtensionInFastCampusProject' do
-    pod 'Alamofire', '~> 4.7'
+    pod 'Alamofire', '~> 4.7.2'
 end

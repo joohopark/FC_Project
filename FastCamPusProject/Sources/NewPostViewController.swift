@@ -21,46 +21,8 @@ class NewPostViewController: UIViewController {
     
     var hasImage: Bool = false
     
-//    @IBOutlet weak var textViewTop: NSLayoutConstraint!
-//    @IBOutlet weak var heightZero: NSLayoutConstraint!
     
-//    {
-//        didSet {
-//            textView.translatesAutoresizingMaskIntoConstraints = false
-//            if hasImage == true {
-//
-//               textView.topAnchor.constraint(equalTo: dailyImageView!.bottomAnchor).isActive = true
-//            } else if hasImage == false {
-//               textView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor).isActive = true
-//            }
-//        }
-//
-//        willSet {
-//            textView.translatesAutoresizingMaskIntoConstraints = false
-//            if hasImage == true {
-//                textView.topAnchor.constraint(equalTo: dailyImageView!.bottomAnchor).isActive = true
-//            } else if hasImage == false{
-//                textView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor).isActive = true
-//            }
-//
-//        }
-//    }
-    
-    
-    
-    // 사진첩에서 사진이 추가되면 이쪽으로 추가 시켜야 될것 같아요 그럼 자동으로 CollectionView가 리로드
-//    var photoList: [UIImage] = []{
-//        didSet{
-//            if self.photoList.count > 0 {
-//                self.heightZero.priority = UILayoutPriority(rawValue: 500)
-//                self.heightZero.isActive = true
-//            }else{
-//                self.heightZero.priority = UILayoutPriority(rawValue: 999)
-//                self.heightZero.isActive = true
-//            }
-//        }
-//    }
-    
+
 //    var isPhotoListEmpty: Bool = false
     
     override func viewDidLoad() {
@@ -71,11 +33,11 @@ class NewPostViewController: UIViewController {
         //dateLabel.font = UIFont.fontNames(forFamilyName: "BiauKai")
         dateLabel.font = UIFont(name: "Papyrus", size: 22)
         dateLabel.textAlignment = .center
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         makeKeyboardToolBar()
+        
     }
     
     func saveDiary(_ sender: Any) {
