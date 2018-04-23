@@ -25,12 +25,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-CH-vw1">
-                                                <rect key="frame" x="0.0" y="25" width="75" height="30"/>
+                                                <rect key="frame" x="0.0" y="27" width="75" height="26.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Month">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="system" size="15"/>
+                                                                <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -40,12 +40,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfC-Ys-uu2">
-                                                <rect key="frame" x="75" y="25" width="75" height="30"/>
+                                                <rect key="frame" x="75" y="27" width="75" height="26.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Year">
                                                             <attributes>
-                                                                <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                                                <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -505,10 +505,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAn-In-HJf">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="&lt;"/>
+                                                <connections>
+                                                    <action selector="didPushChangeTimerButton:" destination="EeJ-3y-69Z" eventType="touchUpInside" id="yud-8w-N4l"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0V-iu-70O">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0V-iu-70O">
                                                 <rect key="frame" x="30" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="&lt;"/>
+                                                <connections>
+                                                    <action selector="didPushChangeTimerButton:" destination="EeJ-3y-69Z" eventType="touchUpInside" id="Hke-JV-aK1"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8G-ul-cOi">
                                                 <rect key="frame" x="60" y="0.0" width="46.5" height="30"/>
@@ -516,13 +522,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAZ-te-RAt">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAZ-te-RAt">
                                                 <rect key="frame" x="106.5" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="&gt;"/>
+                                                <connections>
+                                                    <action selector="didPushChangeTimerButton:" destination="EeJ-3y-69Z" eventType="touchUpInside" id="Xrw-6k-2da"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWg-c7-4q5">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWg-c7-4q5">
                                                 <rect key="frame" x="136.5" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="&gt;"/>
+                                                <connections>
+                                                    <action selector="didPushChangeTimerButton:" destination="EeJ-3y-69Z" eventType="touchUpInside" id="UAi-k9-wlG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -614,6 +626,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jxw-yn-z3H"/>
                     </view>
+                    <connections>
+                        <outlet property="aramTimeLB" destination="c8G-ul-cOi" id="1ta-Yt-IIo"/>
+                        <outletCollection property="buttonList" destination="gAn-In-HJf" collectionClass="NSMutableArray" id="SrL-0J-WP3"/>
+                        <outletCollection property="buttonList" destination="L0V-iu-70O" collectionClass="NSMutableArray" id="otA-3a-S1R"/>
+                        <outletCollection property="buttonList" destination="pAZ-te-RAt" collectionClass="NSMutableArray" id="6x8-ZJ-QV7"/>
+                        <outletCollection property="buttonList" destination="FWg-c7-4q5" collectionClass="NSMutableArray" id="J6f-cp-AsS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8V5-5Q-Izo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

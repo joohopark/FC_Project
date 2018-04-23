@@ -151,25 +151,6 @@ class ViewController: UIViewController {
 
 extension ViewController{
     
-//    //MARK:- 달, 연 값을 서버에 보내서 컨텐츠 뷰를 결정하는 함수로 만들고 싶었어..
-//    func sendToServerYYMMData(month: String ,year: String){
-//
-//    }
-//
-//    //
-//    func getMonthlyDiaryData(){
-//        print("=============================== [ 작성글 가저오기 ] ===============================")
-//        AuthService.init().diaryList(uid: userTmp.uid, year: Int(year)!, month: Int(month)!) { (respone) in
-//            switch respone {
-//            case .success(let value):
-//                dump(value)
-//            case .error(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
-    
-
     //MARK:- 달 년 버튼 을 초기화 ( Date를 불러와서)
     // 위의 달, 년 데이터를 통해서 값을 전달한다 -> 컨텐츠 뷰에 어느 월의 데이터를 기준으로 뿌릴것인지를 결정한다.
     func initializedListingView() {
@@ -271,7 +252,7 @@ extension ViewController: SendDataDelegate{
         case false:// year
             yearButton.titleLabel?.text = data
         }
-        
+        print("tetetetetetet==============================")
         // 버튼 텍스트가 바뀌니 여기서도sendToServerYYMMData를 불러와야됨.
     //MARK:- 날짜 변경된 부분임 -> 이부분에서 호출하면 됨
 //        sendToServerYYMMData(month: (monthButton.titleLabel?.text)!, year: (yearButton.titleLabel?.text)!)
