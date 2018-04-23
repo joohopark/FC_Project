@@ -15,6 +15,7 @@ class diaryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        self.imageView = UIImage(named: "yang.jpg")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

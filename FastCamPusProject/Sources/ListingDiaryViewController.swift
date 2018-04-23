@@ -57,6 +57,8 @@ class ListingDiaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        mytableview.backgroundView = UIImageView(image: UIImage(named: "yang.jpg"))
+        
         mytableview.register(UINib(nibName: "diaryCell", bundle: nil), forCellReuseIdentifier: "diaryCell")
         mytableview.register(UINib(nibName: "diarySectionsCell", bundle: nil), forCellReuseIdentifier: "diarySectionsCell")
         
@@ -111,6 +113,14 @@ extension ListingDiaryViewController: UITableViewDelegate, UITableViewDataSource
         return self.array[section].sectionObjects.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(70)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(100)
+    }
+    
     // 셀의 종류는 서버에서 받아올 값이 있는지 없는지를 판단해서
     // 결정해서 반환한다.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -122,7 +132,15 @@ extension ListingDiaryViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "diarySectionsCell") as! diarySections_Cell
-        cell.createdDay.text = "\(self.array[section].sectionName)"
+        guard let sectionName = self.array[section].sectionName else { return nil }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy /MM /dd .EE"
+        let dateString = dateFormatter.string(from: sectionName)
+        //        let dateFormatter = DateFormatter()
+        //        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        //        dateFormatter.locale = NSLocale(localeIdentifier: "ko_KR") as Locale?
+        cell.createdDay?.text = "\(dateString)"
         return cell
     }
     

@@ -69,7 +69,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dump(contentsView.backgroundColor)
         print("============ [ ViewController ] ============")
+//        contentsView.
+        
+        
         let user = Auth.auth().currentUser
 
         if user != nil {
@@ -139,6 +143,7 @@ class ViewController: UIViewController {
     }
     override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
+        self.navigationController?.hideNavigationBar()
         
     }
 
@@ -199,13 +204,13 @@ extension ViewController{
         print("prevIndex: \(prevIndex)")
 
         
-        let prevVC = viewControllers[prevIndex]
+        let prevVC = viewControllers[prevIndex+1]
         prevVC.willMove(toParentViewController: nil)// 뷰컨에 다른 뷰가 추가되거나 제거될때 한번 호출해줘야됨
         prevVC.view.removeFromSuperview()// 리스폰더 체인에서 제거
         prevVC.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
         
         sender.isSelected = true// 눌린애 상태 변경
-        let currentVC = viewControllers[selectedIndex]
+        let currentVC = viewControllers[selectedIndex+1]
         addChildViewController(currentVC)// 현재 화면의 VC에 해당 VC를 자식으로 추가
         currentVC.view.frame = contentsView.bounds// 자식 VC view 크기 지정
         contentsView.addSubview(currentVC.view)// 현 화면 VC의 ContentsView에 addsubView
@@ -253,7 +258,17 @@ extension ViewController: SendDataDelegate{
             yearButton.titleLabel?.text = data
         }
         print("tetetetetetet==============================")
-        // 버튼 텍스트가 바뀌니 여기서도sendToServerYYMMData를 불러와야됨.
+        
+        let commonView = viewControllers[0]
+        addChildViewController(commonView)// 현재 화면의 VC에 해당 VC를 자식으로 추가
+        commonView.view.frame = contentsView.bounds// 자식 VC view 크기 지정
+        contentsView.addSubview(commonView.view)// 현 화면 VC의 ContentsView에 addsubView
+        commonView.didMove(toParentViewController: self)//포함되는 VC가 변경되었을때 reload 해줌.
+        
+//        for btn in buttons{
+//            btn.isSelected = false
+//        }
+//        
     //MARK:- 날짜 변경된 부분임 -> 이부분에서 호출하면 됨
 //        sendToServerYYMMData(month: (monthButton.titleLabel?.text)!, year: (yearButton.titleLabel?.text)!)
     }

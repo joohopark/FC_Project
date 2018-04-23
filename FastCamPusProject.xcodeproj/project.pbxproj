@@ -18,8 +18,10 @@
 		93498602208DFB3100415878 /* diarySections Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934985FE208DFB3000415878 /* diarySections Cell.swift */; };
 		93498603208DFB3100415878 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 934985FF208DFB3000415878 /* key.png */; };
 		93498604208DFB3100415878 /* diaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93498600208DFB3000415878 /* diaryCell.swift */; };
-		93498605208DFB3100415878 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93498601208DFB3100415878 /* TableViewCell.xib */; };
-		93498607208DFB4900415878 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93498606208DFB4900415878 /* TableViewCell.swift */; };
+		93498629208E259200415878 /* yang.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93498628208E259200415878 /* yang.jpg */; };
+		9349862B208E2E9D00415878 /* UnsafeAreaChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349862A208E2E9D00415878 /* UnsafeAreaChange.swift */; };
+		9349862F208E3D5600415878 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9349862E208E3D5600415878 /* logo.png */; };
+		93498631208E3E7A00415878 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 93498630208E3E7900415878 /* settings.png */; };
 		9387B33A2088A43100009E2C /* MonthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387B3392088A43100009E2C /* MonthCell.swift */; };
 		9387B33C2088A61B00009E2C /* MonthCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387B33B2088A61B00009E2C /* MonthCollectionViewController.swift */; };
 		93A9DC79208861B000C0CE0A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9DC78208861B000C0CE0A /* NotificationCenter.framework */; };
@@ -39,8 +41,6 @@
 		9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0520844AFF0029DCB9 /* ViewController.swift */; };
 		9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0620844AFF0029DCB9 /* SettingViewController.swift */; };
 		9B609F0E20844B930029DCB9 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F0D20844B930029DCB9 /* PhotoCell.swift */; };
-		9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F1020844BB40029DCB9 /* NonPostingCell.swift */; };
-		9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B609F1120844BB50029DCB9 /* PostingCell.swift */; };
 		9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B7A19207A386100A62B87 /* AppDelegate.swift */; };
 		9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6B7A1B207A386100A62B87 /* LoginViewController.swift */; };
 		9B6B7A1F207A386100A62B87 /* Lee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B7A1D207A386100A62B87 /* Lee.storyboard */; };
@@ -91,8 +91,10 @@
 		934985FE208DFB3000415878 /* diarySections Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "diarySections Cell.swift"; sourceTree = "<group>"; };
 		934985FF208DFB3000415878 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		93498600208DFB3000415878 /* diaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diaryCell.swift; sourceTree = "<group>"; };
-		93498601208DFB3100415878 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		93498606208DFB4900415878 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		93498628208E259200415878 /* yang.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yang.jpg; sourceTree = "<group>"; };
+		9349862A208E2E9D00415878 /* UnsafeAreaChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeAreaChange.swift; sourceTree = "<group>"; };
+		9349862E208E3D5600415878 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		93498630208E3E7900415878 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		9387B3392088A43100009E2C /* MonthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCell.swift; sourceTree = "<group>"; };
 		9387B33B2088A61B00009E2C /* MonthCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewController.swift; sourceTree = "<group>"; };
 		93A9DC77208861B000C0CE0A /* TodayExtensionInFastCampusProject.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtensionInFastCampusProject.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,8 +114,6 @@
 		9B609F0520844AFF0029DCB9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9B609F0620844AFF0029DCB9 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9B609F0D20844B930029DCB9 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		9B609F1020844BB40029DCB9 /* NonPostingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonPostingCell.swift; sourceTree = "<group>"; };
-		9B609F1120844BB50029DCB9 /* PostingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostingCell.swift; sourceTree = "<group>"; };
 		9B6B7A16207A386100A62B87 /* FastCamPusProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastCamPusProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6B7A19207A386100A62B87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B6B7A1B207A386100A62B87 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +223,10 @@
 		9B091CDE207CFA4300DD93AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93498628208E259200415878 /* yang.jpg */,
+				9349862E208E3D5600415878 /* logo.png */,
+				934985FF208DFB3000415878 /* key.png */,
+				93498630208E3E7900415878 /* settings.png */,
 				9B6B7A20207A386200A62B87 /* Assets.xcassets */,
 				9B091CE5207D011E00DD93AA /* icons8-google-96.png */,
 				9BFFF79A207E72A400D463D5 /* diary.png */,
@@ -254,15 +258,10 @@
 		9B609F0F20844BA30029DCB9 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9B609F1120844BB50029DCB9 /* PostingCell.swift */,
 				934985FA208DFB1B00415878 /* diaryCell.xib */,
 				93498600208DFB3000415878 /* diaryCell.swift */,
 				934985FE208DFB3000415878 /* diarySections Cell.swift */,
-				93498606208DFB4900415878 /* TableViewCell.swift */,
-				934985FF208DFB3000415878 /* key.png */,
-				93498601208DFB3100415878 /* TableViewCell.xib */,
 				934985FB208DFB1B00415878 /* diarySectionsCell.xib */,
-				9B609F1020844BB40029DCB9 /* NonPostingCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -311,6 +310,7 @@
 				9B1939F02081008500A1A245 /* server.swift */,
 				933CAA752089144500A3D9F1 /* ServerManager.swift */,
 				9B609EFD2083C7080029DCB9 /* sss.swift */,
+				9349862A208E2E9D00415878 /* UnsafeAreaChange.swift */,
 				9B609EFF2083D35E0029DCB9 /* alart.swift */,
 				55DB33A0208D7BB900B96B97 /* DiaryData.swift */,
 			);
@@ -422,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93498631208E3E7A00415878 /* settings.png in Resources */,
 				93498603208DFB3100415878 /* key.png in Resources */,
 				9B6B7A24207A386200A62B87 /* LaunchScreen.storyboard in Resources */,
 				9B091CE6207D011E00DD93AA /* icons8-google-96.png in Resources */,
@@ -429,10 +430,11 @@
 				934985FD208DFB1B00415878 /* diarySectionsCell.xib in Resources */,
 				9BFFF799207E6CC200D463D5 /* Defaultsimage.jpeg in Resources */,
 				9B091CE2207CFEA000DD93AA /* icons8-facebook-48.png in Resources */,
+				93498629208E259200415878 /* yang.jpg in Resources */,
 				934985FC208DFB1B00415878 /* diaryCell.xib in Resources */,
 				9BFFF79B207E72A500D463D5 /* diary.png in Resources */,
-				93498605208DFB3100415878 /* TableViewCell.xib in Resources */,
 				933CAA742088E63900A3D9F1 /* MonthCellXIB.xib in Resources */,
+				9349862F208E3D5600415878 /* logo.png in Resources */,
 				9B609F0220844AE60029DCB9 /* Main.storyboard in Resources */,
 				9B6B7A21207A386200A62B87 /* Assets.xcassets in Resources */,
 				9B6B7A1F207A386100A62B87 /* Lee.storyboard in Resources */,
@@ -564,7 +566,6 @@
 				93498604208DFB3100415878 /* diaryCell.swift in Sources */,
 				9387B33A2088A43100009E2C /* MonthCell.swift in Sources */,
 				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
-				9B609F1220844BB50029DCB9 /* NonPostingCell.swift in Sources */,
 				9B609F0A20844AFF0029DCB9 /* SettingViewController.swift in Sources */,
 				93498602208DFB3100415878 /* diarySections Cell.swift in Sources */,
 				9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */,
@@ -574,14 +575,13 @@
 				9B609F0820844AFF0029DCB9 /* ListingDiaryViewController.swift in Sources */,
 				9B609F002083D35E0029DCB9 /* alart.swift in Sources */,
 				9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */,
-				9B609F1320844BB50029DCB9 /* PostingCell.swift in Sources */,
 				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
 				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				55DB33A1208D7BB900B96B97 /* DiaryData.swift in Sources */,
-				93498607208DFB4900415878 /* TableViewCell.swift in Sources */,
 				9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */,
 				9BFFF7A0207E810E00D463D5 /* NavigationBar.swift in Sources */,
 				933CAA762089144500A3D9F1 /* ServerManager.swift in Sources */,
+				9349862B208E2E9D00415878 /* UnsafeAreaChange.swift in Sources */,
 				9387B33C2088A61B00009E2C /* MonthCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,7 +631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V4LDP442XN;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,7 +652,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V4LDP442XN;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

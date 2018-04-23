@@ -11,10 +11,6 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
-
-
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
@@ -89,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+//        UIApplication.shared.statusBarView?.backgroundColor = UIColor.lightGray
         
         alert = customAlert()
         alert?.view = self.window?.rootViewController;
@@ -220,6 +216,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
+
+//MARK:- unsafeArea chacnge
+extension UIApplication{
+    
+        var statusBarView: UIView? {
+            return value(forKey: "statusBar") as? UIView
+        }
+     
 }
 
 

@@ -50,8 +50,14 @@ class NewPostViewController: UIViewController {
         data.contents = self.textView?.text
         data.image = self.dailyImageView?.image
         data.isOpenAnother = self.isOpen.isOn
+        
+        
     }
 
+    func movePostingViewController(){
+        
+        
+    }
 
     @IBAction func checkIsOpen(_ sender: UISwitch) {
         if isOpen.isOn == true {

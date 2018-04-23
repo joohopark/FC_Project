@@ -23,9 +23,6 @@ class LoginViewController: UIViewController{
     var alert: customAlert?
     
     
-
-    
-    
     @IBOutlet weak var SignInbtn: UIButton!
     @IBOutlet weak var createUserbtn: UIButton!
    
