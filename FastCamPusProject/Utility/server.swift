@@ -42,8 +42,6 @@ enum API {
 
 protocol AuthServiceType {
     func Login(uid: String,completion: @escaping (Result<String>)->())
-   
-  
     func signInAPP(email: String,password: String,imageData: Data, displayName: String, uid: String,completion: @escaping (Result<String>) -> ())
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ())
     func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ())
@@ -142,6 +140,9 @@ struct AuthService: AuthServiceType {
         }
 
     }
+    
+    
+    
     
     func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ()) {
         

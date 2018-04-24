@@ -19,6 +19,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     var lat, lon: Double!
     
     @IBOutlet weak var weatherImgView: UIImageView!
+    var userUID: String!
+    
     
     var weatherManager = WeatherManager()
     var weatherData: Weather!{
@@ -51,10 +53,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         
 
         if let userDefaults = UserDefaults(suiteName: "group.jhbob.weatherTest") {
-            print(userDefaults.string(forKey: "testkey"))
+            print(userDefaults.string(forKey: "testkey")!)
+            userUID = userDefaults.string(forKey: "testkey")!
+        }
+        AuthService.init().diaryimage(No: 1) { (result) in
+            switch result{
+            case .success(let value):
+               print(value)
+            case .error(let error):
+                print(error)
+            }
         }
         
-//        (self, selector: "dataReceived:", name: NSNotification.Name(rawValue: "SpecialKey"), object: nil)
         
     }
     

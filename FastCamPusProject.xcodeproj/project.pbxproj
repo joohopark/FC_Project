@@ -11,8 +11,8 @@
 		55DB33A1208D7BB900B96B97 /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB33A0208D7BB900B96B97 /* DiaryData.swift */; };
 		55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */; };
 		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
-		93392C51208F57880084F9D9 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93392C4F208F57870084F9D9 /* server.swift */; };
-		93392C52208F57880084F9D9 /* sss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93392C50208F57880084F9D9 /* sss.swift */; };
+		93392C55208F66770084F9D9 /* server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93392C53208F66770084F9D9 /* server.swift */; };
+		93392C56208F66770084F9D9 /* sss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93392C54208F66770084F9D9 /* sss.swift */; };
 		933CAA742088E63900A3D9F1 /* MonthCellXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */; };
 		933CAA762089144500A3D9F1 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933CAA752089144500A3D9F1 /* ServerManager.swift */; };
 		934985FC208DFB1B00415878 /* diaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FA208DFB1B00415878 /* diaryCell.xib */; };
@@ -90,8 +90,8 @@
 		55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
 		93392C4C208F38A10084F9D9 /* TodayExtensionInFastCampusProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtensionInFastCampusProject.entitlements; sourceTree = "<group>"; };
 		93392C4D208F38A70084F9D9 /* FastCamPusProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FastCamPusProject.entitlements; sourceTree = "<group>"; };
-		93392C4F208F57870084F9D9 /* server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = server.swift; path = FastCamPusProject/Utility/server.swift; sourceTree = SOURCE_ROOT; };
-		93392C50208F57880084F9D9 /* sss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = sss.swift; path = FastCamPusProject/Utility/sss.swift; sourceTree = SOURCE_ROOT; };
+		93392C53208F66770084F9D9 /* server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = server.swift; path = FastCamPusProject/Utility/server.swift; sourceTree = SOURCE_ROOT; };
+		93392C54208F66770084F9D9 /* sss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = sss.swift; path = FastCamPusProject/Utility/sss.swift; sourceTree = SOURCE_ROOT; };
 		933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthCellXIB.xib; sourceTree = "<group>"; };
 		933CAA752089144500A3D9F1 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		934985FA208DFB1B00415878 /* diaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diaryCell.xib; sourceTree = "<group>"; };
@@ -169,14 +169,6 @@
 			path = TimeHandler;
 			sourceTree = "<group>";
 		};
-		93392C4E208F4F400084F9D9 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				933E753C208E7DFF0028DE59 /* diarySectionsCell.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		93A9DC7A208861B000C0CE0A /* TodayExtensionInFastCampusProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,8 +184,8 @@
 		93A9DC882088631000C0CE0A /* WeatherManager */ = {
 			isa = PBXGroup;
 			children = (
-				93392C4F208F57870084F9D9 /* server.swift */,
-				93392C50208F57880084F9D9 /* sss.swift */,
+				93392C53208F66770084F9D9 /* server.swift */,
+				93392C54208F66770084F9D9 /* sss.swift */,
 				93A9DC892088633000C0CE0A /* WeatherManager.swift */,
 			);
 			path = WeatherManager;
@@ -305,7 +297,6 @@
 				97616A4E20AEA593231D601F /* Pods */,
 				D4EB46F33BE63D9C82048A9C /* Frameworks */,
 				9B43B2A7208F5E440030D7F5 /* Recovered References */,
-				//93392C4E208F4F400084F9D9 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -372,7 +363,6 @@
 				93A9DC74208861B000C0CE0A /* Frameworks */,
 				93A9DC75208861B000C0CE0A /* Resources */,
 				CE6200D5713E6019A8C9EEDA /* [CP] Copy Pods Resources */,
-				//1A4BE69E1E43DCCED46CF793 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -489,24 +479,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A4BE69E1E43DCCED46CF793 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		315EC562521C5892F8687B2A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -601,9 +573,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -618,9 +593,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A9DC8B2088633000C0CE0A /* WeatherManager.swift in Sources */,
-				93392C52208F57880084F9D9 /* sss.swift in Sources */,
+				93392C56208F66770084F9D9 /* sss.swift in Sources */,
 				93A9DC7C208861B000C0CE0A /* TodayViewController.swift in Sources */,
-				93392C51208F57880084F9D9 /* server.swift in Sources */,
+				93392C55208F66770084F9D9 /* server.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,7 +674,11 @@
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject.TodayExtensionInFastCampusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -717,7 +696,11 @@
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject.TodayExtensionInFastCampusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -854,7 +837,10 @@
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -875,7 +861,10 @@
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
