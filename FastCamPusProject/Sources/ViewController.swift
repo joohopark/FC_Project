@@ -75,7 +75,10 @@ class ViewController: UIViewController {
         
         let user = Auth.auth().currentUser
 
-            
+        if let userDefaults = UserDefaults(suiteName: "group.jhbob.weatherTest") {
+            userDefaults.set(user?.uid, forKey: "testkey")
+            userDefaults.synchronize()
+        }
 
     
 
@@ -220,8 +223,10 @@ extension ViewController: SendDataDelegate{
             monthButton.titleLabel?.text = data
             month = data
         case false:// year
-            yearButton.titleLabel?.text = data
+            print("dddd========, \(data)")
+            yearButton.setTitle(data, for: .normal) //= data
             year = data
+            view.setNeedsLayout()
         }
         
         
