@@ -19,6 +19,8 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var isOpen: UISwitch!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet weak var textViewBottomHeight: NSLayoutConstraint!
+    
     
     var hasImage: Bool = false
     var diaryItem: diaryItem!
@@ -41,11 +43,17 @@ class NewPostViewController: UIViewController {
         
         dailyImageView?.isUserInteractionEnabled = true
         tapGesture.delegate = self
+        
+        textView.font = UIFont(name: "SavoyeLetPlain", size: 25)
+        
+        scrollView.isScrollEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         makeKeyboardToolBar()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
     }
     
     /// saveDiary
@@ -100,7 +108,7 @@ extension NewPostViewController {
                                              target: self,
                                              action: #selector(selectImageSource(_:)))
         
-        toolBar.setItems([timeStampLabel, flexibleSpace, addImageButton, flexibleSpace, doneButton], animated: false)      // tool Bar에 BarButtonItems 설정
+        toolBar.setItems([timeStampLabel, flexibleSpace, addImageButton, flexibleSpace, doneButton], animated: false)   // tool Bar에 BarButtonItems 설정
         textView.inputAccessoryView = toolBar // Text View의 inputAccessoryView에 toolBar 설정.
     }
     
@@ -120,6 +128,18 @@ extension NewPostViewController {
     @objc private func addCurrentTimeLabel() {
         let timeText: String = getCurrentTime()
         textView.text.append(timeText)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                textViewBottomHeight.constant = keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        textViewBottomHeight.constant = 0.0
     }
 }
 
@@ -204,6 +224,7 @@ extension NewPostViewController: UIGestureRecognizerDelegate {
     // 전체화면으로 확대된 사진에서 원래 화면으로 복귀하는 메서드
     @objc func dismissFullScreenImage(_ sender: UIGestureRecognizer) {
         sender.view?.removeFromSuperview()
+        UIApplication.shared.statusBarView?.isHidden = false
     }
 
     // 이미지를 지우는 메서드
