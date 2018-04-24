@@ -19,7 +19,7 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var isOpen: UISwitch!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
-    
+    var Service:AuthService = AuthService()
     var hasImage: Bool = false
     var diaryItem: diaryItem!
     var isModifyMode: Bool = false
@@ -128,9 +128,27 @@ extension NewPostViewController {
     @objc private func doneButtonTuched(_ sender: Any) {
         view.endEditing(true)
         saveDiary(())
+        
+        let authority = isOpen.isOn ? "1":"2"
+        let Contents = textView.text!
+//        let imageData: Data = (UIImagePNGRepresentation(((self.dailyImageView?.image))!) ?? nil)!
+        var imageData: Data?
+//        if let Data: Data = UIImagePNGRepresentation((self.dailyImageView?.image)!) {
+//            imageData = Data
+//        }
+        
         if isModifyMode == true {
+            //수정
+          
+            Service.diaryModify(No: String(diaryItem.No) , uid: Usertoken!, authority: authority, Contents: Contents, image: imageData!) { (result) in
+                print(result)
+            }
             self.view.removeFromSuperview()// 리스폰더 체인에서 제거
             self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
+        }else{
+            Service.diaryCreate(uid: Usertoken!, authority: authority, Contents: Contents, image: imageData!) { (result) in
+                print(result)
+            }
         }
     }
     

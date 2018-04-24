@@ -36,19 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
 //        AuthCredential
         
-        
-        AuthService.init().AuthCredentialLogin(token: credential) { (restul,user) in
-            switch restul {
-            case .success(let value):
-                print(value)
-            case .error(let error):
-                print(error)
-            case .loginerror(let loginError):
-                self.alert?.show(erorr: error!)
-                print(loginError.localizedDescription)
-            }
-        }
-        
     }
     
 
