@@ -91,6 +91,8 @@ extension ListingDiaryViewController: UITableViewDelegate, UITableViewDataSource
         let modiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewPostViewController") as! NewPostViewController
         modiVC.diaryItem = array[indexPath.section].sectionObjects[indexPath.row]
         modiVC.isModifyMode = true
+        
+        print("수정 되는 뷰 호출 ================================================")
 //        self.present(modiVC, animated: true, completion: nil)
         addChildViewController(modiVC)// 현재 화면의 VC에 해당 VC를 자식으로 추가
         modiVC.view.frame = self.view.bounds// 자식 VC view 크기 지정

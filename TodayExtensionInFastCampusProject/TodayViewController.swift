@@ -101,6 +101,8 @@ extension TodayViewController{
             case .error(let error):
                 print(error.localizedDescription)
                 //                print(error)
+            case .loginerror(_):
+                print("===========================뭔가 잘못 되었어..")
             }
         })
     }
