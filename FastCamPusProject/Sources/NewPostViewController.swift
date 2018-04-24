@@ -18,6 +18,7 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var dailyImageView: UIImageView?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var isOpen: UISwitch!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     var hasImage: Bool = false
     var diaryItem: diaryItem!
@@ -30,8 +31,6 @@ class NewPostViewController: UIViewController {
        
         if let post = diaryItem{
             textView.text = post.Contents
-            
-            
         }
         
         // 현재 날짜 표시
@@ -39,6 +38,9 @@ class NewPostViewController: UIViewController {
         //dateLabel.font = UIFont.fontNames(forFamilyName: "BiauKai")
         dateLabel.font = UIFont(name: "Papyrus", size: 22)
         dateLabel.textAlignment = .center
+        
+        dailyImageView?.isUserInteractionEnabled = true
+        tapGesture.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,12 +58,9 @@ class NewPostViewController: UIViewController {
         data.contents = self.textView?.text
         data.image = self.dailyImageView?.image
         data.isOpenAnother = self.isOpen.isOn
-        
-
     }
-
-
-
+    
+    //
     @IBAction func checkIsOpen(_ sender: UISwitch) {
         if isOpen.isOn == true {
             isOpen.isOn = true
@@ -126,23 +125,16 @@ extension NewPostViewController {
 
 // MARK: - ImagePicker
 extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    /// 이미지 추가 버튼
-    @objc func addImage(_ sender: Any) {
-        // Image PIcker Instance 생성
-        let picker = UIImagePickerController()
-        // Image Picker 화면에 표시
-        picker.delegate = self
-        picker.allowsEditing = true
-        self.present(picker, animated: false)
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         //let cropRect = info[UIImagePickerControllerCropRect]!.CGRectValue
         dailyImageView?.image = pickedImage!
+        dailyImageView?.contentMode = .scaleAspectFill
+        dailyImageView?.layer.masksToBounds = true
         hasImage = true
-        heightConstraint.constant = hasImage ? 115 : 0
+        self.heightConstraint.constant = self.hasImage ? 115 : 0
         picker.dismiss(animated: false)
     }
     
@@ -155,32 +147,77 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
     
     @objc func selectImageSource(_ sender: Any) {
-        let alert = UIAlertController(title: nil,
-                                      message: "사진을 가져올 곳을 선택해 주세요.",
-                                      preferredStyle: .actionSheet)
-        // 카메라
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alert.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
-                self.imgPicker(.camera)
-            }))
-        }
-        // 저장된 앨범
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            alert.addAction(UIAlertAction(title: "저장된 앨범", style: .default, handler: { (_) in
-                self.imgPicker(.savedPhotosAlbum)
-            }))
-        }
-        // Photo Library
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            alert.addAction(UIAlertAction(title: "포토 라이브러리", style: .default, handler: { (_) in
-                self.imgPicker(.photoLibrary)
-            }))
-        }
-        // Cancel Button
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         
-        // ActionSheet 창 실행
-        self.present(alert, animated: true, completion: nil)
+        if hasImage == false {
+            
+            let alert = UIAlertController(title: nil,
+                                          message: "사진을 가져올 곳을 선택해 주세요.",
+                                          preferredStyle: .actionSheet)
+            // 카메라
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                alert.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
+                    self.imgPicker(.camera)
+                }))
+            }
+            // 저장된 앨범
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+                alert.addAction(UIAlertAction(title: "저장된 앨범", style: .default, handler: { (_) in
+                    self.imgPicker(.savedPhotosAlbum)
+                }))
+            }
+            // Photo Library
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                alert.addAction(UIAlertAction(title: "포토 라이브러리", style: .default, handler: { (_) in
+                    self.imgPicker(.photoLibrary)
+                }))
+            }
+            // Cancel Button
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+            
+            // ActionSheet 창 실행
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            deleteImageView()
+        }
     }
     
+}
+
+// MARK: - Gesture Method
+extension NewPostViewController: UIGestureRecognizerDelegate {
+    // 이미지를 Tap하면 전체화면으로 사진이 변경되는 메서드
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        // print("tapped")
+        let fullImageView = UIImageView()
+        fullImageView.frame = CGRect(x: 0, y: 0 - UIApplication.shared.statusBarFrame.height, width: self.view.frame.size.width, height: UIScreen.main.bounds.height )
+        UIApplication.shared.statusBarView?.isHidden = true
+        fullImageView.image = dailyImageView?.image
+        fullImageView.contentMode = .scaleAspectFill
+        fullImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullScreenImage(_:)))
+        fullImageView.addGestureRecognizer(tap)
+        self.view.addSubview(fullImageView)
+        return true
+    }
+    
+    // 전체화면으로 확대된 사진에서 원래 화면으로 복귀하는 메서드
+    @objc func dismissFullScreenImage(_ sender: UIGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+
+    // 이미지를 지우는 메서드
+    func deleteImageView() {
+        let alert = UIAlertController(title: nil, message: "사진을 지우시겠습니까?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "지움", style: .default) { (_) in
+            self.hasImage = false
+            self.dailyImageView?.image = nil
+            self.heightConstraint.constant = self.hasImage ? 115 : 10
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancel)
+        self.present(alert, animated: false, completion: nil)
+    }
 }

@@ -232,6 +232,10 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UCt-8U-k98">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="hFh-4B-hlZ" appends="YES" id="jJa-Ij-zOv"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.8938760161" green="0.8825717568" blue="0.86666423079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -280,10 +284,16 @@
                         <outlet property="heightConstraint" destination="lvb-tw-nB1" id="LZA-mI-z79"/>
                         <outlet property="isOpen" destination="Sp3-GA-Wa1" id="bjo-QN-Rrd"/>
                         <outlet property="scrollView" destination="nzC-BU-rfX" id="EVK-M7-ifN"/>
+                        <outlet property="tapGesture" destination="hFh-4B-hlZ" id="ned-SO-DKS"/>
                         <outlet property="textView" destination="iDE-Qn-p7d" id="SrS-gp-1GC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKu-EW-28v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hFh-4B-hlZ">
+                    <connections>
+                        <outlet property="delegate" destination="wtA-of-psa" id="Bf1-H0-hWn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1216.8" y="-212.74362818590706"/>
         </scene>

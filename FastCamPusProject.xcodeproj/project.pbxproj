@@ -15,7 +15,7 @@
 		933CAA762089144500A3D9F1 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933CAA752089144500A3D9F1 /* ServerManager.swift */; };
 		934985FC208DFB1B00415878 /* diaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FA208DFB1B00415878 /* diaryCell.xib */; };
 		934985FD208DFB1B00415878 /* diarySectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FB208DFB1B00415878 /* diarySectionsCell.xib */; };
-		93498602208DFB3100415878 /* diarySections Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934985FE208DFB3000415878 /* diarySections Cell.swift */; };
+		93498602208DFB3100415878 /* diarySectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934985FE208DFB3000415878 /* diarySectionsCell.swift */; };
 		93498603208DFB3100415878 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 934985FF208DFB3000415878 /* key.png */; };
 		93498604208DFB3100415878 /* diaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93498600208DFB3000415878 /* diaryCell.swift */; };
 		93498629208E259200415878 /* yang.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93498628208E259200415878 /* yang.jpg */; };
@@ -90,7 +90,7 @@
 		933CAA752089144500A3D9F1 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		934985FA208DFB1B00415878 /* diaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diaryCell.xib; sourceTree = "<group>"; };
 		934985FB208DFB1B00415878 /* diarySectionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diarySectionsCell.xib; sourceTree = "<group>"; };
-		934985FE208DFB3000415878 /* diarySections Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "diarySections Cell.swift"; sourceTree = "<group>"; };
+		934985FE208DFB3000415878 /* diarySectionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diarySectionsCell.swift; sourceTree = "<group>"; };
 		934985FF208DFB3000415878 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		93498600208DFB3000415878 /* diaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diaryCell.swift; sourceTree = "<group>"; };
 		93498628208E259200415878 /* yang.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yang.jpg; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			children = (
 				934985FA208DFB1B00415878 /* diaryCell.xib */,
 				93498600208DFB3000415878 /* diaryCell.swift */,
-				934985FE208DFB3000415878 /* diarySections Cell.swift */,
+				934985FE208DFB3000415878 /* diarySectionsCell.swift */,
 				934985FB208DFB1B00415878 /* diarySectionsCell.xib */,
 			);
 			path = TableViewCell;
@@ -558,7 +558,7 @@
 				9B49DC21208E33A1009F0675 /* SettingViewController.swift in Sources */,
 				9387B33A2088A43100009E2C /* MonthCell.swift in Sources */,
 				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
-				93498602208DFB3100415878 /* diarySections Cell.swift in Sources */,
+				93498602208DFB3100415878 /* diarySectionsCell.swift in Sources */,
 				9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */,
 				9B609EFE2083C7080029DCB9 /* sss.swift in Sources */,
 				9B609F0E20844B930029DCB9 /* PhotoCell.swift in Sources */,
@@ -621,7 +621,7 @@
 			baseConfigurationReference = F617BE2AF384E8E71ED8534A /* Pods-TodayExtensionInFastCampusProject.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -629,7 +629,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject.TodayExtensionInFastCampusProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject.TodayExtensionInFastCampusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -642,7 +642,7 @@
 			baseConfigurationReference = 05D005D868FA62E501C8EF5C /* Pods-TodayExtensionInFastCampusProject.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -650,7 +650,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject.TodayExtensionInFastCampusProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject.TodayExtensionInFastCampusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -715,6 +715,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -768,6 +769,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -787,7 +789,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -810,7 +812,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jhbob.FastCamPusProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.team6.FastCamPusProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
