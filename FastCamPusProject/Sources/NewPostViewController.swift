@@ -41,8 +41,6 @@ class NewPostViewController: UIViewController {
             AuthService.init().diaryimage(No: post.No) { (result) in
                 switch result{
                 case .success(let value):
-//                    UIImageView().image = value
-                    
                     self.hasImage = (value != nil) ? true : false
                     print("start ======================================\(post.No)", self.hasImage)
                     if self.hasImage {
