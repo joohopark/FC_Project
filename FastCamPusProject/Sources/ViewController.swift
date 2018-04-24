@@ -75,6 +75,7 @@ class ViewController: UIViewController {
         
         let user = Auth.auth().currentUser
 
+        // 투데이 익스텐션에 넣을거 유저 디폴트
         if let userDefaults = UserDefaults(suiteName: "group.jhbob.weatherTest") {
             userDefaults.set(user?.uid, forKey: "testkey")
             userDefaults.synchronize()
@@ -224,9 +225,10 @@ extension ViewController: SendDataDelegate{
             month = data
         case false:// year
             print("dddd========, \(data)")
-            yearButton.setTitle(data, for: .normal) //= data
+//            yearButton.setTitle(data, for: .normal) //= data
+            yearButton.titleLabel?.text = data
             year = data
-            view.setNeedsLayout()
+//            view.setNeedsLayout()
         }
         
         

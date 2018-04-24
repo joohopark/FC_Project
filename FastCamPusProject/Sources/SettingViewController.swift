@@ -14,11 +14,13 @@ class SettingViewController: UIViewController {
     var Alert:customAlert?
     var TempEditField: UITextField?
     @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var uidLB: UILabel!
     //IBOutlet hook up
     // aram buttons
     @IBOutlet var buttonList: [UIButton]!
     @IBOutlet weak var firendEditUid: UITextField!
     @IBOutlet weak var aramTimeLB: UILabel!
+    @IBOutlet weak var myProfileImageView: UIImageView!
     
     var firendEditString: String?
     
@@ -38,8 +40,40 @@ class SettingViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        guard let uid = Usertoken else { return }
+        AuthService.init().getUserProfileInfo(uid: uid) { (result) in
+            switch result{
+            case .success(let value):
+                do {
+                    AuthService.init().userProfileimage(userindex: value.Userindex) { (result) in
+                        switch result{
+                        case .success(let value):
+                              print("err =================[userProfileimage]============")
+                            self.myProfileImageView.image = value
+//                            self.myProfileImageView.layer.cornerRadius = self.myProfileImageView.frame.height / 2
+                        case .error(let error):
+                            print(error)
+                        }
+                    }
+                } catch {
+                    print("err =============================")
+                }
+                
+                
+            case .error(let error):
+                print(error)
+            case .loginerror(_):
+                print("LoginErr==================================SettingViewController ViewDidLoad")
+            }
+        }
+        
+        
+     
+        
         Alert = customAlert()
         Alert?.view = self
         firendEditUid.delegate = self
@@ -51,7 +85,7 @@ class SettingViewController: UIViewController {
     
     override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
-        
+        myProfileImageView.layer.cornerRadius = myProfileImageView.frame.height / 2
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -119,12 +153,14 @@ class SettingViewController: UIViewController {
     
     
     @IBAction func firendAddActiom(_ sender: UIButton) {
-     
-        if(firendEditString == nil || firendEditString == ""){
+        
+        if(firendEditString == nil || firendEditString == ""){//firendEditString 입력된 친구 UID
             print("데이터를 입력해주세요")
         }else{
             var massage = ""
-            AuthService.init().friendAdd(myuid: "e2Fbl6GkxwPFPtUaPEYcVna9jJF3", fruenduid: "1KOoPqW6MzgdXXYspb2a4vD6uo13") { (result) in
+            guard let uid = Usertoken, let fuid = firendEditString else { return }
+            AuthService.init().friendAdd(myuid: uid,
+                                         fruenduid: fuid) { (result) in
                 switch result {
                 case .success(let value):
                     print(value)
@@ -132,10 +168,15 @@ class SettingViewController: UIViewController {
                 case .error(let error):
                     print(error)
                 }
-                self.Alert?.show("친구 추가", message: massage)
+                self.Alert?.show("친구 추가가 완료되었습니다. 이제 교환일기를 시작하세요~", message: massage)
                 
             }
         }
+    }
+    
+    @IBAction func setGeneratedKeyButton(_ sender: UIButton){
+        guard let uid = Usertoken else { return }
+        uidLB?.text = uid
     }
 }
     

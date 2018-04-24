@@ -282,6 +282,28 @@ struct AuthService: AuthServiceType {
         }
         
     }
+    func getUserProfileInfo(uid: String, completion: @escaping (Result<Userinfo>) -> ()) {
+        let parameters = [
+            "uid":uid
+        ]
+        Alamofire.request(API.Post.start, method: .post, parameters: parameters, encoding: URLEncoding.httpBody)
+            .responseData { (response) in
+                switch response.result {
+                case .success(let value) :
+                    print("===================== [ get Profile success ] =====================")
+                    do{
+                        let user = try JSONDecoder().decode(Userinfo.self, from: value)
+                        completion(.success(user))
+                    }catch{
+                        completion(.error(error))
+                    }
+                case .failure(let erorr) :
+                    print("===================== [ get Profile failure ] =====================")
+                    print(erorr.localizedDescription)
+                }
+        }
+    }
+    
     
     func signInAPP(email: String,password: String,imageData: Data, displayName: String, uid: String,completion: @escaping (Result<String>) -> () ) {
         

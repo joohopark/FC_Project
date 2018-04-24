@@ -19,8 +19,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     var lat, lon: Double!
     
     @IBOutlet weak var weatherImgView: UIImageView!
-    var userUID: String!
+    @IBOutlet weak var friendImgView: UIImageView!
+    @IBOutlet weak var dDayLB: UILabel!
     
+    
+    var userUID: String!
+    var friendList: [Userinfo] = []
     
     var weatherManager = WeatherManager()
     var weatherData: Weather!{
@@ -56,10 +60,38 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
             print(userDefaults.string(forKey: "testkey")!)
             userUID = userDefaults.string(forKey: "testkey")!
         }
+        
+        guard let uid = userUID else { return }
+        AuthService.init().AuthFriendList(uid: uid) { (result) in
+            switch result{
+            case .success(let value):
+                self.friendList = value
+                print("friendList : \(value)")
+                AuthService.init().userProfileimage(userindex: self.friendList[0].Userindex) { (result) in
+                    switch result{
+                    case .success(let value):
+                        self.friendImgView.image = value
+                    case .error(let error):
+                        print(error)
+                    }
+                }
+
+            case .error(let error):
+                print(error)
+            }
+        }
+        
+        print(userUID, friendList)
+        dump(friendList)
+        
+        
+        
+        
+        
         AuthService.init().diaryimage(No: 1) { (result) in
             switch result{
             case .success(let value):
-               print(value)
+                print(value)
             case .error(let error):
                 print(error)
             }
