@@ -60,13 +60,53 @@ protocol AuthServiceType {
     func friendAdd(myuid:String, fruenduid:String, completion: @escaping (ResultDdata<String>) -> ())
     
 //    uid authority Contents image = Data
-    func diaryCreate(uid:String, authority:String, Contents:String, image:Data, completion: @escaping (ResultDdata<String>) -> ())
+    func diaryCreate(uid:String, authority:String, Contents:String, image:Data?, completion: @escaping (ResultDdata<String>) -> ())
     
-    func diaryModify(No:String, uid:String, authority:String, Contents:String, image:Data, completion: @escaping (ResultDdata<String>) -> ())
+    func diaryModify(No:Int, uid:String, authority:String, Contents:String, image:Data?, completion: @escaping (ResultDdata<String>) -> ())
 }
 
 
 struct AuthService: AuthServiceType {
+    func diaryModify(No: Int, uid: String, authority: String, Contents: String, image: Data?, completion: @escaping (ResultDdata<String>) -> ()) {
+        let parameters: Parameters = [
+            "No":No,
+            "uid":uid,
+            "authority":authority,
+            "Contents": Contents
+        ]
+        
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+            }
+            
+            if let data:Data = image {
+                multipartFormData.append(data, withName: "image", fileName: "image", mimeType: "image/png")
+            }
+        }, to: API.Post.diaryModify) { (encodingResult) in
+            switch encodingResult {
+            case .success(request: let upload, _, _):
+                upload.responseString { (response) in
+                    switch response.result {
+                    case .success(let value):
+                        print(value)
+                        completion(.success(value))
+                        
+                    case .failure(let error):
+                        print(error)
+                        completion(.error(error))
+                    }
+                }
+            case .failure(let error):
+                completion(.error(error))
+            }
+        }
+    }
+    
+   
+    
+    
     func userProfileimage(userindex: Int, completion: @escaping (ResultDdata<UIImage?>) -> ()) {
         Alamofire.request(API.Auth.profileimage+"\(userindex).png").responseData { (response) in
             switch response.result {
@@ -83,45 +123,11 @@ struct AuthService: AuthServiceType {
     }
     
     
-    func diaryModify(No: String, uid: String, authority: String, Contents: String, image: Data, completion: @escaping (ResultDdata<String>) -> ()) {
-        let parameters = [
-            "No":No,
-            "uid":uid,
-            "authority":authority,
-            "Contents": Contents
-        ]
-        
-        print(API.Post.signInAPP)
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
-            for (key, value) in parameters {
-                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
-            }
-            
-            if let data:Data = image {
-                multipartFormData.append(data, withName: "image", fileName: "image", mimeType: "image/png")
-            }
-        }, to: API.Post.diaryModify) { (encodingResult) in
-            switch encodingResult {
-            case .success(request: let upload, _, _):
-                upload.responseString { (response) in
-                    switch response.result {
-                    case .success(let value):
-                        completion(.success(value))
-                        
-                    case .failure(let error):
-                        print(error)
-                        completion(.error(error))
-                    }
-                }
-            case .failure(let error):
-                completion(.error(error))
-            }
-        }
-    }
+ 
     
 
     
-    func diaryCreate(uid: String, authority: String, Contents: String, image: Data, completion: @escaping (ResultDdata<String>) -> ()) {
+    func diaryCreate(uid: String, authority: String, Contents: String, image: Data?, completion: @escaping (ResultDdata<String>) -> ()) {
         
         
         let parameters = [
