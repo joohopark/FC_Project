@@ -13,9 +13,9 @@
 		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
 		933CAA742088E63900A3D9F1 /* MonthCellXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */; };
 		933CAA762089144500A3D9F1 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933CAA752089144500A3D9F1 /* ServerManager.swift */; };
+		933E753D208E7DFF0028DE59 /* diarySectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E753C208E7DFF0028DE59 /* diarySectionsCell.swift */; };
 		934985FC208DFB1B00415878 /* diaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FA208DFB1B00415878 /* diaryCell.xib */; };
 		934985FD208DFB1B00415878 /* diarySectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FB208DFB1B00415878 /* diarySectionsCell.xib */; };
-		93498602208DFB3100415878 /* diarySectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934985FE208DFB3000415878 /* diarySectionsCell.swift */; };
 		93498603208DFB3100415878 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 934985FF208DFB3000415878 /* key.png */; };
 		93498604208DFB3100415878 /* diaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93498600208DFB3000415878 /* diaryCell.swift */; };
 		93498629208E259200415878 /* yang.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93498628208E259200415878 /* yang.jpg */; };
@@ -86,8 +86,11 @@
 		4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastCamPusProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55DB33A0208D7BB900B96B97 /* DiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryData.swift; sourceTree = "<group>"; };
 		55FB5B6D20849BA1000C02A6 /* TimeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
+		93392C4C208F38A10084F9D9 /* TodayExtensionInFastCampusProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtensionInFastCampusProject.entitlements; sourceTree = "<group>"; };
+		93392C4D208F38A70084F9D9 /* FastCamPusProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FastCamPusProject.entitlements; sourceTree = "<group>"; };
 		933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthCellXIB.xib; sourceTree = "<group>"; };
 		933CAA752089144500A3D9F1 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		933E753C208E7DFF0028DE59 /* diarySectionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diarySectionsCell.swift; sourceTree = "<group>"; };
 		934985FA208DFB1B00415878 /* diaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diaryCell.xib; sourceTree = "<group>"; };
 		934985FB208DFB1B00415878 /* diarySectionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diarySectionsCell.xib; sourceTree = "<group>"; };
 		934985FE208DFB3000415878 /* diarySectionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diarySectionsCell.swift; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		93A9DC7A208861B000C0CE0A /* TodayExtensionInFastCampusProject */ = {
 			isa = PBXGroup;
 			children = (
+				93392C4C208F38A10084F9D9 /* TodayExtensionInFastCampusProject.entitlements */,
 				93A9DC882088631000C0CE0A /* WeatherManager */,
 				93A9DC7B208861B000C0CE0A /* TodayViewController.swift */,
 				93A9DC7D208861B000C0CE0A /* MainInterface.storyboard */,
@@ -295,6 +299,7 @@
 		9B6B7A18207A386100A62B87 /* FastCamPusProject */ = {
 			isa = PBXGroup;
 			children = (
+				93392C4D208F38A70084F9D9 /* FastCamPusProject.entitlements */,
 				55FB5B6C20849B8D000C02A6 /* TimeHandler */,
 				9BB8CA06207A4C05001283E7 /* GoogleService-Info.plist */,
 				9B6B7A25207A386200A62B87 /* Info.plist */,
@@ -388,9 +393,19 @@
 				TargetAttributes = {
 					93A9DC76208861B000C0CE0A = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					9B6B7A15207A386100A62B87 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -568,6 +583,7 @@
 				9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */,
 				9B49DC25208E3AF3009F0675 /* LoadingViewController.swift in Sources */,
 				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
+				933E753D208E7DFF0028DE59 /* diarySectionsCell.swift in Sources */,
 				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				55DB33A1208D7BB900B96B97 /* DiaryData.swift in Sources */,
 				9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */,
@@ -620,6 +636,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F617BE2AF384E8E71ED8534A /* Pods-TodayExtensionInFastCampusProject.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtensionInFastCampusProject/TodayExtensionInFastCampusProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
@@ -641,6 +658,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05D005D868FA62E501C8EF5C /* Pods-TodayExtensionInFastCampusProject.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TodayExtensionInFastCampusProject/TodayExtensionInFastCampusProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
@@ -780,6 +798,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FastCamPusProject/FastCamPusProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
@@ -803,6 +822,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FastCamPusProject/FastCamPusProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Z6U9FKXA9;

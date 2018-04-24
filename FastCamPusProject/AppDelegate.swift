@@ -11,10 +11,6 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
-
-
-
-
 var Usertoken:String?
 
 @UIApplicationMain

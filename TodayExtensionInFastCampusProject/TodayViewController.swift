@@ -33,7 +33,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
             default:
                 print(WrongWeatherInfo.invalidWeather)
             }
-            dump(weatherData)
+//            dump(weatherData)
                 print("weather Infomation Loading End==========")
         }
     }
@@ -50,6 +50,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         //        downloadWeatherData()
         
 
+        if let userDefaults = UserDefaults(suiteName: "group.jhbob.weatherTest") {
+            print(userDefaults.string(forKey: "testkey"))
+        }
         
 //        (self, selector: "dataReceived:", name: NSNotification.Name(rawValue: "SpecialKey"), object: nil)
         
@@ -93,7 +96,7 @@ extension TodayViewController{
             // switch 를 통해 원하는 UI에 값을 넣어 줄수 있습니다.
             switch result{
             case .success(let value):
-                print(value)
+//                print(value)
                 self.weatherData = value
             case .error(let error):
                 print(error.localizedDescription)

@@ -31,7 +31,7 @@
                                                         <fragment content="Month">
                                                             <attributes>
                                                                 <font key="NSFont" size="12" name=".SFNSText"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -47,7 +47,7 @@
                                                         <fragment content="Year">
                                                             <attributes>
                                                                 <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -120,22 +120,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="429.60000000000002" y="-19.340329835082461"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Ycd-vl-Cg6">
-            <objects>
-                <viewController id="sho-iA-wZG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RfG-1z-Ty9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Fqy-BU-58Z"/>
-                    </view>
-                    <size key="freeformSize" width="375" height="80"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P78-Rz-Wkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-214" y="245"/>
         </scene>
         <!--Month Collection View Controller-->
         <scene sceneID="dRd-dP-dce">
