@@ -124,7 +124,8 @@ extension ListingDiaryViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "diarySectionsCell") as! diarySections_Cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "diarySectionsCell") as! diarySectionsCell
+        
         guard let sectionName = self.array[section].sectionName else { return nil }
         
         let dateFormatter = DateFormatter()

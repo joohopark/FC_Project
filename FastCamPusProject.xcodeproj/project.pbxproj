@@ -13,7 +13,6 @@
 		91F4166D58C18C25A49D0AF1 /* Pods_FastCamPusProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE10E67A6AD83B0AC84CFBB /* Pods_FastCamPusProject.framework */; };
 		933CAA742088E63900A3D9F1 /* MonthCellXIB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */; };
 		933CAA762089144500A3D9F1 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933CAA752089144500A3D9F1 /* ServerManager.swift */; };
-		933E753D208E7DFF0028DE59 /* diarySectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E753C208E7DFF0028DE59 /* diarySectionsCell.swift */; };
 		934985FC208DFB1B00415878 /* diaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FA208DFB1B00415878 /* diaryCell.xib */; };
 		934985FD208DFB1B00415878 /* diarySectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934985FB208DFB1B00415878 /* diarySectionsCell.xib */; };
 		93498603208DFB3100415878 /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 934985FF208DFB3000415878 /* key.png */; };
@@ -49,6 +48,7 @@
 		9B6B7A21207A386200A62B87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B7A20207A386200A62B87 /* Assets.xcassets */; };
 		9B6B7A24207A386200A62B87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6B7A22207A386200A62B87 /* LaunchScreen.storyboard */; };
 		9BB8CA07207A4C05001283E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BB8CA06207A4C05001283E7 /* GoogleService-Info.plist */; };
+		9BF37468208F606900C16330 /* diarySectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF37467208F606900C16330 /* diarySectionsCell.swift */; };
 		9BFFF799207E6CC200D463D5 /* Defaultsimage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9BFFF798207E6CC100D463D5 /* Defaultsimage.jpeg */; };
 		9BFFF79B207E72A500D463D5 /* diary.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFFF79A207E72A400D463D5 /* diary.png */; };
 		9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFFF79C207E7C3500D463D5 /* createUserViewController.swift */; };
@@ -90,10 +90,8 @@
 		93392C4D208F38A70084F9D9 /* FastCamPusProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FastCamPusProject.entitlements; sourceTree = "<group>"; };
 		933CAA732088E63900A3D9F1 /* MonthCellXIB.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthCellXIB.xib; sourceTree = "<group>"; };
 		933CAA752089144500A3D9F1 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
-		933E753C208E7DFF0028DE59 /* diarySectionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diarySectionsCell.swift; sourceTree = "<group>"; };
 		934985FA208DFB1B00415878 /* diaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diaryCell.xib; sourceTree = "<group>"; };
 		934985FB208DFB1B00415878 /* diarySectionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diarySectionsCell.xib; sourceTree = "<group>"; };
-		934985FE208DFB3000415878 /* diarySectionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diarySectionsCell.swift; sourceTree = "<group>"; };
 		934985FF208DFB3000415878 /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		93498600208DFB3000415878 /* diaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = diaryCell.swift; sourceTree = "<group>"; };
 		93498628208E259200415878 /* yang.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yang.jpg; sourceTree = "<group>"; };
@@ -129,6 +127,7 @@
 		9B6B7A23207A386200A62B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B6B7A25207A386200A62B87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB8CA06207A4C05001283E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "FastCamPusProject/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9BF37467208F606900C16330 /* diarySectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diarySectionsCell.swift; sourceTree = "<group>"; };
 		9BFFF798207E6CC100D463D5 /* Defaultsimage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Defaultsimage.jpeg; sourceTree = "<group>"; };
 		9BFFF79A207E72A400D463D5 /* diary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diary.png; sourceTree = "<group>"; };
 		9BFFF79C207E7C3500D463D5 /* createUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createUserViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +245,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		9B43B2A7208F5E440030D7F5 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		9B609F0B20844B530029DCB9 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,7 +276,7 @@
 			children = (
 				934985FA208DFB1B00415878 /* diaryCell.xib */,
 				93498600208DFB3000415878 /* diaryCell.swift */,
-				934985FE208DFB3000415878 /* diarySectionsCell.swift */,
+				9BF37467208F606900C16330 /* diarySectionsCell.swift */,
 				934985FB208DFB1B00415878 /* diarySectionsCell.xib */,
 			);
 			path = TableViewCell;
@@ -284,6 +290,7 @@
 				9B6B7A17207A386100A62B87 /* Products */,
 				97616A4E20AEA593231D601F /* Pods */,
 				D4EB46F33BE63D9C82048A9C /* Frameworks */,
+				9B43B2A7208F5E440030D7F5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -349,6 +356,7 @@
 				93A9DC73208861B000C0CE0A /* Sources */,
 				93A9DC74208861B000C0CE0A /* Frameworks */,
 				93A9DC75208861B000C0CE0A /* Resources */,
+				CE6200D5713E6019A8C9EEDA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -553,6 +561,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CE6200D5713E6019A8C9EEDA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayExtensionInFastCampusProject/Pods-TodayExtensionInFastCampusProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -573,7 +596,6 @@
 				9B49DC21208E33A1009F0675 /* SettingViewController.swift in Sources */,
 				9387B33A2088A43100009E2C /* MonthCell.swift in Sources */,
 				9B609F0920844AFF0029DCB9 /* ViewController.swift in Sources */,
-				93498602208DFB3100415878 /* diarySectionsCell.swift in Sources */,
 				9B6B7A1C207A386100A62B87 /* LoginViewController.swift in Sources */,
 				9B609EFE2083C7080029DCB9 /* sss.swift in Sources */,
 				9B609F0E20844B930029DCB9 /* PhotoCell.swift in Sources */,
@@ -583,7 +605,7 @@
 				9BFFF79D207E7C3500D463D5 /* createUserViewController.swift in Sources */,
 				9B49DC25208E3AF3009F0675 /* LoadingViewController.swift in Sources */,
 				9B609F0720844AFF0029DCB9 /* NewPostViewController.swift in Sources */,
-				933E753D208E7DFF0028DE59 /* diarySectionsCell.swift in Sources */,
+				9BF37468208F606900C16330 /* diarySectionsCell.swift in Sources */,
 				55FB5B6E20849BA1000C02A6 /* TimeHandler.swift in Sources */,
 				55DB33A1208D7BB900B96B97 /* DiaryData.swift in Sources */,
 				9B6B7A1A207A386100A62B87 /* AppDelegate.swift in Sources */,

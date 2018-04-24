@@ -35,15 +35,16 @@ enum API {
         //친구 추가
         static let friendAdd = API.baseURL + "friendAdd"
         //작성글에 이미지 들고 오고
-        
-        
+        static let diaryCreate = API.baseURL + "friendAdd"
+        // 글자성하기
     }
 }
 
 protocol AuthServiceType {
     func Login(uid: String,completion: @escaping (Result<String>)->())
-    func signInAPI(email: String, photoURL: String, displayName: String, uid: String, completion: @escaping (Result<String>) -> ())
-//    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ())
+   
+  
+    func signInAPP(email: String,password: String,imageData: Data, displayName: String, uid: String,completion: @escaping (Result<String>) -> ())
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ())
     func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ())
     //uid month year
@@ -52,10 +53,25 @@ protocol AuthServiceType {
     func diaryimage(No:Int, completion:@escaping (ResultDdata<UIImage?>) -> ())
     
     func friendAdd(myuid:String, fruenduid:String, completion: @escaping (ResultDdata<String>) -> ())
+    
+//    uid authority Contents image = Data
+    func diaryCreate(uid:String, authority:String, Contents:String, image:Data, completion: @escaping (ResultDdata<String>) -> ())
 }
 
 
 struct AuthService: AuthServiceType {
+
+    
+    func diaryCreate(uid: String, authority: String, Contents: String, image: Data, completion: @escaping (ResultDdata<String>) -> ()) {
+        print("")
+    }
+    
+
+   
+    
+    
+    
+    
     func diaryimage(No: Int, completion: @escaping (ResultDdata<UIImage?>) -> ()) {
         Alamofire.request(API.Auth.diaryimage+"\(No).png").responseData { (response) in
             switch response.result {
@@ -97,9 +113,6 @@ struct AuthService: AuthServiceType {
         
     }
     
-    
-   
-    
     func diaryList(uid: String, year: String, month: String, completion: @escaping (ResultDdata<[Objects]>) -> ()) {
         let parameters: Parameters = [
             "uid": uid,
@@ -130,8 +143,6 @@ struct AuthService: AuthServiceType {
 
     }
     
-  
-    
     func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ()) {
         
         let parameters = [
@@ -155,12 +166,6 @@ struct AuthService: AuthServiceType {
         }
     }
     
-   
-    
-//    func signInAPP(email: String, imageData: Data, displayName: String, uid: String, completion: @escaping (Result<String>) -> ()) {
-//        <#code#>
-//    }
-    
     func Login(uid: String, completion: @escaping (Result<String>) -> ()) {
         print("===================== [ Login ] =====================")
         print(uid)
@@ -179,10 +184,6 @@ struct AuthService: AuthServiceType {
         }
         
     }
-    
-
-    
-  
     
     func signInAPP(email: String,password: String,imageData: Data, displayName: String, uid: String,completion: @escaping (Result<String>) -> () ) {
         
@@ -227,7 +228,6 @@ struct AuthService: AuthServiceType {
 
     }
     
-    
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ()){
         
         Auth.auth().signIn(with: token) { (user, error) in
@@ -253,9 +253,6 @@ struct AuthService: AuthServiceType {
             })
         }
     }
-    
-    
-    
     
 
     func signInAPI(email: String, photoURL: String, displayName: String, uid: String, completion: @escaping (Result<String>) -> ()) {
