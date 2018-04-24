@@ -9,9 +9,17 @@
 import UIKit
 
 class ListingDiaryViewController: UIViewController {
-    var array: [Objects] = []
+   
     
-
+     var refreshControl = UIRefreshControl()
+    
+    
+    var array: [Objects] = [] {
+        didSet{
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
     var date:(String,String) = ("",""){
         didSet{
             self.dataloading(year: self.date.0, month: monthConverting(pibot: self.date.1))
@@ -60,6 +68,16 @@ class ListingDiaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if #available(iOS 10.0, *) {
+            mytableview.refreshControl = refreshControl
+        } else {
+            mytableview.addSubview(refreshControl)
+        }
+        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing")
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
 //        mytableview.backgroundView = UIImageView(image: UIImage(named: "yang.jpg"))
         
         mytableview.register(UINib(nibName: "diaryCell", bundle: nil), forCellReuseIdentifier: "diaryCell")
@@ -69,6 +87,10 @@ class ListingDiaryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @objc func refresh(){
+        self.dataloading(year: self.date.0, month: monthConverting(pibot: self.date.1))
+    }
+    
     func dataloading(year:String, month:String){
         AuthService.init().diaryList(uid: Usertoken!, year: year, month: month) { (result) in
             switch result {
@@ -76,9 +98,11 @@ class ListingDiaryViewController: UIViewController {
             case .success(let value):
                 self.array = value
                 self.mytableview.reloadData()
+                
             case .error(let error):
                 print(error.localizedDescription)
             }
+            
         }
     }
 }

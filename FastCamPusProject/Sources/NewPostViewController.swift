@@ -143,25 +143,44 @@ extension NewPostViewController {
         
         let authority = isOpen.isOn ? "1":"2"
         let Contents = textView.text!
-//        let imageData: Data = (UIImagePNGRepresentation(((self.dailyImageView?.image))!) ?? nil)!
-        var imageData: Data?
-//        if let Data: Data = UIImagePNGRepresentation((self.dailyImageView?.image)!) {
-//            imageData = Data
-//        }
+
+        
+        let image :Data? = (self.dailyImageView?.image != nil) ? UIImagePNGRepresentation((self.dailyImageView?.image)!) : nil
+        
+        
         
         if isModifyMode == true {
             //수정
-          
-            Service.diaryModify(No: String(diaryItem.No) , uid: Usertoken!, authority: authority, Contents: Contents, image: imageData!) { (result) in
-                print(result)
+            print("""
+            \(authority)
+            \(Contents)
+            
+            """)
+            AuthService.init().diaryModify(No: diaryItem.No , uid: diaryItem.Login_uid, authority: authority, Contents: Contents, image: image) { (result) in
+                switch result {
+                    
+                case .success(let value):
+                    print(value)
+                case .error(_):
+                    print("오류")
+                }
             }
-            self.view.removeFromSuperview()// 리스폰더 체인에서 제거
-            self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
         }else{
-            Service.diaryCreate(uid: Usertoken!, authority: authority, Contents: Contents, image: imageData!) { (result) in
-                print(result)
+            Service.diaryCreate(uid: Usertoken!, authority: authority, Contents: Contents, image: image!) { (result) in
+                switch result {
+                case .success(let value):
+                    print(value)
+                case .error(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+        
+        self.view.removeFromSuperview()// 리스폰더 체인에서 제거
+        self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
+        let prevVC = viewControllers.count
+        print(prevVC)
+        
     }
     
     ///  현재 시간을 TextView에 첨부시키는 Method

@@ -9,6 +9,9 @@ import Firebase
 import UIKit
 import Alamofire
 
+
+    var viewControllers: [UIViewController] = []
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var contentsView: UIView!
@@ -107,6 +110,15 @@ class ViewController: UIViewController {
         
         
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("씨발 제발11")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        print("씨발 제발")
     }
     override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
@@ -233,6 +245,7 @@ extension ViewController: SendDataDelegate{
          let prevVC = viewControllers[0] as! ListingDiaryViewController
         
         prevVC.date = (year,month)
+        
         print("tetetetetetet==============================")
         
         let commonView = viewControllers[0]
