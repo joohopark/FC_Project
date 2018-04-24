@@ -204,15 +204,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzC-BU-rfX">
                                 <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-5Q-Pkf">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-5Q-Pkf">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="569"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iDE-Qn-p7d">
-                                                <rect key="frame" x="15" y="-0.5" width="345" height="567"/>
-                                                <color key="backgroundColor" red="0.8938760161" green="0.8825717568" blue="0.86666423079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UCt-8U-k98">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -221,11 +215,17 @@
                                                     <outletCollection property="gestureRecognizers" destination="hFh-4B-hlZ" appends="YES" id="jJa-Ij-zOv"/>
                                                 </connections>
                                             </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iDE-Qn-p7d">
+                                                <rect key="frame" x="15" y="-0.5" width="345" height="667.5"/>
+                                                <color key="backgroundColor" red="0.8938760161" green="0.8825717568" blue="0.86666423079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.8938760161" green="0.8825717568" blue="0.86666423079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="iDE-Qn-p7d" secondAttribute="trailing" constant="15" id="Xlh-OW-Eug"/>
-                                            <constraint firstAttribute="bottom" secondItem="iDE-Qn-p7d" secondAttribute="bottom" constant="100.5" id="fz1-8Y-ihg"/>
+                                            <constraint firstAttribute="bottom" secondItem="iDE-Qn-p7d" secondAttribute="bottom" id="fz1-8Y-ihg"/>
                                             <constraint firstItem="iDE-Qn-p7d" firstAttribute="leading" secondItem="eYU-5Q-Pkf" secondAttribute="leading" constant="15" id="gMh-Gc-FGD"/>
                                         </constraints>
                                     </view>
@@ -270,6 +270,7 @@
                         <outlet property="scrollView" destination="nzC-BU-rfX" id="EVK-M7-ifN"/>
                         <outlet property="tapGesture" destination="hFh-4B-hlZ" id="ned-SO-DKS"/>
                         <outlet property="textView" destination="iDE-Qn-p7d" id="SrS-gp-1GC"/>
+                        <outlet property="textViewBottomHeight" destination="fz1-8Y-ihg" id="tFx-WG-22q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKu-EW-28v" userLabel="First Responder" sceneMemberID="firstResponder"/>

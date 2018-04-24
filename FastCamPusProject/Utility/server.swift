@@ -16,10 +16,11 @@ import Firebase
 
 enum API {
 
-    static let baseURL = "http://192.168.0.10:3000/"
+    static let baseURL = "http://192.168.0.21:3000/"
 
     enum Auth {
         static let diaryimage = API.baseURL + "diaryimage/"
+        static let profileimage = API.baseURL + "profileImage/"
     }
     enum Post {
         //API로 회원가입
@@ -35,15 +36,18 @@ enum API {
         //친구 추가
         static let friendAdd = API.baseURL + "friendAdd"
         //작성글에 이미지 들고 오고
-        static let diaryCreate = API.baseURL + "friendAdd"
+        static let diaryCreate = API.baseURL + "diaryCreate"
         // 글자성하기
+        static let diaryModify = API.baseURL + "diaryModify"
+        //글수정
+        
+        
     }
 }
 
 protocol AuthServiceType {
     func Login(uid: String,completion: @escaping (Result<String>)->())
    
-  
     func signInAPP(email: String,password: String,imageData: Data, displayName: String, uid: String,completion: @escaping (Result<String>) -> ())
     func AuthCredentialLogin(token: AuthCredential, completion: @escaping (Result<String>, User?) -> ())
     func AuthFriendList(uid: String, completion: @escaping (ResultDdata<[Userinfo]>) -> ())
@@ -52,18 +56,110 @@ protocol AuthServiceType {
     
     func diaryimage(No:Int, completion:@escaping (ResultDdata<UIImage?>) -> ())
     
+    func userProfileimage(userindex:Int, completion:@escaping (ResultDdata<UIImage?>) -> ())
+    
     func friendAdd(myuid:String, fruenduid:String, completion: @escaping (ResultDdata<String>) -> ())
     
 //    uid authority Contents image = Data
     func diaryCreate(uid:String, authority:String, Contents:String, image:Data, completion: @escaping (ResultDdata<String>) -> ())
+    
+    func diaryModify(No:String, uid:String, authority:String, Contents:String, image:Data, completion: @escaping (ResultDdata<String>) -> ())
 }
 
 
 struct AuthService: AuthServiceType {
+    func userProfileimage(userindex: Int, completion: @escaping (ResultDdata<UIImage?>) -> ()) {
+        Alamofire.request(API.Auth.profileimage+"\(userindex).png").responseData { (response) in
+            switch response.result {
+                
+            case .success(let value):
+                if let data = response.data {
+                    let image = UIImage(data: data)
+                    completion(.success(image))
+                }
+            case .failure(let error):
+                completion(.error(error))
+            }
+        }
+    }
+    
+    
+    func diaryModify(No: String, uid: String, authority: String, Contents: String, image: Data, completion: @escaping (ResultDdata<String>) -> ()) {
+        let parameters = [
+            "No":No,
+            "uid":uid,
+            "authority":authority,
+            "Contents": Contents
+        ]
+        
+        print(API.Post.signInAPP)
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+            }
+            
+            if let data:Data = image {
+                multipartFormData.append(data, withName: "image", fileName: "image", mimeType: "image/png")
+            }
+        }, to: API.Post.diaryModify) { (encodingResult) in
+            switch encodingResult {
+            case .success(request: let upload, _, _):
+                upload.responseString { (response) in
+                    switch response.result {
+                    case .success(let value):
+                        completion(.success(value))
+                        
+                    case .failure(let error):
+                        print(error)
+                        completion(.error(error))
+                    }
+                }
+            case .failure(let error):
+                completion(.error(error))
+            }
+        }
+    }
+    
 
     
     func diaryCreate(uid: String, authority: String, Contents: String, image: Data, completion: @escaping (ResultDdata<String>) -> ()) {
-        print("")
+        
+        
+        let parameters = [
+            "uid":uid,
+            "authority":authority,
+            "Contents": Contents
+        ]
+        
+        print(API.Post.signInAPP)
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in parameters {
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key as String)
+            }
+            
+            if let data:Data = image {
+                multipartFormData.append(data, withName: "image", fileName: "image", mimeType: "image/png")
+            }
+        }, to: API.Post.diaryCreate) { (encodingResult) in
+            switch encodingResult {
+            case .success(request: let upload, _, _):
+                upload.responseString { (response) in
+                    switch response.result {
+                    case .success(let value):
+                        completion(.success(value))
+                        
+                    case .failure(let error):
+                        print(error)
+                        completion(.error(error))
+                    }
+                }
+            case .failure(let error):
+                completion(.error(error))
+            }
+        }
+        
+        
+
     }
     
 
@@ -195,7 +291,7 @@ struct AuthService: AuthServiceType {
             "UserPwd": password,
             "Login_uid": uid
         ]
-    
+        
         print(API.Post.signInAPP)
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in parameters {
@@ -208,22 +304,22 @@ struct AuthService: AuthServiceType {
             
         }, to: API.Post.signInAPP) { (encodingResult) in
             switch encodingResult {
-                case .success(request: let upload, _, _):
-                    upload.responseString { (response) in
-                        switch response.result {
-                        case .success(let value):
-                            completion(.success(value))
-
-                        case .failure(let error):
-                             print(error)
-                            completion(.error(error))
-                        }
+            case .success(request: let upload, _, _):
+                upload.responseString { (response) in
+                    switch response.result {
+                    case .success(let value):
+                        completion(.success(value))
+                        
+                    case .failure(let error):
+                        print(error)
+                        completion(.error(error))
                     }
-                case .failure(let error):
-                    completion(.error(error))
                 }
+            case .failure(let error):
+                completion(.error(error))
+            }
         }
-
+        
         
 
     }
