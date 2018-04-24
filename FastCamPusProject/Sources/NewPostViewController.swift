@@ -129,9 +129,11 @@ extension NewPostViewController {
         view.endEditing(true)
         saveDiary(())
         if isModifyMode == true {
+            print("수정시에는 여기를 탑니다 =========================")
             self.view.removeFromSuperview()// 리스폰더 체인에서 제거
             self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
         }
+        
     }
     
     ///  현재 시간을 TextView에 첨부시키는 Method

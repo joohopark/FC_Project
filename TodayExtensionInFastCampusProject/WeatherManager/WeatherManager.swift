@@ -115,36 +115,36 @@ extension Weather{
 
 
 
-enum Result<T> {
-    case success(T)
-    case error(Error)
- 
-}
+//enum Result<T> {
+//    case success(T)
+//    case error(Error)
+//
+//}
 
-
-//토큰, URL , 파싱 관련한 에러가 발생했을때
-// 응답을 받을때 발생할수있는 놈들
-enum ServiceError: Error {
-    case invalidToken
-    case invalidURL
-    case parsingError
-}
+//
+////토큰, URL , 파싱 관련한 에러가 발생했을때
+//// 응답을 받을때 발생할수있는 놈들
+//enum ServiceError: Error {
+//    case invalidToken
+//    case invalidURL
+//    case parsingError
+//}
 
 enum WrongWeatherInfo: Error{
     case invalidWeather
 }
 
-// 포스팅 시도했을때 발생 가능 한 에러 정의
-enum PostError: Error {
-    case missingParameter(param: String)
-    case encodingError
-}
-
-// 요청할때 인증 시도 시 발생 가능한 에러 정의
-enum AuthError: Error {
-    case invalidUsername
-    case invalidPassword
-}
+//// 포스팅 시도했을때 발생 가능 한 에러 정의
+//enum PostError: Error {
+//    case missingParameter(param: String)
+//    case encodingError
+//}
+//
+//// 요청할때 인증 시도 시 발생 가능한 에러 정의
+//enum AuthError: Error {
+//    case invalidUsername
+//    case invalidPassword
+//}
 
 protocol GetWeatherData {
     // 날씨 정보 가져오기

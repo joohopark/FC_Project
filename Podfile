@@ -17,4 +17,7 @@ target 'FastCamPusProject' do
 end
 target 'TodayExtensionInFastCampusProject' do
     pod 'Alamofire', '~> 4.7.2'
+    pod 'GoogleSignIn'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Core'
 end
