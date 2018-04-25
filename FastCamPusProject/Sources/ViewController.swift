@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         let user = Auth.auth().currentUser
 
         // 투데이 익스텐션에 넣을거 유저 디폴트
-        if let userDefaults = UserDefaults(suiteName: "group.jhbob.weatherTest") {
+        if let userDefaults = UserDefaults(suiteName: "group.team6.weatherTest") {
             userDefaults.set(user?.uid, forKey: "testkey")
             userDefaults.synchronize()
         }

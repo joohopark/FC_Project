@@ -679,7 +679,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtensionInFastCampusProject/TodayExtensionInFastCampusProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -701,7 +701,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TodayExtensionInFastCampusProject/TodayExtensionInFastCampusProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = TodayExtensionInFastCampusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -844,7 +844,7 @@
 				CODE_SIGN_ENTITLEMENTS = FastCamPusProject/FastCamPusProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -868,7 +868,7 @@
 				CODE_SIGN_ENTITLEMENTS = FastCamPusProject/FastCamPusProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V4LDP442XN;
+				DEVELOPMENT_TEAM = 4Z6U9FKXA9;
 				INFOPLIST_FILE = FastCamPusProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (

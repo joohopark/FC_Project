@@ -161,8 +161,8 @@ extension NewPostViewController {
                 }
             }
         }
-//        self.view.removeFromSuperview()// 리스폰더 체인에서 제거
-//        self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
+        self.view.removeFromSuperview()// 리스폰더 체인에서 제거
+        self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
 //        let prevVC = viewControllers.count
 //        print(prevVC)
     }
@@ -220,11 +220,11 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         if hasImage == false {
             
             let alert = UIAlertController(title: nil,
-                                          message: "사진을 가져올 곳을 선택해 주세요.",
+                                          message: "Choose Photo Image Source",
                                           preferredStyle: .actionSheet)
             // 카메라
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                alert.addAction(UIAlertAction(title: "카메라",
+                alert.addAction(UIAlertAction(title: "Take Photo",
                                               style: .default,
                                               handler: { (_) in
                     self.imgPicker(.camera)
@@ -232,7 +232,7 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
             }
             // 저장된 앨범
             if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-                alert.addAction(UIAlertAction(title: "저장된 앨범",
+                alert.addAction(UIAlertAction(title: "Saved Album",
                                               style: .default,
                                               handler: { (_) in
                     self.imgPicker(.savedPhotosAlbum)
@@ -240,14 +240,14 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
             }
             // Photo Library
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                alert.addAction(UIAlertAction(title: "포토 라이브러리",
+                alert.addAction(UIAlertAction(title: "Photo Library",
                                               style: .default,
                                               handler: { (_) in
                     self.imgPicker(.photoLibrary)
                 }))
             }
             // Cancel Button
-            alert.addAction(UIAlertAction(title: "취소",
+            alert.addAction(UIAlertAction(title: "Cancel",
                                           style: .cancel,
                                           handler: nil))
             
@@ -289,9 +289,9 @@ extension NewPostViewController: UIGestureRecognizerDelegate {
     // 이미지를 지우는 메서드
     func deleteImageView() {
         let alert = UIAlertController(title: nil,
-                                      message: "사진을 지우시겠습니까?",
+                                      message: "Do you want to delete photo?",
                                       preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: "지움", style: .default) { (_) in
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (_) in
             self.hasImage = false
             self.dailyImageView?.image = nil
             self.heightConstraint.constant = self.hasImage ? 115 : 10
@@ -299,7 +299,7 @@ extension NewPostViewController: UIGestureRecognizerDelegate {
             data.image = nil
         }
         
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(deleteAction)
         alert.addAction(cancel)
         self.present(alert, animated: false, completion: nil)

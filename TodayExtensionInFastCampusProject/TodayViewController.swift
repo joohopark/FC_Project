@@ -71,8 +71,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         //        downloadWeatherData()
         
 
-        if let userDefaults = UserDefaults(suiteName: "group.jhbob.weatherTest") {
-            print(userDefaults.string(forKey: "testkey")!)
+        if let userDefaults = UserDefaults(suiteName: "group.team6.weatherTest") {
+//            print(userDefaults.string(forKey: "testkey")!)
+            print("========================\(userDefaults)=====")
+            dump(userDefaults)
             userUID = userDefaults.string(forKey: "testkey")!
         }
         
