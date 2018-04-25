@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class NewPostViewController: UIViewController {
-
+    // MARK:- Properties
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentsView: UIView!
@@ -19,19 +19,17 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var isOpen: UISwitch!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
-
     @IBOutlet weak var textViewBottomHeight: NSLayoutConstraint!
     
-    
-
     var Service:AuthService = AuthService()
-
     var hasImage: Bool = false
     var diaryItem: diaryItem!
     var isModifyMode: Bool = false
 
 //    var isPhotoListEmpty: Bool = false
     
+    // MARK:- Method
+    //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -51,27 +49,22 @@ class NewPostViewController: UIViewController {
                     print(error)
                 }
             }
-
-            
         }
         
         // 현재 날짜 표시
         dateLabel.text = getCurrentDate()
-        //dateLabel.font = UIFont.fontNames(forFamilyName: "BiauKai")
         dateLabel.font = UIFont(name: "Papyrus", size: 22)
         dateLabel.textAlignment = .center
         
         dailyImageView?.isUserInteractionEnabled = true
         tapGesture.delegate = self
-        
         textView.font = UIFont(name: "SavoyeLetPlain", size: 25)
-        
         scrollView.isScrollEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         makeKeyboardToolBar()
-        
+        // Keyboard Observer
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -88,7 +81,7 @@ class NewPostViewController: UIViewController {
         data.isOpenAnother = self.isOpen.isOn
     }
     
-    //
+    // CheckIn Method
     @IBAction func checkIsOpen(_ sender: UISwitch) {
         if isOpen.isOn == true {
             isOpen.isOn = true
@@ -98,7 +91,6 @@ class NewPostViewController: UIViewController {
     }
 
 }
-
 
 // MARK: - Keyboard ToolBar Method
 extension NewPostViewController {
@@ -136,16 +128,12 @@ extension NewPostViewController {
     /// Done 버튼 누르면 자동으로 값을 diary 인스턴스에 저장한다.
     /// - Parameter sender: Done buttyon touch
     @objc private func doneButtonTuched(_ sender: Any) {
-        view.endEditing(true)
+        self.view.endEditing(true)
         saveDiary(())
         
         let authority = isOpen.isOn ? "1":"2"
         let Contents = textView.text!
-
-        
         let image :Data? = (self.dailyImageView?.image != nil) ? UIImagePNGRepresentation((self.dailyImageView?.image)!) : nil
-        
-        
         
         if isModifyMode == true {
             //수정
@@ -163,7 +151,7 @@ extension NewPostViewController {
                     print("오류")
                 }
             }
-        }else{
+        } else {
             Service.diaryCreate(uid: Usertoken!, authority: authority, Contents: Contents, image: image!) { (result) in
                 switch result {
                 case .success(let value):
@@ -173,38 +161,41 @@ extension NewPostViewController {
                 }
             }
         }
-        
 //        self.view.removeFromSuperview()// 리스폰더 체인에서 제거
 //        self.removeFromParentViewController()//부모로부터 해당 뷰컨을 제거
 //        let prevVC = viewControllers.count
 //        print(prevVC)
-        
     }
     
     ///  현재 시간을 TextView에 첨부시키는 Method
     @objc private func addCurrentTimeLabel() {
         let timeText: String = getCurrentTime()
-        textView.text.append(timeText)
+        textView.insertText(timeText)
     }
     
+    // Keyboard Show Method
     @objc func keyboardWillShow(notification: Notification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                textViewBottomHeight.constant = keyboardSize.height
+                if hasImage == false {
+                    textViewBottomHeight.constant = keyboardSize.height
+                } else {
+                    textViewBottomHeight.constant = keyboardSize.height + 100
+                }
             }
         }
     }
     
+    // Keyboard hide Method
     @objc func keyboardWillHide(notification: Notification) {
         textViewBottomHeight.constant = 0.0
     }
 }
 
-// MARK: - ImagePicker
+// MARK:- ImagePicker Method
 extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+    // Image Picking
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
         let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         //let cropRect = info[UIImagePickerControllerCropRect]!.CGRectValue
         dailyImageView?.image = pickedImage!
@@ -215,6 +206,7 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.dismiss(animated: false)
     }
     
+    // Image Source Type Select Method
     func imgPicker(_ source: UIImagePickerControllerSourceType) {
         let picker = UIImagePickerController()
         picker.sourceType = source
@@ -222,9 +214,9 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.allowsEditing = true
         self.present(picker, animated: true, completion: nil)
     }
-    
+    // Image Source Types Explain Method
     @objc func selectImageSource(_ sender: Any) {
-        
+        self.view.endEditing(true)
         if hasImage == false {
             
             let alert = UIAlertController(title: nil,
@@ -232,28 +224,35 @@ extension NewPostViewController: UIImagePickerControllerDelegate, UINavigationCo
                                           preferredStyle: .actionSheet)
             // 카메라
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                alert.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
+                alert.addAction(UIAlertAction(title: "카메라",
+                                              style: .default,
+                                              handler: { (_) in
                     self.imgPicker(.camera)
                 }))
             }
             // 저장된 앨범
             if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-                alert.addAction(UIAlertAction(title: "저장된 앨범", style: .default, handler: { (_) in
+                alert.addAction(UIAlertAction(title: "저장된 앨범",
+                                              style: .default,
+                                              handler: { (_) in
                     self.imgPicker(.savedPhotosAlbum)
                 }))
             }
             // Photo Library
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                alert.addAction(UIAlertAction(title: "포토 라이브러리", style: .default, handler: { (_) in
+                alert.addAction(UIAlertAction(title: "포토 라이브러리",
+                                              style: .default,
+                                              handler: { (_) in
                     self.imgPicker(.photoLibrary)
                 }))
             }
             // Cancel Button
-            alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "취소",
+                                          style: .cancel,
+                                          handler: nil))
             
             // ActionSheet 창 실행
             self.present(alert, animated: true, completion: nil)
-            
         } else {
             deleteImageView()
         }
@@ -267,7 +266,10 @@ extension NewPostViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         // print("tapped")
         let fullImageView = UIImageView()
-        fullImageView.frame = CGRect(x: 0, y: 0 - UIApplication.shared.statusBarFrame.height, width: self.view.frame.size.width, height: UIScreen.main.bounds.height )
+        fullImageView.frame = CGRect(x: 0,
+                                     y: 0 - UIApplication.shared.statusBarFrame.height,
+                                     width: self.view.frame.size.width,
+                                     height: UIScreen.main.bounds.height )
         UIApplication.shared.statusBarView?.isHidden = true
         fullImageView.image = dailyImageView?.image
         fullImageView.contentMode = .scaleAspectFill
@@ -286,11 +288,15 @@ extension NewPostViewController: UIGestureRecognizerDelegate {
 
     // 이미지를 지우는 메서드
     func deleteImageView() {
-        let alert = UIAlertController(title: nil, message: "사진을 지우시겠습니까?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil,
+                                      message: "사진을 지우시겠습니까?",
+                                      preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "지움", style: .default) { (_) in
             self.hasImage = false
             self.dailyImageView?.image = nil
             self.heightConstraint.constant = self.hasImage ? 115 : 10
+            let data = DiaryData()
+            data.image = nil
         }
         
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)

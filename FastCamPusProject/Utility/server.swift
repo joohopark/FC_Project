@@ -16,7 +16,8 @@ import Firebase
 
 enum API {
 
-    static let baseURL = "http://192.168.0.21:3000/"
+    //static let baseURL = "http://192.168.0.21:3000/"
+    static let baseURL = "http://1.233.60.23:3000/"
 
     enum Auth {
         static let diaryimage = API.baseURL + "diaryimage/"
