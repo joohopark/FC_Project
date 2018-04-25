@@ -20,7 +20,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     
     @IBOutlet weak var weatherImgView: UIImageView!
     @IBOutlet weak var friendImgView: UIImageView!
-    @IBOutlet weak var dDayLB: UILabel!
+//    @IBOutlet weak var dDayLB: UILabel!
+    @IBOutlet weak var cityLB: UILabel!
+    @IBOutlet weak var tempLB: UILabel!
+    @IBOutlet weak var todayMentLB: UILabel!
     
     
     var userUID: String!
@@ -32,14 +35,26 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
             switch weatherData.weather[0].main {
             case "Clear":
                 weatherImgView.image = UIImage(named: "clear")
-            case "Clouds", "Mist":
+                todayMentLB.text = "햇빛이 쨍쨍~"
+            case "Clouds":
                 weatherImgView.image = UIImage(named: "clouds")
+                todayMentLB.text = "구름이 심란해요~"
             case "Rain":
                 weatherImgView.image = UIImage(named: "rain")
+                todayMentLB.text = "우산 꼭 챙기세요~"
+            case "Mist":
+                weatherImgView.image = UIImage(named: "mist")
+                todayMentLB.text = "운전 조심하세요~"
+            case "Haze":
+                weatherImgView.image = UIImage(named: "haze")
+                todayMentLB.text = "바람이 많이 불어요~"
             default:
                 print(WrongWeatherInfo.invalidWeather)
             }
-//            dump(weatherData)
+            cityLB.text = weatherData.sys.country
+            tempLB.text = String(weatherData.main.temp)
+            
+            dump(weatherData)
                 print("weather Infomation Loading End==========")
         }
     }
