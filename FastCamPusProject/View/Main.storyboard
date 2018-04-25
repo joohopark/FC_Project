@@ -21,11 +21,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fk4-eF-uTX">
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zug-Dn-NVj">
+                                    <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zug-Dn-NVj">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-CH-vw1">
-                                                <rect key="frame" x="0.0" y="27" width="94" height="26"/>
+                                                <rect key="frame" x="0.0" y="27" width="83.5" height="26"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Month">
@@ -41,7 +41,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mfC-Ys-uu2">
-                                                <rect key="frame" x="94" y="27" width="93.5" height="26.5"/>
+                                                <rect key="frame" x="97.5" y="27" width="83" height="26.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Year">
@@ -56,17 +56,19 @@
                                                     <action selector="didPushYYMMButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r0x-8l-eXM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQc-ZI-Ak9">
-                                                <rect key="frame" x="187.5" y="25" width="94" height="30"/>
-                                                <state key="normal" title="+"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQc-ZI-Ak9">
+                                                <rect key="frame" x="194.5" y="0.0" width="83.5" height="80"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                                <state key="normal" image="pen.png"/>
                                                 <connections>
                                                     <action selector="didPushTabButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eXJ-Ej-aSJ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jn7-iB-IGN">
-                                                <rect key="frame" x="281.5" y="0.0" width="93.5" height="80"/>
-                                                <inset key="imageEdgeInsets" minX="25" minY="30" maxX="25" maxY="15"/>
-                                                <state key="normal" image="settings.png">
+                                                <rect key="frame" x="292" y="0.0" width="83" height="80"/>
+                                                <inset key="imageEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                                <state key="normal" image="setting.png">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Setting">
                                                             <attributes>
@@ -542,6 +544,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="settings.png" width="700" height="700"/>
+        <image name="pen.png" width="700" height="700"/>
+        <image name="setting.png" width="700" height="700"/>
     </resources>
 </document>
